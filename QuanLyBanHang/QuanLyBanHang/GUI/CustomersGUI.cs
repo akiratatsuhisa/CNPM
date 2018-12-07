@@ -44,8 +44,8 @@ namespace QuanLyBanHang.GUI
             btnCancel.Enabled = value;
             btnExit.Enabled = !value;
             // Mở khóa nhập liệu
-            txtCustomerName.ReadOnly = !value;
-            txtPhone.ReadOnly = !value;
+            txtName.ReadOnly = !value;
+            txtPhoneNumber.ReadOnly = !value;
             txtAddress.ReadOnly = !value;
             txtEmail.ReadOnly = !value;
             rdbFemale.Enabled = value;
@@ -57,25 +57,28 @@ namespace QuanLyBanHang.GUI
             SetOkButtonEnable(true);
             //Xóa sạch textBox để nhập
             txtCustomerID.Text = "";
-            txtCustomerName.Text = "";
-            txtPhone.Text = "";
+            txtName.Text = "";
+            txtPhoneNumber.Text = "";
             rdbMale.Checked = true;
             txtAddress.Text = "";
             txtEmail.Text = "";
             _isAddButtonClicked = true;
+            grbButton.Text = "Chức Năng - Thêm";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetOkButtonEnable(true);
             _isAddButtonClicked = false;
+            grbButton.Text = "Chức Năng - Sửa";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            grbButton.Text = "Chức Năng - Xóa";
             if (!string.IsNullOrWhiteSpace(txtCustomerID.Text))
             {
-                string message = "Bạn có thực sự muốn xóa khách hàng tên: " + txtCustomerName.Text + ", ID: " + txtCustomerID.Text + " không?";
+                string message = "Bạn có thực sự muốn xóa khách hàng tên: " + txtName.Text + ", ID: " + txtCustomerID.Text + " không?";
                 if (MessageBox.Show(message, "Xóa khách hàng.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string serverMessage;
@@ -96,17 +99,18 @@ namespace QuanLyBanHang.GUI
             {
                 MessageBox.Show("Chọn khách hàng cần xóa");
             }
+            grbButton.Text = "Chức Năng";
         }
         private bool Check(out string message)
         {
             message = "";
-            if (string.IsNullOrWhiteSpace(txtCustomerName.Text))
+            if (string.IsNullOrWhiteSpace(txtName.Text))
                 message += "Nhập tên khách hàng.\n";
-            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
                 message += "Nhập số điện thoại.\n";
-            else if(!Regex.IsMatch(txtPhone.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
+            else if(!Regex.IsMatch(txtPhoneNumber.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
             {
-                message += "Số điện thoại: " + txtPhone.Text + " không hợp lệ.\n";
+                message += "Số điện thoại: " + txtPhoneNumber.Text + " không hợp lệ.\n";
             }
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
                 message += "Nhập địa chỉ.\n";
@@ -123,9 +127,9 @@ namespace QuanLyBanHang.GUI
             }
             CustomerDTO customerFormat = new CustomerDTO
             {
-                Name = string.IsNullOrWhiteSpace(txtCustomerName.Text) ? null : txtCustomerName.Text.Trim(),
+                Name = string.IsNullOrWhiteSpace(txtName.Text) ? null : txtName.Text.Trim(),
                 Gender = rdbMale.Checked ? "Nam" : "Nữ",
-                PhoneNumber = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text,
+                PhoneNumber = string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ? null : txtPhoneNumber.Text,
                 Address = string.IsNullOrWhiteSpace(txtAddress.Text) ? null : txtAddress.Text.Trim(),
                 Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text.Trim()
             };
@@ -133,7 +137,7 @@ namespace QuanLyBanHang.GUI
             {
                 if (_customersContext.AddCustomer(customerFormat, out serverMessage))
                 {
-                    MessageBox.Show("Thêm thành công khách hàng tên: " + txtCustomerName.Text + ", ID: " + txtCustomerID.Text + ".");
+                    MessageBox.Show("Thêm thành công khách hàng tên: " + txtName.Text + ", ID: " + txtCustomerID.Text + ".");
                     SetOkButtonEnable(false);
                     dgvCustomers.DataSource = _customersContext.GetList();
 
@@ -150,7 +154,7 @@ namespace QuanLyBanHang.GUI
                 customerFormat.CustomerID = int.Parse(txtCustomerID.Text);
                 if (_customersContext.EditCustomer(customerFormat, out serverMessage))
                 {
-                    MessageBox.Show("Sửa thành công khách hàng tên: " + txtCustomerName.Text + ", ID: " + txtCustomerID.Text + ".");
+                    MessageBox.Show("Sửa thành công khách hàng tên: " + txtName.Text + ", ID: " + txtCustomerID.Text + ".");
                     SetOkButtonEnable(false);
                     dgvCustomers.DataSource = _customersContext.GetList();
                 }
@@ -161,6 +165,7 @@ namespace QuanLyBanHang.GUI
                         MessageBox.Show(serverMessage);
                 }
             }
+            grbButton.Text = "Chức Năng";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -170,12 +175,12 @@ namespace QuanLyBanHang.GUI
             {
                 CustomerDTO selectedItem = _customersContext.GetList().Single(o => o.CustomerID == _selectedID);
                 txtCustomerID.Text = selectedItem.CustomerID.ToString();
-                txtCustomerName.Text = selectedItem.Name;
+                txtName.Text = selectedItem.Name;
                 if (selectedItem.Gender == "Nam")
                     rdbMale.Checked = true;
                 else
                     rdbFemale.Checked = true;
-                txtPhone.Text = selectedItem.PhoneNumber;
+                txtPhoneNumber.Text = selectedItem.PhoneNumber;
                 txtAddress.Text = selectedItem.Address;
                 txtEmail.Text = selectedItem.Email;
             }
@@ -183,6 +188,7 @@ namespace QuanLyBanHang.GUI
             {
                 MessageBox.Show("Có vấn đề trong việc truy xuất tới máy chủ.","Lỗi.");
             }
+            grbButton.Text = "Chức Năng";
         }
         private int _selectedID;
         private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
@@ -193,17 +199,20 @@ namespace QuanLyBanHang.GUI
                 DataGridViewRow selectedRow = dgvCustomers.Rows[rowIndex];
 
                 txtCustomerID.Text = selectedRow.Cells[0].Value?.ToString();
-                txtCustomerName.Text = selectedRow.Cells[1].Value?.ToString();
+                txtName.Text = selectedRow.Cells[1].Value?.ToString();
                 if (selectedRow.Cells[2].Value?.ToString() == "Nam")
                     rdbMale.Checked = true;
                 else   
                     rdbFemale.Checked = true;          
-                txtPhone.Text = selectedRow.Cells[3].Value?.ToString();
+                txtPhoneNumber.Text = selectedRow.Cells[3].Value?.ToString();
                 txtAddress.Text = selectedRow.Cells[4].Value?.ToString();
                 txtEmail.Text = selectedRow.Cells[5].Value?.ToString();
 
                 _selectedID = int.Parse(txtCustomerID.Text);
             }
         }
+
+    
+
     }
 }
