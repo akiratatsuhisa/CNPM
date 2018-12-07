@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,14 @@ namespace QuanLyBanHang.GUI
         public CustomersGUI()
         {
             InitializeComponent();
+            // Lấy danh sách đặt tên cho Columns theo thứ tự bên DTO
             dgvCustomers.DataSource = _customersContext.GetList();
+            dgvCustomers.Columns[0].HeaderText = "Mã KH";
+            dgvCustomers.Columns[1].HeaderText = "Tên";
+            dgvCustomers.Columns[2].HeaderText = "Giới tính";
+            dgvCustomers.Columns[3].HeaderText = "Điện thoại";
+            dgvCustomers.Columns[4].HeaderText = "Địa chỉ";
+            dgvCustomers.Columns[5].HeaderText = "Email";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -75,7 +83,6 @@ namespace QuanLyBanHang.GUI
                     {
                         MessageBox.Show("Xóa thành công.");
                         dgvCustomers.DataSource = _customersContext.GetList();
-
                     }
                     else
                     {
@@ -90,20 +97,40 @@ namespace QuanLyBanHang.GUI
                 MessageBox.Show("Chọn khách hàng cần xóa");
             }
         }
+        private bool Check(out string message)
+        {
+            message = "";
+            if (string.IsNullOrWhiteSpace(txtCustomerName.Text))
+                message += "Nhập tên khách hàng.\n";
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+                message += "Nhập số điện thoại.\n";
+            else if(!Regex.IsMatch(txtPhone.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
+            {
+                message += "Số điện thoại: " + txtPhone.Text + " không hợp lệ.\n";
+            }
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+                message += "Nhập địa chỉ.\n";
+            return message == "" ? true : false;
+        }
         private bool _isAddButtonClicked = false;
         private void btnOK_Click(object sender, EventArgs e)
         {
+            string serverMessage;
+            if(!Check(out serverMessage))
+            {
+                MessageBox.Show(serverMessage, "Thiếu dữ kiện.");
+                return;
+            }
             CustomerDTO customerFormat = new CustomerDTO
             {
-                Name = txtCustomerName.Text,
+                Name = string.IsNullOrWhiteSpace(txtCustomerName.Text) ? null : txtCustomerName.Text.Trim(),
                 Gender = rdbMale.Checked ? "Nam" : "Nữ",
-                PhoneNumber = txtPhone.Text,
-                Address = txtAddress.Text,
-                Email = txtEmail.Text
+                PhoneNumber = string.IsNullOrWhiteSpace(txtPhone.Text) ? null : txtPhone.Text,
+                Address = string.IsNullOrWhiteSpace(txtAddress.Text) ? null : txtAddress.Text.Trim(),
+                Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text.Trim()
             };
             if (_isAddButtonClicked)
             {
-                string serverMessage;
                 if (_customersContext.AddCustomer(customerFormat, out serverMessage))
                 {
                     MessageBox.Show("Thêm thành công khách hàng tên: " + txtCustomerName.Text + ", ID: " + txtCustomerID.Text + ".");
@@ -121,7 +148,6 @@ namespace QuanLyBanHang.GUI
             else
             {
                 customerFormat.CustomerID = int.Parse(txtCustomerID.Text);
-                string serverMessage;
                 if (_customersContext.EditCustomer(customerFormat, out serverMessage))
                 {
                     MessageBox.Show("Sửa thành công khách hàng tên: " + txtCustomerName.Text + ", ID: " + txtCustomerID.Text + ".");
@@ -166,15 +192,15 @@ namespace QuanLyBanHang.GUI
                 int rowIndex = dgvCustomers.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvCustomers.Rows[rowIndex];
 
-                txtCustomerID.Text = selectedRow.Cells[0].Value.ToString();
-                txtCustomerName.Text = selectedRow.Cells[1].Value.ToString();
-                if (selectedRow.Cells[2].Value.ToString() == "Nam")
+                txtCustomerID.Text = selectedRow.Cells[0].Value?.ToString();
+                txtCustomerName.Text = selectedRow.Cells[1].Value?.ToString();
+                if (selectedRow.Cells[2].Value?.ToString() == "Nam")
                     rdbMale.Checked = true;
                 else   
                     rdbFemale.Checked = true;          
-                txtPhone.Text = selectedRow.Cells[3].Value.ToString();
-                txtAddress.Text = selectedRow.Cells[4].Value.ToString();
-                txtEmail.Text = selectedRow.Cells[5].Value.ToString();
+                txtPhone.Text = selectedRow.Cells[3].Value?.ToString();
+                txtAddress.Text = selectedRow.Cells[4].Value?.ToString();
+                txtEmail.Text = selectedRow.Cells[5].Value?.ToString();
 
                 _selectedID = int.Parse(txtCustomerID.Text);
             }

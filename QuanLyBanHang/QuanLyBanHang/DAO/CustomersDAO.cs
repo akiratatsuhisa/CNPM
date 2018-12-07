@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,22 @@ namespace QuanLyBanHang.DAO
     public class CustomersDAO
     {
         public List<Customer> GetList() => DataProvider.Instance.DataContext.Customers.ToList();
+        private string ExceptionMessage(Exception ex)
+        {
+            string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+            if (ex is DbEntityValidationException dbEx)
+            {
+                foreach (var validationError in dbEx.EntityValidationErrors)
+                {
+                    foreach (var item in validationError.ValidationErrors)
+                    {
+                        message += "\n";
+                        message += item.ErrorMessage;
+                    }
+                }
+            }
+            return message;
+        }
         public bool AddCustomer(Customer obj, out string serverMessage)
         {
             try
@@ -20,7 +37,7 @@ namespace QuanLyBanHang.DAO
             }
             catch (Exception ex)
             {
-                serverMessage = ex.InnerException != null ? ex.InnerException.InnerException.Message: ex.Message;
+                serverMessage = ExceptionMessage(ex);
                 return false;
             }
         }
@@ -40,7 +57,7 @@ namespace QuanLyBanHang.DAO
             }
             catch (Exception ex)
             {
-                serverMessage = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+                serverMessage = ExceptionMessage(ex);
                 return false;
             }
         }
@@ -56,7 +73,7 @@ namespace QuanLyBanHang.DAO
             }
             catch (Exception ex)
             {
-                serverMessage = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+                serverMessage = ExceptionMessage(ex);
                 return false;
             }
         }
