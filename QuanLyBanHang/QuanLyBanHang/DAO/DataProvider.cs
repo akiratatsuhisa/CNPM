@@ -18,4 +18,8 @@ namespace QuanLyBanHang.DAO
             DataContext = new SalesManagementEntities();
         }
     }
+
+    public class SalesManagementEntities
+    {
+    }
 }
