@@ -133,14 +133,13 @@ namespace QuanLyBanHang.GUI
                 Address = string.IsNullOrWhiteSpace(txtAddress.Text) ? null : txtAddress.Text.Trim(),
                 Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text.Trim()
             };
+            bool completed = false;
             if (_isAddButtonClicked)
             {
                 if (_customersContext.AddCustomer(customerFormat, out serverMessage))
                 {
                     MessageBox.Show("Thêm thành công khách hàng tên: " + txtName.Text + ", ID: " + txtCustomerID.Text + ".");
-                    SetOkButtonEnable(false);
-                    dgvCustomers.DataSource = _customersContext.GetList();
-
+                    completed = true;
                 }
                 else
                 {
@@ -155,8 +154,7 @@ namespace QuanLyBanHang.GUI
                 if (_customersContext.EditCustomer(customerFormat, out serverMessage))
                 {
                     MessageBox.Show("Sửa thành công khách hàng tên: " + txtName.Text + ", ID: " + txtCustomerID.Text + ".");
-                    SetOkButtonEnable(false);
-                    dgvCustomers.DataSource = _customersContext.GetList();
+                    completed = true;
                 }
                 else
                 {
@@ -165,7 +163,12 @@ namespace QuanLyBanHang.GUI
                         MessageBox.Show(serverMessage);
                 }
             }
-            grbButton.Text = "Chức Năng";
+            if(completed)
+            {
+                SetOkButtonEnable(false);
+                grbButton.Text = "Chức Năng";
+                dgvCustomers.DataSource = _customersContext.GetList();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -211,8 +214,5 @@ namespace QuanLyBanHang.GUI
                 _selectedID = int.Parse(txtCustomerID.Text);
             }
         }
-
-    
-
     }
 }

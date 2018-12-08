@@ -19,6 +19,7 @@ namespace QuanLyBanHang.DAO
         {
             this.Orders = new HashSet<Order>();
         }
+    
         public int CustomerID { get; set; }
         public string Name { get; set; }
         public bool Gender { get; set; }

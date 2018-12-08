@@ -12,14 +12,14 @@ namespace QuanLyBanHang.BUS
     {
         private CustomersDAO _customersContext = new CustomersDAO();
         public List<CustomerDTO> GetList() => _customersContext.GetList().
-            Select(c => new CustomerDTO
+            Select(obj => new CustomerDTO
             {
-                CustomerID = c.CustomerID,
-                Name = c.Name,
-                Gender = c.Gender?"Nam":"Nữ",
-                PhoneNumber = c.PhoneNumber,
-                Address = c.Address,
-                Email = c.Email
+                CustomerID = obj.CustomerID,
+                Name = obj.Name,
+                Gender = obj.Gender?"Nam":"Nữ",
+                PhoneNumber = obj.PhoneNumber,
+                Address = obj.Address,
+                Email = obj.Email
             }).ToList();
         private Customer ConvertToCustomer(CustomerDTO obj) => new Customer
         {

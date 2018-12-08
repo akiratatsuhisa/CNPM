@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
+    <Compile Include="BUS\EmployeesBUS.cs" />
+    <Compile Include="BUS\OrdersBUS.cs" />
+    <Compile Include="BUS\ProductsBUS.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -64,6 +67,7 @@
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\EmployeesDAO.cs" />
     <Compile Include="DAO\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,10 +89,16 @@
     <Compile Include="DAO\OrderDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\OrdersDAO.cs" />
     <Compile Include="DAO\Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ProductsDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="GUI\CustomersGUI.cs">
       <SubType>Form</SubType>
     </Compile>
