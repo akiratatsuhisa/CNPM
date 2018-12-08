@@ -39,6 +39,8 @@ namespace QuanLyBanHang.BUS
         };
         private List<OrderDetail> ConvertToListOrderDetail(List<OrderDetailDTO> listItem) => listItem.Select(item => new OrderDetail
         {
+            OrderID = item.OrderID,
+            ProductID = item.ProductID,
             Quantity = item.Quantity,
             UnitPrice = item.UnitPrice
         }).ToList();

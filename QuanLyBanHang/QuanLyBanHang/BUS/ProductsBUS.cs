@@ -14,6 +14,7 @@ namespace QuanLyBanHang.BUS
         public List<ProductDTO> GetList() => _productsContext.GetList().
             Select(obj => new ProductDTO
             {
+                ProductID = obj.ProductID,
                 ProductName = obj.ProductName,
                 AddedDate = obj.AddedDate,
                 QuantityPerUnit = obj.QuantityPerUnit,
@@ -24,6 +25,7 @@ namespace QuanLyBanHang.BUS
             }).ToList();
         private Product ConvertToProduct(ProductDTO obj) => new Product
         {
+            ProductID = obj.ProductID,
             ProductName = obj.ProductName,
             AddedDate = obj.AddedDate,
             QuantityPerUnit = obj.QuantityPerUnit,
