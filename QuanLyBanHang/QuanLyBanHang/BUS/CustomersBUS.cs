@@ -11,16 +11,15 @@ namespace QuanLyBanHang.BUS
     public class CustomersBUS
     {
         private CustomersDAO _customersContext = new CustomersDAO();
-        public List<CustomerDTO> GetList() => _customersContext.GetList().
-            Select(obj => new CustomerDTO
-            {
-                CustomerID = obj.CustomerID,
-                Name = obj.Name,
-                Gender = obj.Gender?"Nam":"Nữ",
-                PhoneNumber = obj.PhoneNumber,
-                Address = obj.Address,
-                Email = obj.Email
-            }).ToList();
+        public List<CustomerDTO> GetList() => _customersContext.GetList().Select(obj => new CustomerDTO
+        {
+            CustomerID = obj.CustomerID,
+            Name = obj.Name,
+            Gender = obj.Gender ? "Nam" : "Nữ",
+            PhoneNumber = obj.PhoneNumber,
+            Address = obj.Address,
+            Email = obj.Email
+        }).ToList();
         private Customer ConvertToCustomer(CustomerDTO obj) => new Customer
         {
             CustomerID = obj.CustomerID,

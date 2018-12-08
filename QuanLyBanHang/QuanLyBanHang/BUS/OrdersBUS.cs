@@ -37,15 +37,15 @@ namespace QuanLyBanHang.BUS
             OrderDate = obj.OrderDate,
             Freight = obj.Freight
         };
-        private List<OrderDetail> ConvertToListOrderDetail(List<OrderDetailDTO> listItem) => listItem.Select(item => new OrderDetail
+        private List<OrderDetail> ConvertToListOrderDetail(List<OrderDetailDTO> listObj) => listObj.Select(obj => new OrderDetail
         {
-            OrderID = item.OrderID,
-            ProductID = item.ProductID,
-            Quantity = item.Quantity,
-            UnitPrice = item.UnitPrice
+            OrderID = obj.OrderID,
+            ProductID = obj.ProductID,
+            Quantity = obj.Quantity,
+            UnitPrice = obj.UnitPrice
         }).ToList();
-        public bool AddOrder(OrderDTO obj, List<OrderDetailDTO> listItem, out string serverMessage) => _ordersContext.AddOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listItem), out serverMessage);
-        public bool EditOrder(OrderDTO obj, List<OrderDetailDTO> listItem, out string serverMessage) => _ordersContext.EditOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listItem), out serverMessage);
+        public bool AddOrder(OrderDTO obj, List<OrderDetailDTO> listObj, out string serverMessage) => _ordersContext.AddOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listObj), out serverMessage);
+        public bool EditOrder(OrderDTO obj, List<OrderDetailDTO> listObj, out string serverMessage) => _ordersContext.EditOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listObj), out serverMessage);
         public bool DeleteOrder(int id, out string serverMessage) => _ordersContext.DeleteOrder(id, out serverMessage);
     }
 }

@@ -11,18 +11,17 @@ namespace QuanLyBanHang.BUS
     public class ProductsBUS
     {
         private ProductsDAO _productsContext = new ProductsDAO();
-        public List<ProductDTO> GetList() => _productsContext.GetList().
-            Select(obj => new ProductDTO
-            {
-                ProductID = obj.ProductID,
-                ProductName = obj.ProductName,
-                AddedDate = obj.AddedDate,
-                QuantityPerUnit = obj.QuantityPerUnit,
-                UnitPrice = obj.UnitPrice,
-                UnitsInStock = obj.UnitsInStock,
-                UnitsOnOrder = obj.UnitsOnOrder,
-                Discontinued = obj.Discontinued?"Đã dừng":"Còn bán",
-            }).ToList();
+        public List<ProductDTO> GetList() => _productsContext.GetList().Select(obj => new ProductDTO
+        {
+            ProductID = obj.ProductID,
+            ProductName = obj.ProductName,
+            AddedDate = obj.AddedDate,
+            QuantityPerUnit = obj.QuantityPerUnit,
+            UnitPrice = obj.UnitPrice,
+            UnitsInStock = obj.UnitsInStock,
+            UnitsOnOrder = obj.UnitsOnOrder,
+            Discontinued = obj.Discontinued ? "Đã dừng" : "Còn bán",
+        }).ToList();
         private Product ConvertToProduct(ProductDTO obj) => new Product
         {
             ProductID = obj.ProductID,

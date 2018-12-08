@@ -28,7 +28,7 @@ namespace QuanLyBanHang.DAO
             }
             return message;
         }
-        public bool AddOrder(Order obj, List<OrderDetail> listItem, out string serverMessage)
+        public bool AddOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
         {
             using (var transaction = DataProvider.Instance.DataContext.Database.BeginTransaction())
             {
@@ -36,9 +36,21 @@ namespace QuanLyBanHang.DAO
                 {
                     DataProvider.Instance.DataContext.Orders.Add(obj);
                     DataProvider.Instance.DataContext.SaveChanges();
-                    foreach (var item in listItem)
+                    foreach (var objD in listObj)
                     {
-                        DataProvider.Instance.DataContext.OrderDetails.Add(item);
+                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                        if (!prdE.Discontinued)
+                        {
+                            DataProvider.Instance.DataContext.OrderDetails.Add(objD);
+                            prdE.UnitsInStock -= objD.Quantity;
+                            prdE.UnitsOnOrder += objD.Quantity;   
+                        }
+                        else
+                        {
+                            transaction.Rollback();
+                            serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                            return false;
+                        }
                         DataProvider.Instance.DataContext.SaveChanges();
                     }
                     transaction.Commit();
@@ -53,7 +65,7 @@ namespace QuanLyBanHang.DAO
                 }
             }
         }
-        public bool EditOrder(Order obj, List<OrderDetail> listItem, out string serverMessage)
+        public bool EditOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
         {
             using (var transaction = DataProvider.Instance.DataContext.Database.BeginTransaction())
             {
@@ -65,12 +77,25 @@ namespace QuanLyBanHang.DAO
                     objE.Freight = obj.Freight;
                     objE.OrderDate = obj.OrderDate;
                     DataProvider.Instance.DataContext.SaveChanges();
-                    var listItemE = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == obj.OrderID).ToList();
-                    foreach (var item in listItem)
+                    var listObjE = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == obj.OrderID).ToList();
+                    foreach (var objD in listObj)
                     {
-                        var itemE = listItemE.Single(i => i.ProductID == item.ProductID);
-                        itemE.Quantity = item.Quantity;
-                        itemE.UnitPrice = item.UnitPrice;
+                        var objDE = listObjE.Single(i => i.ProductID == objD.ProductID);
+                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                        if (!prdE.Discontinued)
+                        {
+                            int quantity = objD.Quantity - objDE.Quantity;
+                            prdE.UnitsInStock -= quantity;
+                            prdE.UnitsOnOrder += quantity;
+                            objDE.Quantity = objD.Quantity;
+                            objDE.UnitPrice = objD.UnitPrice;
+                        }
+                        else
+                        {
+                            transaction.Rollback();
+                            serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                            return false;
+                        }
                         DataProvider.Instance.DataContext.SaveChanges();
                     }
                     transaction.Commit();
@@ -91,10 +116,13 @@ namespace QuanLyBanHang.DAO
             {
                 try
                 {
-                    var listItem = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == id).ToList();
-                    foreach (var item in listItem)
+                    var listObj = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == id).ToList();
+                    foreach (var objD in listObj)
                     {
-                        DataProvider.Instance.DataContext.OrderDetails.Remove(item);
+                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                        prdE.UnitsInStock += objD.Quantity;
+                        prdE.UnitsOnOrder -= objD.Quantity;
+                        DataProvider.Instance.DataContext.OrderDetails.Remove(objD);
                         DataProvider.Instance.DataContext.SaveChanges();
                     }
                     Order obj = DataProvider.Instance.DataContext.Orders.Single(o => o.OrderID == id);
