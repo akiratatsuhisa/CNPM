@@ -12,17 +12,13 @@ namespace QuanLyBanHang.GUI
 {
     public partial class CustomersGUI : Form
     {
-        private CustomersBUS _customersContext = new CustomersBUS();
         public CustomersGUI()
         {
             InitializeComponent();
-            dgvCustomers.DataSource = _customersContext.GetList();
-            dgvCustomers.Columns[0].HeaderText = "Mã KH";
-            dgvCustomers.Columns[1].HeaderText = "Tên";
-            dgvCustomers.Columns[2].HeaderText = "Giới tính";
-            dgvCustomers.Columns[3].HeaderText = "Điện thoại";
-            dgvCustomers.Columns[4].HeaderText = "Địa chỉ";
-            dgvCustomers.Columns[5].HeaderText = "Email";
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void SetOkButtonEnable(bool value)
@@ -39,8 +35,8 @@ namespace QuanLyBanHang.GUI
             txtPhone.ReadOnly = !value;
             txtAddress.ReadOnly = !value;
             txtEmail.ReadOnly = !value;
-            cbxFemale.Enabled = value;
-            cbxMale.Enabled = value;
-        }       
+            chbFemale.Enabled = value;
+            chbMale.Enabled = value;
+        }
     }
 }
