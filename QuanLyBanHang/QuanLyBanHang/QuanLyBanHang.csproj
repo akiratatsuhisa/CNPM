@@ -105,10 +105,19 @@
     <Compile Include="GUI\CustomersGUI.Designer.cs">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\LoginGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginGUI.Designer.cs">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CustomersGUI.resx">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginGUI.resx">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -118,6 +127,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="DAO\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -154,6 +164,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\baseline_vpn_key_white_18dp.png" />
+    <None Include="Resources\baseline_person_white_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
