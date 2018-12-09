@@ -1,14 +1,14 @@
-﻿using System;
+﻿using QuanLyBanHang.DAO;
+using QuanLyBanHang.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyBanHang.DAO;
-using QuanLyBanHang.DTO;
 
 namespace QuanLyBanHang.BUS
 {
-    class CustomersBUS
+    public class CustomersBUS
     {
         private CustomersDAO _customersContext = new CustomersDAO();
         public List<CustomerDTO> GetList() => _customersContext.GetList().
@@ -16,7 +16,7 @@ namespace QuanLyBanHang.BUS
             {
                 CustomerID = obj.CustomerID,
                 Name = obj.Name,
-                Gender = obj.Gender ? "Nam" : "Nữ",
+                Gender = obj.Gender?"Nam":"Nữ",
                 PhoneNumber = obj.PhoneNumber,
                 Address = obj.Address,
                 Email = obj.Email

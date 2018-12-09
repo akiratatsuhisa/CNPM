@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
+    <Compile Include="BUS\EmployeesBUS.cs" />
+    <Compile Include="BUS\OrdersBUS.cs" />
+    <Compile Include="BUS\ProductsBUS.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -64,6 +67,7 @@
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\EmployeesDAO.cs" />
     <Compile Include="DAO\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,21 +89,21 @@
     <Compile Include="DAO\OrderDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\OrdersDAO.cs" />
     <Compile Include="DAO\Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ProductsDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="GUI\CustomersGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\CustomersGUI.Designer.cs">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\EmployeesGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\EmployeesGUI.Designer.cs">
-      <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,7 +127,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\QuanLyBanHang.DAO.DataProvider.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,10 +141,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DAO\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAO\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -149,9 +155,5 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
