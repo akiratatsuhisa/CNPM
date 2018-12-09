@@ -16,5 +16,10 @@ namespace QuanLyBanHang.GUI
         {
             InitializeComponent();
         }
+
+        private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
