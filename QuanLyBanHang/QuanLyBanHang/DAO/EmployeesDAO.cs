@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DAO
 {
-    class CustomersDAO
+    class EmployeesDAO
     {
-
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyBanHang.DAO
+namespace QuanLyBanHang.BUS
 {
-    class CustomersDAO
+    class EmployeesBUS
     {
-
     }
 }

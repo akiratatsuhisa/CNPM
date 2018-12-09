@@ -16,5 +16,7 @@ namespace QuanLyBanHang.GUI
         {
             InitializeComponent();
         }
+
+      
     }
 }

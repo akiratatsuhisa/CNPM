@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
+    <Compile Include="BUS\EmployeesBUS.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -64,6 +65,7 @@
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\EmployeesDAO.cs" />
     <Compile Include="DAO\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +91,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeesDTO.cs" />
     <Compile Include="GUI\CustomersGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CustomersGUI.resx">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EmployeesGUI.resx">
+      <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
