@@ -45,7 +45,7 @@
             // 
             // txbUsername
             // 
-            this.txbUsername.BackColor = System.Drawing.Color.SteelBlue;
+            this.txbUsername.BackColor = System.Drawing.Color.SkyBlue;
             this.txbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbUsername.Font = new System.Drawing.Font("Segoe Script", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txbUsername.ForeColor = System.Drawing.Color.White;
@@ -64,7 +64,7 @@
             // 
             // txbPassword
             // 
-            this.txbPassword.BackColor = System.Drawing.Color.SteelBlue;
+            this.txbPassword.BackColor = System.Drawing.Color.SkyBlue;
             this.txbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txbPassword.Font = new System.Drawing.Font("Segoe Script", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txbPassword.ForeColor = System.Drawing.Color.White;
@@ -84,7 +84,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnClose.BackColor = System.Drawing.Color.SkyBlue;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -148,9 +148,10 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogin.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe Script", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLogin.Location = new System.Drawing.Point(54, 298);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(256, 45);
@@ -163,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(362, 368);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox2);

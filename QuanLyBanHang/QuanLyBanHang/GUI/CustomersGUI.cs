@@ -109,9 +109,7 @@ namespace QuanLyBanHang.GUI
             if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
                 message += "Nhập số điện thoại.\n";
             else if(!Regex.IsMatch(txtPhoneNumber.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
-            {
                 message += "Số điện thoại: " + txtPhoneNumber.Text + " không hợp lệ.\n";
-            }
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
                 message += "Nhập địa chỉ.\n";
             return message == "" ? true : false;

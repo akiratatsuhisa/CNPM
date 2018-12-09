@@ -105,6 +105,12 @@
     <Compile Include="GUI\CustomersGUI.Designer.cs">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\EmployeesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EmployeesGUI.Designer.cs">
+      <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\LoginGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CustomersGUI.resx">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EmployeesGUI.resx">
+      <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
