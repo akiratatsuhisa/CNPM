@@ -95,6 +95,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CustomerHai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomerHai.Designer.cs">
+      <DependentUpon>CustomerHai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CustomersGUI.cs">
       <SubType>Form</SubType>
     </Compile>
