@@ -1,37 +1,37 @@
-﻿using QuanLyBanHang.BUS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyBanHang.BUS;
 using QuanLyBanHang.GUI.OrderMDI;
 using QuanLyBanHang.DTO;
 
 namespace QuanLyBanHang.GUI
 {
-    public partial class OrderGUI : Form
+    public partial class OrderUserControlGUI : UserControl
     {
+        private static OrderUserControlGUI _instance;
+        public  static OrderUserControlGUI Instance => _instance = _instance ?? new OrderUserControlGUI();
+
         private ProductsBUS _productsContext = new ProductsBUS();
 
         private OrdersBUS _ordersContext = new OrdersBUS();
-        public OrderGUI()
+        public OrderUserControlGUI()
         {
             InitializeComponent();
-            LoadProducts();
+            LoadProduct();
         }
 
-        private void LoadProducts()
+        public void LoadProduct()
         {
             flpProduct.Controls.Clear();
             _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
-              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice,o.UnitsInStock, this)));
-        }
-        private void CheckProducts()
-        {
+              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
             var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
             foreach (var item in flpProduct.Controls)
             {
@@ -49,22 +49,21 @@ namespace QuanLyBanHang.GUI
         private void btnClear_Click(object sender, EventArgs e)
         {
             dgvDetail.Rows.Clear();
-            LoadProducts();
+            LoadProduct();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (dgvDetail.SelectedCells.Count >0)
+            if (dgvDetail.SelectedCells.Count > 0)
             {
                 dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
-                LoadProducts();
-                CheckProducts();
+                LoadProduct();
             }
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            if (dgvDetail.Rows.Count>0)
+            if (dgvDetail.Rows.Count > 0)
             {
                 AddOrderDialog dialog = new AddOrderDialog();
                 dialog.txtTotal.Text = txtTotal.Text;
@@ -103,13 +102,12 @@ namespace QuanLyBanHang.GUI
             {
                 MessageBox.Show("Vui lòng đặt hàng.");
             }
-            LoadProducts();
+            LoadProduct();
         }
 
         private void btnReloadList_Click(object sender, EventArgs e)
         {
-            LoadProducts();
-            CheckProducts();
+            LoadProduct();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -122,8 +120,7 @@ namespace QuanLyBanHang.GUI
                 bool? result;
                 _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result)
                     .ForEach(o => flpProduct.Controls.
-                  Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
-                CheckProducts();
+                  Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock,this)));
                 if (result == null)
                 {
                     MessageBox.Show("Không tìm thấy.");
@@ -133,6 +130,6 @@ namespace QuanLyBanHang.GUI
                     MessageBox.Show("Lỗi kết nối tới máy chủ.");
                 }
             }
-        }
+        }  
     }
 }
