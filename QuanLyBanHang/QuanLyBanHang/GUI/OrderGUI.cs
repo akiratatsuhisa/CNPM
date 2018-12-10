@@ -89,6 +89,7 @@ namespace QuanLyBanHang.GUI
                     , out message))
                     {
                         MessageBox.Show("Đã mua.");
+                        btnClear_Click(sender, e);
                     }
                     else
                     {

@@ -10,8 +10,20 @@ namespace QuanLyBanHang.DAO
 {
     public class OrdersDAO
     {
-        public List<Order> GetList() => DataProvider.Instance.DataContext.Orders.ToList();
-        public List<OrderDetail> GetListOrderDetail(int id) => DataProvider.Instance.DataContext.OrderDetails.Where(obj => obj.OrderID == id).ToList();
+        public List<Order> GetList()
+        {
+            using (var dataContext = new SalesManagementEntities())
+            {
+                return dataContext.Orders.ToList();
+            }
+        }
+        public List<OrderDetail> GetListOrderDetail(int id)
+        {
+            using (var dataContext = new SalesManagementEntities())
+            {
+                return dataContext.OrderDetails.Where(obj => obj.OrderID == id).ToList();
+            }
+        }
         private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
@@ -30,115 +42,149 @@ namespace QuanLyBanHang.DAO
         }
         public bool AddOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
         {
-            using (var transaction = DataProvider.Instance.DataContext.Database.BeginTransaction())
+            try
             {
-                try
+                using (var dataContext = new SalesManagementEntities())
                 {
-                    DataProvider.Instance.DataContext.Orders.Add(obj);
-                    DataProvider.Instance.DataContext.SaveChanges();
-                    foreach (var objD in listObj)
+                    using (var transaction = dataContext.Database.BeginTransaction())
                     {
-                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
-                        if (!prdE.Discontinued)
+                        try
                         {
-                            objD.OrderID = obj.OrderID;
-                            DataProvider.Instance.DataContext.OrderDetails.Add(objD);
-                            prdE.UnitsInStock -= objD.Quantity;
-                            prdE.UnitsOnOrder += objD.Quantity;   
+                            dataContext.Orders.Add(obj);
+                            dataContext.SaveChanges();
+                            foreach (var objD in listObj)
+                            {
+                                var prdE = dataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                                if (!prdE.Discontinued)
+                                {
+                                    objD.OrderID = obj.OrderID;
+                                    dataContext.OrderDetails.Add(objD);
+                                    prdE.UnitsInStock -= objD.Quantity;
+                                    prdE.UnitsOnOrder += objD.Quantity;
+                                }
+                                else
+                                {
+                                    transaction.Rollback();
+                                    serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                                    return false;
+                                }
+                                dataContext.SaveChanges();
+                            }
+                            transaction.Commit();
+                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is added.";
+                            return true;
                         }
-                        else
+                        catch (Exception ex)
                         {
                             transaction.Rollback();
-                            serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                            serverMessage = ExceptionMessage(ex);
                             return false;
                         }
-                        DataProvider.Instance.DataContext.SaveChanges();
                     }
-                    transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID+  " is added.";
-                    return true;
                 }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    serverMessage = ExceptionMessage(ex);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                serverMessage = ExceptionMessage(ex);
+                return false;
             }
         }
         public bool EditOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
         {
-            using (var transaction = DataProvider.Instance.DataContext.Database.BeginTransaction())
+            try
             {
-                try
+                using (var dataContext = new SalesManagementEntities())
                 {
-                    Order objE = DataProvider.Instance.DataContext.Orders.Single(o => o.OrderID == obj.OrderID);
-                    objE.EmployeeID = obj.EmployeeID;
-                    objE.CustomerID = obj.CustomerID;
-                    objE.Freight = obj.Freight;
-                    objE.OrderDate = obj.OrderDate;
-                    DataProvider.Instance.DataContext.SaveChanges();
-                    var listObjE = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == obj.OrderID).ToList();
-                    foreach (var objD in listObj)
+                    using (var transaction = dataContext.Database.BeginTransaction())
                     {
-                        var objDE = listObjE.Single(i => i.ProductID == objD.ProductID);
-                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
-                        if (!prdE.Discontinued)
+                        try
                         {
-                            int quantity = objD.Quantity - objDE.Quantity;
-                            prdE.UnitsInStock -= quantity;
-                            prdE.UnitsOnOrder += quantity;
-                            objDE.Quantity = objD.Quantity;
-                            objDE.UnitPrice = objD.UnitPrice;
+                            Order objE = dataContext.Orders.Single(o => o.OrderID == obj.OrderID);
+                            objE.EmployeeID = obj.EmployeeID;
+                            objE.CustomerID = obj.CustomerID;
+                            objE.Freight = obj.Freight;
+                            objE.OrderDate = obj.OrderDate;
+                            dataContext.SaveChanges();
+                            var listObjE = dataContext.OrderDetails.Where(o => o.OrderID == obj.OrderID).ToList();
+                            foreach (var objD in listObj)
+                            {
+                                var objDE = listObjE.Single(i => i.ProductID == objD.ProductID);
+                                var prdE = dataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                                if (!prdE.Discontinued)
+                                {
+                                    int quantity = objD.Quantity - objDE.Quantity;
+                                    prdE.UnitsInStock -= quantity;
+                                    prdE.UnitsOnOrder += quantity;
+                                    objDE.Quantity = objD.Quantity;
+                                    objDE.UnitPrice = objD.UnitPrice;
+                                }
+                                else
+                                {
+                                    transaction.Rollback();
+                                    serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                                    return false;
+                                }
+                                dataContext.SaveChanges();
+                            }
+                            transaction.Commit();
+                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is edited.";
+                            return true;
                         }
-                        else
+                        catch (Exception ex)
                         {
                             transaction.Rollback();
-                            serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
+                            serverMessage = ExceptionMessage(ex);
                             return false;
                         }
-                        DataProvider.Instance.DataContext.SaveChanges();
                     }
-                    transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is edited.";
-                    return true;
+
                 }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    serverMessage = ExceptionMessage(ex);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                serverMessage = ExceptionMessage(ex);
+                return false;
             }
         }
         public bool DeleteOrder(int id, out string serverMessage)
         {
-            using (var transaction = DataProvider.Instance.DataContext.Database.BeginTransaction())
+            try
             {
-                try
+                using (var dataContext = new SalesManagementEntities())
                 {
-                    var listObj = DataProvider.Instance.DataContext.OrderDetails.Where(o => o.OrderID == id).ToList();
-                    foreach (var objD in listObj)
+                    using (var transaction = dataContext.Database.BeginTransaction())
                     {
-                        var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
-                        prdE.UnitsInStock += objD.Quantity;
-                        prdE.UnitsOnOrder -= objD.Quantity;
-                        DataProvider.Instance.DataContext.OrderDetails.Remove(objD);
-                        DataProvider.Instance.DataContext.SaveChanges();
+                        try
+                        {
+                            var listObj = dataContext.OrderDetails.Where(o => o.OrderID == id).ToList();
+                            foreach (var objD in listObj)
+                            {
+                                var prdE = dataContext.Products.Single(o => o.ProductID == objD.ProductID);
+                                prdE.UnitsInStock += objD.Quantity;
+                                prdE.UnitsOnOrder -= objD.Quantity;
+                                dataContext.OrderDetails.Remove(objD);
+                                dataContext.SaveChanges();
+                            }
+                            Order obj = dataContext.Orders.Single(o => o.OrderID == id);
+                            dataContext.Orders.Remove(obj);
+                            dataContext.SaveChanges();
+                            transaction.Commit();
+                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is deleted.";
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            serverMessage = ExceptionMessage(ex);
+                            return false;
+                        }
                     }
-                    Order obj = DataProvider.Instance.DataContext.Orders.Single(o => o.OrderID == id);
-                    DataProvider.Instance.DataContext.Orders.Remove(obj);
-                    DataProvider.Instance.DataContext.SaveChanges();
-                    transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is deleted.";
-                    return true;
                 }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    serverMessage = ExceptionMessage(ex);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                serverMessage = ExceptionMessage(ex);
+                return false;
             }
         }
     }

@@ -9,7 +9,13 @@ namespace QuanLyBanHang.DAO
 {
     public class CustomersDAO
     {
-        public List<Customer> GetList() => DataProvider.Instance.DataContext.Customers.ToList();
+        public List<Customer> GetList()
+        {
+            using (var dataContext = new SalesManagementEntities())
+            {
+                return dataContext.Customers.ToList();
+            }
+        }
         private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
@@ -30,9 +36,12 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                DataProvider.Instance.DataContext.Customers.Add(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is added.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    dataContext.Customers.Add(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is added.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -45,14 +54,17 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Customer objE = DataProvider.Instance.DataContext.Customers.Single(o => o.CustomerID == obj.CustomerID);
-                objE.Name = obj.Name;
-                objE.Gender = obj.Gender;
-                objE.PhoneNumber = obj.PhoneNumber;
-                objE.Address = obj.Address;
-                objE.Email = obj.Email;
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is edited.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Customer objE = dataContext.Customers.Single(o => o.CustomerID == obj.CustomerID);
+                    objE.Name = obj.Name;
+                    objE.Gender = obj.Gender;
+                    objE.PhoneNumber = obj.PhoneNumber;
+                    objE.Address = obj.Address;
+                    objE.Email = obj.Email;
+                    dataContext.SaveChanges();
+                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is edited.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -65,10 +77,13 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Customer obj = DataProvider.Instance.DataContext.Customers.Single(o => o.CustomerID == id);
-                DataProvider.Instance.DataContext.Customers.Remove(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is deleted.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Customer obj = dataContext.Customers.Single(o => o.CustomerID == id);
+                    dataContext.Customers.Remove(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is deleted.";
+                }
                 return true;
             }
             catch (Exception ex)

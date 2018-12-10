@@ -26,7 +26,7 @@ namespace QuanLyBanHang.BUS
 
             if (!string.IsNullOrWhiteSpace(searchName))
             {
-                query += "P.ProductName Like N'%" + searchName +"%' AND ";
+                query += "P.ProductName Like N'%" + searchName +"%'" + " AND ";
             }
             if (minUnitPrice != null)
             {

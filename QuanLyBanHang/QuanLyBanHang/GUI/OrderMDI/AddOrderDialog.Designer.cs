@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(390, 118);
+            this.groupBox1.Size = new System.Drawing.Size(390, 121);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hóa đơn";
@@ -93,14 +93,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(378, 93);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(378, 96);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cbxEmployeeID
             // 
             this.cbxEmployeeID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxEmployeeID.FormattingEnabled = true;
-            this.cbxEmployeeID.Location = new System.Drawing.Point(63, 36);
+            this.cbxEmployeeID.Location = new System.Drawing.Point(63, 37);
             this.cbxEmployeeID.Margin = new System.Windows.Forms.Padding(5);
             this.cbxEmployeeID.Name = "cbxEmployeeID";
             this.cbxEmployeeID.Size = new System.Drawing.Size(118, 21);
@@ -119,7 +119,7 @@
             // txtCustomerID
             // 
             this.txtCustomerID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerID.Location = new System.Drawing.Point(63, 5);
+            this.txtCustomerID.Location = new System.Drawing.Point(63, 6);
             this.txtCustomerID.Margin = new System.Windows.Forms.Padding(5);
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(118, 20);
@@ -138,7 +138,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerName.Location = new System.Drawing.Point(255, 5);
+            this.txtCustomerName.Location = new System.Drawing.Point(255, 6);
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(5);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.ReadOnly = true;
@@ -149,7 +149,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 40);
+            this.label3.Location = new System.Drawing.Point(3, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 0;
@@ -159,7 +159,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(189, 40);
+            this.label4.Location = new System.Drawing.Point(189, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 0;
@@ -169,7 +169,7 @@
             // txtFreight
             // 
             this.txtFreight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFreight.Location = new System.Drawing.Point(255, 36);
+            this.txtFreight.Location = new System.Drawing.Point(255, 38);
             this.txtFreight.Margin = new System.Windows.Forms.Padding(5);
             this.txtFreight.Name = "txtFreight";
             this.txtFreight.Size = new System.Drawing.Size(118, 20);
@@ -180,7 +180,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 71);
+            this.label5.Location = new System.Drawing.Point(3, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 0;
@@ -189,7 +189,7 @@
             // txtTotal
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(63, 67);
+            this.txtTotal.Location = new System.Drawing.Point(63, 70);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(5);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -200,7 +200,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(189, 71);
+            this.label6.Location = new System.Drawing.Point(189, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 0;
@@ -209,7 +209,7 @@
             // txtIntoMoney
             // 
             this.txtIntoMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIntoMoney.Location = new System.Drawing.Point(255, 67);
+            this.txtIntoMoney.Location = new System.Drawing.Point(255, 70);
             this.txtIntoMoney.Margin = new System.Windows.Forms.Padding(5);
             this.txtIntoMoney.Name = "txtIntoMoney";
             this.txtIntoMoney.ReadOnly = true;
@@ -221,7 +221,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 137);
+            this.groupBox2.Location = new System.Drawing.Point(12, 140);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(390, 69);
             this.groupBox2.TabIndex = 0;
@@ -289,11 +289,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(414, 218);
+            this.ClientSize = new System.Drawing.Size(414, 221);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(550, 260);
+            this.MinimumSize = new System.Drawing.Size(430, 260);
             this.Name = "AddOrderDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddOrderDialog";

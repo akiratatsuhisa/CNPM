@@ -9,8 +9,14 @@ namespace QuanLyBanHang.DAO
 {
     public class ProductsDAO
     {
-        public List<Product> GetList() => DataProvider.Instance.DataContext.Products.ToList();
-        private string ExceptionMessage(Exception ex)
+        public List<Product> GetList()
+        {
+            using (var dataContext = new SalesManagementEntities())
+            {
+                return dataContext.Products.ToList();
+            }
+        }
+                private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
             if (ex is DbEntityValidationException dbEx)
@@ -30,9 +36,12 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                DataProvider.Instance.DataContext.Products.Add(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is added.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    dataContext.Products.Add(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is added.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -45,16 +54,19 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Product objE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == obj.ProductID);
-                objE.ProductName = obj.ProductName;
-                objE.AddedDate = obj.AddedDate;
-                objE.QuantityPerUnit = obj.QuantityPerUnit;
-                objE.UnitPrice = obj.UnitPrice;
-                objE.UnitsInStock = obj.UnitsInStock;
-                objE.UnitsOnOrder = obj.UnitsOnOrder;
-                objE.Discontinued = obj.Discontinued;
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is edited.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Product objE = dataContext.Products.Single(o => o.ProductID == obj.ProductID);
+                    objE.ProductName = obj.ProductName;
+                    objE.AddedDate = obj.AddedDate;
+                    objE.QuantityPerUnit = obj.QuantityPerUnit;
+                    objE.UnitPrice = obj.UnitPrice;
+                    objE.UnitsInStock = obj.UnitsInStock;
+                    objE.UnitsOnOrder = obj.UnitsOnOrder;
+                    objE.Discontinued = obj.Discontinued;
+                    dataContext.SaveChanges();
+                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is edited.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -67,10 +79,13 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Product obj = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == id);
-                DataProvider.Instance.DataContext.Products.Remove(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is deleted.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Product obj = dataContext.Products.Single(o => o.ProductID == id);
+                    dataContext.Products.Remove(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is deleted.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -84,22 +99,29 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                string query = "Select * From Products P Where " + where;
-                var list = DataProvider.Instance.DataContext.Database.SqlQuery<Product>(query).ToList();
-                if (list.Count == 0)
+                using (var dataContext = new SalesManagementEntities())
                 {
-                    result = null;
-                    list = GetList();
-                    return list;
-                }
-                else
-                {
-                    result = true;
-                    return list;
+                    string query = "Select * From Products P Where " + where;
+                    var list = dataContext.Database.SqlQuery<Product>(query).ToList();
+                    if (list.Count == 0)
+                    {
+                        // không tìm ra kết quả  null rỗng
+                        // trả về list đầy đủ mặt hàng
+                        result = null;
+                        list = GetList();
+                        return list;
+                    }
+                    else
+                    {
+                        // tìm thành công
+                        result = true;
+                        return list;
+                    }
                 }
             }
             catch (Exception)
             {
+                // lỗi trong quá trình tìm, query, database ...
                 result = false;
                 return null;
             }

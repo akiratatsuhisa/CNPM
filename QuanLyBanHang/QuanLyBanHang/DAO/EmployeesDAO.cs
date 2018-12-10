@@ -9,8 +9,14 @@ namespace QuanLyBanHang.DAO
 {
     public class EmployeesDAO
     {
-        public List<Employee> GetList() => DataProvider.Instance.DataContext.Employees.ToList();
-        private string ExceptionMessage(Exception ex)
+        public List<Employee> GetList()
+        {
+            using (var dataContext = new SalesManagementEntities())
+            {
+                return dataContext.Employees.ToList();
+            }
+        }
+            private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
             if (ex is DbEntityValidationException dbEx)
@@ -30,10 +36,13 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                DataProvider.Instance.DataContext.Employees.Add(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is added.";
-                return true;
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    dataContext.Employees.Add(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is added.";
+                }
+                    return true;
             }
             catch (Exception ex)
             {
@@ -45,16 +54,19 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Employee objE = DataProvider.Instance.DataContext.Employees.Single(o => o.EmployeeID == obj.EmployeeID);
-                objE.Name = obj.Name;
-                objE.BirthDate = obj.BirthDate;
-                objE.Gender = obj.Gender;
-                objE.ID = obj.ID;
-                objE.PhoneNumber = obj.PhoneNumber;
-                objE.Address = obj.Address;
-                objE.JobTitle = obj.JobTitle;
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is edited.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Employee objE = dataContext.Employees.Single(o => o.EmployeeID == obj.EmployeeID);
+                    objE.Name = obj.Name;
+                    objE.BirthDate = obj.BirthDate;
+                    objE.Gender = obj.Gender;
+                    objE.ID = obj.ID;
+                    objE.PhoneNumber = obj.PhoneNumber;
+                    objE.Address = obj.Address;
+                    objE.JobTitle = obj.JobTitle;
+                    dataContext.SaveChanges();
+                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is edited.";
+                }
                 return true;
             }
             catch (Exception ex)
@@ -67,10 +79,14 @@ namespace QuanLyBanHang.DAO
         {
             try
             {
-                Employee obj = DataProvider.Instance.DataContext.Employees.Single(o => o.EmployeeID == id);
-                DataProvider.Instance.DataContext.Employees.Remove(obj);
-                DataProvider.Instance.DataContext.SaveChanges();
-                serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is deleted.";
+                using (var dataContext = new SalesManagementEntities())
+                {
+                    Employee obj = dataContext.Employees.Single(o => o.EmployeeID == id);
+                    dataContext.Employees.Remove(obj);
+                    dataContext.SaveChanges();
+                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is deleted.";
+
+                }
                 return true;
             }
             catch (Exception ex)
