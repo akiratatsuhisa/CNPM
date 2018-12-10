@@ -85,7 +85,6 @@ namespace QuanLyBanHang.DAO
                         var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
                         if (!prdE.Discontinued)
                         {
-                            objDE.OrderID = obj.OrderID;
                             int quantity = objD.Quantity - objDE.Quantity;
                             prdE.UnitsInStock -= quantity;
                             prdE.UnitsOnOrder += quantity;
