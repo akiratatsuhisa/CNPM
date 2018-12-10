@@ -29,6 +29,18 @@ namespace QuanLyBanHang.GUI
             flpProduct.Controls.Clear();
             _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
               Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice,o.UnitsInStock, this)));
+            var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
+            foreach (var item in flpProduct.Controls)
+            {
+                if (item is ProductUserControl objUS)
+                {
+                    var obj = list.SingleOrDefault(o => o.Cells[0].Value.ToString() == objUS.ProductID);
+                    if (obj != null)
+                    {
+                        objUS.UnitInStock -= int.Parse(obj.Cells[3].Value.ToString());
+                    }
+                }
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

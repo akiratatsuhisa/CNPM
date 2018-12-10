@@ -27,6 +27,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
             UnitInStock = unitInStock;
             _owner = owner;
         }
+        internal string ProductID => txtProductID.Text;
         internal int UnitInStock { get; set; }
 
         private void btnBuy_Click(object sender, EventArgs e)
