@@ -238,11 +238,13 @@
             this.ClientSize = new System.Drawing.Size(304, 126);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(500, 165);
             this.MinimumSize = new System.Drawing.Size(320, 165);
             this.Name = "SearchProductDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchProductDialog";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchProductDialog_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

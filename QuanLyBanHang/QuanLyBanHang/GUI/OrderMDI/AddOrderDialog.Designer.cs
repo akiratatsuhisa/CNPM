@@ -292,9 +292,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.KeyPreview = true;
             this.Name = "AddOrderDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddOrderDialog";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddOrderDialog_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

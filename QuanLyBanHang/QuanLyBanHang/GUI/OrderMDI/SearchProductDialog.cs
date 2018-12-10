@@ -87,5 +87,17 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 nudMaxPrice.Value = nudMinPrice.Value;
             }
         }
+
+        private void SearchProductDialog_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Return)
+            {
+                btnOK_Click(sender, e);
+            }
+        }
     }
 }
