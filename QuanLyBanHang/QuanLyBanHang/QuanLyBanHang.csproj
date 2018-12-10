@@ -63,7 +63,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\CustomersDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
