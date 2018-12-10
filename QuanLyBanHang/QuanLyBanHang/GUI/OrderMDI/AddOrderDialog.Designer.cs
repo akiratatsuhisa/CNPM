@@ -30,12 +30,12 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbxEmployeeID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtFreight = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,12 +75,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.cbxEmployeeID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCustomerID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCustomerName, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtEmployeeID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtFreight, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
@@ -95,6 +95,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(378, 93);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // cbxEmployeeID
+            // 
+            this.cbxEmployeeID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxEmployeeID.FormattingEnabled = true;
+            this.cbxEmployeeID.Location = new System.Drawing.Point(63, 36);
+            this.cbxEmployeeID.Margin = new System.Windows.Forms.Padding(5);
+            this.cbxEmployeeID.Name = "cbxEmployeeID";
+            this.cbxEmployeeID.Size = new System.Drawing.Size(118, 21);
+            this.cbxEmployeeID.TabIndex = 1;
             // 
             // label1
             // 
@@ -144,15 +154,6 @@
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mã NV";
-            // 
-            // txtEmployeeID
-            // 
-            this.txtEmployeeID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmployeeID.Location = new System.Drawing.Point(63, 36);
-            this.txtEmployeeID.Margin = new System.Windows.Forms.Padding(5);
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(118, 20);
-            this.txtEmployeeID.TabIndex = 1;
             // 
             // label4
             // 
@@ -322,9 +323,9 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.TextBox txtCustomerID;
-        internal System.Windows.Forms.TextBox txtEmployeeID;
         internal System.Windows.Forms.TextBox txtTotal;
         internal System.Windows.Forms.TextBox txtIntoMoney;
         private System.Windows.Forms.TextBox txtFreight;
+        internal System.Windows.Forms.ComboBox cbxEmployeeID;
     }
 }

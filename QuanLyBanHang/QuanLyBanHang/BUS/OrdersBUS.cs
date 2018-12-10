@@ -11,7 +11,9 @@ namespace QuanLyBanHang.BUS
     public class OrdersBUS
     {
         private OrdersDAO _ordersContext = new OrdersDAO();
-        public List<OrderDTO> GetList() => _ordersContext.GetList().Select(obj => new OrderDTO
+        public List<OrderDTO> GetList() => _ordersContext.GetList().Select(obj => ConvertToOrderDTO(obj)).ToList();
+        public List<OrderDetailDTO> GetListOrderDetail(int id) => _ordersContext.GetListOrderDetail(id).Select(obj => ConvertToOrderDetailDTO(obj)).ToList();
+        private OrderDTO ConvertToOrderDTO(Order obj) => new OrderDTO
         {
             OrderID = obj.OrderID,
             CustomerID = obj.CustomerID,
@@ -20,15 +22,15 @@ namespace QuanLyBanHang.BUS
             EmployeeName = obj.Employee.Name,
             OrderDate = obj.OrderDate,
             Freight = obj.Freight,
-        }).ToList();
-        public List<OrderDetailDTO> GetListOrderDetail(int id) => _ordersContext.GetListOrderDetail(id).Select(obj => new OrderDetailDTO
+        };
+        private OrderDetailDTO ConvertToOrderDetailDTO(OrderDetail obj) => new OrderDetailDTO
         {
             OrderID = obj.OrderID,
             ProductID = obj.ProductID,
             ProductName = obj.Product.ProductName,
             Quantity = obj.Quantity,
             UnitPrice = obj.UnitPrice
-        }).ToList();
+        };
         private Order ConvertToOrder(OrderDTO obj) => new Order
         {
             OrderID = obj.OrderID,

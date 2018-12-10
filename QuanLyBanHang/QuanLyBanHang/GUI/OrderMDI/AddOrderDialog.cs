@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBanHang.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,12 @@ namespace QuanLyBanHang.GUI.OrderMDI
     public partial class AddOrderDialog : Form
     {
         public bool ReturnValue = false;
-
+        EmployeesBUS _employeesContext = new EmployeesBUS();
         public decimal? Freight { get; private set; }
         public AddOrderDialog()
         {
             InitializeComponent();
+            cbxEmployeeID.DataSource = _employeesContext.GetSalesEmployees();
         }
         private void txtFreight_TextChanged(object sender, EventArgs e)
         {
@@ -47,13 +49,9 @@ namespace QuanLyBanHang.GUI.OrderMDI
             {
                 message += "Mã  khách hàng: " + txtCustomerID.Text + " không hợp lệ.\n";
             }
-            if (string.IsNullOrWhiteSpace(txtEmployeeID.Text))
+            if (cbxEmployeeID.SelectedItem ==null)
             {
                 message += "Nhập mã nhân viên.\n";
-            }
-            else if (!Regex.IsMatch(txtEmployeeID.Text.Trim(), @"^\d+$"))
-            {
-                message += "Mã nhân viên: " + txtEmployeeID.Text + " không hợp lệ.\n";
             }
             if (!string.IsNullOrWhiteSpace(txtFreight.Text))
             {

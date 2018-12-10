@@ -75,7 +75,7 @@ namespace QuanLyBanHang.GUI
                     string message;
                     if (_ordersContext.AddOrder(new OrderDTO
                     {
-                        EmployeeID = int.Parse(dialog.txtEmployeeID.Text),
+                        EmployeeID = int.Parse(dialog.cbxEmployeeID.SelectedItem.ToString()),
                         CustomerID = int.Parse(dialog.txtCustomerID.Text),
                         Freight = dialog.Freight,
                         OrderDate = DateTime.Now

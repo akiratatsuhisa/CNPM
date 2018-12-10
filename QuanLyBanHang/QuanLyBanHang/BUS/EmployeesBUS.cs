@@ -20,7 +20,10 @@ namespace QuanLyBanHang.BUS
             new Job{DisplayName = "Bảo vệ", Title = "BV"},
             new Job{DisplayName = "Vô công", Title = "VC"}
         };
-        public List<EmployeeDTO> GetList() => _employeesContext.GetList().Select(obj => new EmployeeDTO
+        public List<EmployeeDTO> GetList() => _employeesContext.GetList().Select(obj => ConvertToEmployeeDTO(obj)).ToList();
+        public List<int> GetSalesEmployees() => _employeesContext.GetList().Where(obj => obj.JobTitle =="BH").
+            Select(obj => obj.EmployeeID).ToList();
+        private EmployeeDTO ConvertToEmployeeDTO(Employee obj) => new EmployeeDTO
         {
             EmployeeID = obj.EmployeeID,
             Name = obj.Name,
@@ -30,7 +33,7 @@ namespace QuanLyBanHang.BUS
             PhoneNumber = obj.PhoneNumber,
             Address = obj.Address,
             JobTitle = ListJob.SingleOrDefault(o => o.Title == obj.JobTitle)?.DisplayName ?? "Vô công",
-        }).ToList();
+        };
         private Employee ConvertToEmployee(EmployeeDTO obj) => new Employee
         {
             EmployeeID = obj.EmployeeID,
