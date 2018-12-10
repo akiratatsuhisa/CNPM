@@ -21,7 +21,7 @@ namespace QuanLyBanHang
            // Application.Run(loginForm);
            // if (loginForm.CanLogin)
             
-                Application.Run(new EmployeesGUI());
+                Application.Run(new OrderGUI());
             
         }
     }

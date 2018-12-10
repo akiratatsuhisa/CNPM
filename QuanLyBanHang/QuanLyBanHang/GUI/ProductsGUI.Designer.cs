@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBanHang.GUI
 {
-    partial class CustomersGUI
+    partial class ProductsGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvCustomers = new System.Windows.Forms.DataGridView();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.grbButton = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -42,20 +42,24 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.rdbMale = new System.Windows.Forms.RadioButton();
-            this.rdbFemale = new System.Windows.Forms.RadioButton();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice = new System.Windows.Forms.TextBox();
+            this.txtUnitsInStock = new System.Windows.Forms.TextBox();
+            this.txtUnitsOnOrder = new System.Windows.Forms.TextBox();
+            this.cbxQuantityPerUnit = new System.Windows.Forms.ComboBox();
+            this.dtpAddedDate = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.rdbIsDiscontinued = new System.Windows.Forms.RadioButton();
+            this.rdbIsContinued = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.grbButton.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -69,30 +73,30 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dgvCustomers);
+            this.groupBox1.Controls.Add(this.dgvProducts);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(674, 245);
+            this.groupBox1.Size = new System.Drawing.Size(674, 218);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh Sách Khách Hàng";
+            this.groupBox1.Text = "Danh Sách Sản Phẩm";
             // 
-            // dgvCustomers
+            // dgvProducts
             // 
-            this.dgvCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCustomers.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Location = new System.Drawing.Point(6, 19);
-            this.dgvCustomers.MultiSelect = false;
-            this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.ReadOnly = true;
-            this.dgvCustomers.Size = new System.Drawing.Size(662, 220);
-            this.dgvCustomers.TabIndex = 0;
-            this.dgvCustomers.SelectionChanged += new System.EventHandler(this.dgvCustomers_SelectionChanged);
+            this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProducts.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(6, 19);
+            this.dgvProducts.MultiSelect = false;
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.Size = new System.Drawing.Size(662, 193);
+            this.dgvProducts.TabIndex = 0;
+            this.dgvProducts.SelectionChanged += new System.EventHandler(this.dgvProducts_SelectionChanged);
             // 
             // grbButton
             // 
@@ -260,9 +264,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox2.Location = new System.Drawing.Point(3, 254);
+            this.groupBox2.Location = new System.Drawing.Point(3, 227);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(674, 83);
+            this.groupBox2.Size = new System.Drawing.Size(674, 110);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin";
@@ -274,79 +278,175 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 6;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label5, 4, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.txtCustomerID, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtName, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.txtPhoneNumber, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtAddress, 5, 0);
-            this.tableLayoutPanel3.Controls.Add(this.txtEmail, 5, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label6, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label7, 4, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label4, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.txtProductID, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtName, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtUnitPrice, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.txtUnitsInStock, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.txtUnitsOnOrder, 5, 1);
+            this.tableLayoutPanel3.Controls.Add(this.cbxQuantityPerUnit, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.dtpAddedDate, 3, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 4, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(662, 58);
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(662, 85);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mã KH";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(439, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Địa Chỉ";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(226, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Điện thoại";
+            this.label1.Text = "Mã SP";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(439, 37);
+            this.label5.Location = new System.Drawing.Point(221, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Email";
+            this.label5.Text = "Tên SP";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Giá bán";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(221, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Trong kho";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(444, 35);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Trong đơn";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Đơn vị đo";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(221, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Ngày nhập";
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProductID.Location = new System.Drawing.Point(63, 4);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.ReadOnly = true;
+            this.txtProductID.Size = new System.Drawing.Size(152, 20);
+            this.txtProductID.TabIndex = 1;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.SetColumnSpan(this.txtName, 3);
+            this.txtName.Location = new System.Drawing.Point(286, 4);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(373, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // txtUnitPrice
+            // 
+            this.txtUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitPrice.Location = new System.Drawing.Point(63, 32);
+            this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.ReadOnly = true;
+            this.txtUnitPrice.Size = new System.Drawing.Size(152, 20);
+            this.txtUnitPrice.TabIndex = 1;
+            // 
+            // txtUnitsInStock
+            // 
+            this.txtUnitsInStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitsInStock.Location = new System.Drawing.Point(286, 32);
+            this.txtUnitsInStock.Name = "txtUnitsInStock";
+            this.txtUnitsInStock.ReadOnly = true;
+            this.txtUnitsInStock.Size = new System.Drawing.Size(152, 20);
+            this.txtUnitsInStock.TabIndex = 1;
+            // 
+            // txtUnitsOnOrder
+            // 
+            this.txtUnitsOnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnitsOnOrder.Location = new System.Drawing.Point(507, 32);
+            this.txtUnitsOnOrder.Name = "txtUnitsOnOrder";
+            this.txtUnitsOnOrder.ReadOnly = true;
+            this.txtUnitsOnOrder.Size = new System.Drawing.Size(152, 20);
+            this.txtUnitsOnOrder.TabIndex = 1;
+            // 
+            // cbxQuantityPerUnit
+            // 
+            this.cbxQuantityPerUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxQuantityPerUnit.Enabled = false;
+            this.cbxQuantityPerUnit.FormattingEnabled = true;
+            this.cbxQuantityPerUnit.Items.AddRange(new object[] {
+            "1 lon",
+            "1 bịch",
+            "1 kg",
+            "Không xác định"});
+            this.cbxQuantityPerUnit.Location = new System.Drawing.Point(63, 60);
+            this.cbxQuantityPerUnit.Name = "cbxQuantityPerUnit";
+            this.cbxQuantityPerUnit.Size = new System.Drawing.Size(152, 21);
+            this.cbxQuantityPerUnit.TabIndex = 4;
+            // 
+            // dtpAddedDate
+            // 
+            this.dtpAddedDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpAddedDate.Enabled = false;
+            this.dtpAddedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpAddedDate.Location = new System.Drawing.Point(286, 60);
+            this.dtpAddedDate.Name = "dtpAddedDate";
+            this.dtpAddedDate.Size = new System.Drawing.Size(152, 20);
+            this.dtpAddedDate.TabIndex = 5;
             // 
             // tableLayoutPanel4
             // 
@@ -357,92 +457,47 @@
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel4, 2);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.rdbMale, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.rdbFemale, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(223, 29);
+            this.tableLayoutPanel4.Controls.Add(this.rdbIsDiscontinued, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.rdbIsContinued, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(441, 56);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(213, 29);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(221, 29);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
-            // rdbMale
+            // rdbIsDiscontinued
             // 
-            this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rdbIsDiscontinued.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdbMale.AutoSize = true;
-            this.rdbMale.Checked = true;
-            this.rdbMale.Enabled = false;
-            this.rdbMale.Location = new System.Drawing.Point(3, 3);
-            this.rdbMale.Name = "rdbMale";
-            this.rdbMale.Size = new System.Drawing.Size(100, 23);
-            this.rdbMale.TabIndex = 0;
-            this.rdbMale.TabStop = true;
-            this.rdbMale.Text = "Nam";
-            this.rdbMale.UseVisualStyleBackColor = true;
+            this.rdbIsDiscontinued.AutoSize = true;
+            this.rdbIsDiscontinued.Enabled = false;
+            this.rdbIsDiscontinued.Location = new System.Drawing.Point(113, 3);
+            this.rdbIsDiscontinued.Name = "rdbIsDiscontinued";
+            this.rdbIsDiscontinued.Size = new System.Drawing.Size(105, 23);
+            this.rdbIsDiscontinued.TabIndex = 0;
+            this.rdbIsDiscontinued.Text = "Dừng bán";
+            this.rdbIsDiscontinued.UseVisualStyleBackColor = true;
             // 
-            // rdbFemale
+            // rdbIsContinued
             // 
-            this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rdbIsContinued.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdbFemale.AutoSize = true;
-            this.rdbFemale.Enabled = false;
-            this.rdbFemale.Location = new System.Drawing.Point(109, 3);
-            this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(101, 23);
-            this.rdbFemale.TabIndex = 0;
-            this.rdbFemale.Text = "Nữ";
-            this.rdbFemale.UseVisualStyleBackColor = true;
+            this.rdbIsContinued.AutoSize = true;
+            this.rdbIsContinued.Checked = true;
+            this.rdbIsContinued.Enabled = false;
+            this.rdbIsContinued.Location = new System.Drawing.Point(3, 3);
+            this.rdbIsContinued.Name = "rdbIsContinued";
+            this.rdbIsContinued.Size = new System.Drawing.Size(104, 23);
+            this.rdbIsContinued.TabIndex = 0;
+            this.rdbIsContinued.TabStop = true;
+            this.rdbIsContinued.Text = "Bán";
+            this.rdbIsContinued.UseVisualStyleBackColor = true;
             // 
-            // txtCustomerID
-            // 
-            this.txtCustomerID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerID.Location = new System.Drawing.Point(49, 4);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.ReadOnly = true;
-            this.txtCustomerID.Size = new System.Drawing.Size(171, 20);
-            this.txtCustomerID.TabIndex = 1;
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(49, 33);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(171, 20);
-            this.txtName.TabIndex = 1;
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(287, 4);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.ReadOnly = true;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(146, 20);
-            this.txtPhoneNumber.TabIndex = 1;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Location = new System.Drawing.Point(486, 4);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(173, 20);
-            this.txtAddress.TabIndex = 1;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail.Location = new System.Drawing.Point(486, 33);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(173, 20);
-            this.txtEmail.TabIndex = 1;
-            // 
-            // CustomersGUI
+            // ProductsGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -451,10 +506,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.grbButton);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Name = "CustomersGUI";
-            this.Text = "Đặng Minh Đạt - Customers";
+            this.Name = "ProductsGUI";
+            this.Text = "Products";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.grbButton.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -479,7 +534,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.DataGridView dgvCustomers;
+        private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
@@ -487,13 +542,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.RadioButton rdbMale;
-        private System.Windows.Forms.RadioButton rdbFemale;
+        private System.Windows.Forms.RadioButton rdbIsContinued;
+        private System.Windows.Forms.RadioButton rdbIsDiscontinued;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtUnitsInStock;
+        private System.Windows.Forms.TextBox txtUnitPrice;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtUnitsOnOrder;
+        private System.Windows.Forms.ComboBox cbxQuantityPerUnit;
+        private System.Windows.Forms.DateTimePicker dtpAddedDate;
     }
 }

@@ -79,5 +79,31 @@ namespace QuanLyBanHang.DAO
                 return false;
             }
         }
+
+        public List<Product> GetSearchListProduct(string where, out bool? result)
+        {
+            try
+            {
+                string query = "Select * From Products P Where " + where;
+                var list = DataProvider.Instance.DataContext.Database.SqlQuery<Product>(query).ToList();
+                if (list.Count == 0)
+                {
+                    result = null;
+                    list = GetList();
+                    return list;
+                }
+                else
+                {
+                    result = true;
+                    return list;
+                }
+            }
+            catch (Exception)
+            {
+                result = false;
+                return null;
+            }
+
+        }
     }
 }

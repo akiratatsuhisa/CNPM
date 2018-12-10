@@ -114,7 +114,7 @@ namespace QuanLyBanHang.GUI
             message = "";
             if (string.IsNullOrWhiteSpace(txtID.Text))
                 message += "Nhập số CMND.\n";
-            else if (Regex.IsMatch(txtID.Text, @"^\d{9}|d{11,12}$"))
+            else if (!Regex.IsMatch(txtID.Text, @"^\d{9}|d{11,12}$"))
                 message += "Số CMND: " + txtID.Text + " không hợp lệ.\n";
             if (string.IsNullOrWhiteSpace(txtName.Text))
                 message += "Nhập tên nhân viên.\n";

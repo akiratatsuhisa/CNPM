@@ -41,6 +41,7 @@ namespace QuanLyBanHang.DAO
                         var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
                         if (!prdE.Discontinued)
                         {
+                            objD.OrderID = obj.OrderID;
                             DataProvider.Instance.DataContext.OrderDetails.Add(objD);
                             prdE.UnitsInStock -= objD.Quantity;
                             prdE.UnitsOnOrder += objD.Quantity;   
@@ -54,7 +55,7 @@ namespace QuanLyBanHang.DAO
                         DataProvider.Instance.DataContext.SaveChanges();
                     }
                     transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.Customer.Name + " is added.";
+                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID+  " is added.";
                     return true;
                 }
                 catch (Exception ex)
@@ -84,6 +85,7 @@ namespace QuanLyBanHang.DAO
                         var prdE = DataProvider.Instance.DataContext.Products.Single(o => o.ProductID == objD.ProductID);
                         if (!prdE.Discontinued)
                         {
+                            objDE.OrderID = obj.OrderID;
                             int quantity = objD.Quantity - objDE.Quantity;
                             prdE.UnitsInStock -= quantity;
                             prdE.UnitsOnOrder += quantity;
@@ -99,7 +101,7 @@ namespace QuanLyBanHang.DAO
                         DataProvider.Instance.DataContext.SaveChanges();
                     }
                     transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.Customer.Name + " is edited.";
+                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is edited.";
                     return true;
                 }
                 catch (Exception ex)
@@ -129,7 +131,7 @@ namespace QuanLyBanHang.DAO
                     DataProvider.Instance.DataContext.Orders.Remove(obj);
                     DataProvider.Instance.DataContext.SaveChanges();
                     transaction.Commit();
-                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.Customer.Name + " is deleted.";
+                    serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is deleted.";
                     return true;
                 }
                 catch (Exception ex)
