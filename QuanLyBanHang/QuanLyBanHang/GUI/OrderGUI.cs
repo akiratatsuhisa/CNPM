@@ -118,7 +118,7 @@ namespace QuanLyBanHang.GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchProductDialog dialog = new SearchProductDialog();
+            SearchProductsDialog dialog = new SearchProductsDialog();
             dialog.ShowDialog();
             if (dialog.Result)
             {

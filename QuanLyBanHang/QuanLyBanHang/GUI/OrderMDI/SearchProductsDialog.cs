@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang.GUI.OrderMDI
 {
-    public partial class SearchProductDialog : Form
+    public partial class SearchProductsDialog : Form
     {
-        public SearchProductDialog()
+        public SearchProductsDialog()
         {
             InitializeComponent();
         }

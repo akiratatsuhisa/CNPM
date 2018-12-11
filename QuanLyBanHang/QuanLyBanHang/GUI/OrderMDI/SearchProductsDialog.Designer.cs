@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBanHang.GUI.OrderMDI
 {
-    partial class SearchProductDialog
+    partial class SearchProductsDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -35,10 +35,10 @@
             this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
             this.ckbUnitPriceFrom = new System.Windows.Forms.CheckBox();
             this.ckbUnitPriceTo = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
@@ -71,7 +71,7 @@
             // 
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductName.Location = new System.Drawing.Point(132, 11);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(8);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(278, 26);
             this.txtProductName.TabIndex = 1;
@@ -167,6 +167,16 @@
             this.ckbUnitPriceTo.UseVisualStyleBackColor = true;
             this.ckbUnitPriceTo.CheckedChanged += new System.EventHandler(this.ckbUnitPriceTo_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tên Sản Phẩm:";
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -195,7 +205,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(217, 8);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(8);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(193, 32);
             this.btnCancel.TabIndex = 4;
@@ -214,7 +224,7 @@
             this.btnOK.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
             this.btnOK.Location = new System.Drawing.Point(8, 8);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(8);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(193, 32);
             this.btnOK.TabIndex = 3;
@@ -222,17 +232,7 @@
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tên Sản Phẩm:";
-            // 
-            // SearchProductDialog
+            // SearchProductsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,9 +244,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(739, 224);
             this.MinimumSize = new System.Drawing.Size(469, 224);
-            this.Name = "SearchProductDialog";
+            this.Name = "SearchProductsDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchProductDialog";
+            this.Text = "SearchProductsDialog";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchProductDialog_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
