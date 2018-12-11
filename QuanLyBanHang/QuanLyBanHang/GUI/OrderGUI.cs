@@ -29,7 +29,7 @@ namespace QuanLyBanHang.GUI
             flpProduct.Controls.Clear();
             _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
               Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
-            }
+        }
         private void CheckProducts()
         {
             var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
