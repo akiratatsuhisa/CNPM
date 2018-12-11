@@ -28,8 +28,8 @@ namespace QuanLyBanHang.GUI
         {
             flpProduct.Controls.Clear();
             _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
-              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice,o.UnitsInStock, this)));
-        }
+              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+            }
         private void CheckProducts()
         {
             var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
@@ -50,15 +50,18 @@ namespace QuanLyBanHang.GUI
         {
             dgvDetail.Rows.Clear();
             LoadProducts();
+            txtTotal.Text = "";
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (dgvDetail.SelectedCells.Count >0)
+            if (dgvDetail.SelectedCells.Count > 0)
             {
                 dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
                 LoadProducts();
                 CheckProducts();
+                txtTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
+                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
             }
         }
 

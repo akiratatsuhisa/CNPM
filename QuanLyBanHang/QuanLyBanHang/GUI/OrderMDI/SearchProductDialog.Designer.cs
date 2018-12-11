@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtProductName = new System.Windows.Forms.TextBox();
-            this.ckbProductName = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
             this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
@@ -39,6 +38,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
@@ -55,39 +55,26 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.txtProductName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ckbProductName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 64);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(418, 98);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtProductName
             // 
             this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProductName.Location = new System.Drawing.Point(76, 6);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(5);
+            this.txtProductName.Location = new System.Drawing.Point(132, 11);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(198, 20);
+            this.txtProductName.Size = new System.Drawing.Size(278, 26);
             this.txtProductName.TabIndex = 1;
-            // 
-            // ckbProductName
-            // 
-            this.ckbProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckbProductName.AutoSize = true;
-            this.ckbProductName.Checked = true;
-            this.ckbProductName.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbProductName.Location = new System.Drawing.Point(3, 7);
-            this.ckbProductName.Name = "ckbProductName";
-            this.ckbProductName.Size = new System.Drawing.Size(65, 17);
-            this.ckbProductName.TabIndex = 3;
-            this.ckbProductName.Text = "Tên SP:";
-            this.ckbProductName.UseVisualStyleBackColor = true;
-            this.ckbProductName.CheckedChanged += new System.EventHandler(this.ckbProductName_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -104,26 +91,27 @@
             this.tableLayoutPanel2.Controls.Add(this.nudMinPrice, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.ckbUnitPriceFrom, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.ckbUnitPriceTo, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 32);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 49);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(279, 32);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 49);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // nudMaxPrice
             // 
             this.nudMaxPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nudMaxPrice.Enabled = false;
-            this.nudMaxPrice.Location = new System.Drawing.Point(210, 6);
+            this.nudMaxPrice.Location = new System.Drawing.Point(309, 11);
+            this.nudMaxPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudMaxPrice.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.nudMaxPrice.Name = "nudMaxPrice";
-            this.nudMaxPrice.Size = new System.Drawing.Size(66, 20);
+            this.nudMaxPrice.Size = new System.Drawing.Size(105, 26);
             this.nudMaxPrice.TabIndex = 1;
             this.nudMaxPrice.Value = new decimal(new int[] {
             200000,
@@ -136,14 +124,15 @@
             // 
             this.nudMinPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.nudMinPrice.Enabled = false;
-            this.nudMinPrice.Location = new System.Drawing.Point(66, 6);
+            this.nudMinPrice.Location = new System.Drawing.Point(94, 11);
+            this.nudMinPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudMinPrice.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.nudMinPrice.Name = "nudMinPrice";
-            this.nudMinPrice.Size = new System.Drawing.Size(65, 20);
+            this.nudMinPrice.Size = new System.Drawing.Size(104, 26);
             this.nudMinPrice.TabIndex = 1;
             this.nudMinPrice.Value = new decimal(new int[] {
             20000,
@@ -156,9 +145,10 @@
             // 
             this.ckbUnitPriceFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbUnitPriceFrom.AutoSize = true;
-            this.ckbUnitPriceFrom.Location = new System.Drawing.Point(3, 7);
+            this.ckbUnitPriceFrom.Location = new System.Drawing.Point(4, 12);
+            this.ckbUnitPriceFrom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbUnitPriceFrom.Name = "ckbUnitPriceFrom";
-            this.ckbUnitPriceFrom.Size = new System.Drawing.Size(57, 17);
+            this.ckbUnitPriceFrom.Size = new System.Drawing.Size(82, 24);
             this.ckbUnitPriceFrom.TabIndex = 3;
             this.ckbUnitPriceFrom.Text = "Giá từ:";
             this.ckbUnitPriceFrom.UseVisualStyleBackColor = true;
@@ -168,9 +158,10 @@
             // 
             this.ckbUnitPriceTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbUnitPriceTo.AutoSize = true;
-            this.ckbUnitPriceTo.Location = new System.Drawing.Point(137, 7);
+            this.ckbUnitPriceTo.Location = new System.Drawing.Point(206, 12);
+            this.ckbUnitPriceTo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckbUnitPriceTo.Name = "ckbUnitPriceTo";
-            this.ckbUnitPriceTo.Size = new System.Drawing.Size(67, 17);
+            this.ckbUnitPriceTo.Size = new System.Drawing.Size(95, 24);
             this.ckbUnitPriceTo.TabIndex = 3;
             this.ckbUnitPriceTo.Text = "Giá đến:";
             this.ckbUnitPriceTo.UseVisualStyleBackColor = true;
@@ -185,11 +176,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.btnCancel, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnOK, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(13, 83);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(20, 128);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(279, 31);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(418, 48);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // btnCancel
@@ -202,10 +194,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(144, 5);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCancel.Location = new System.Drawing.Point(217, 8);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 21);
+            this.btnCancel.Size = new System.Drawing.Size(193, 32);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -221,26 +213,37 @@
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(5, 5);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(5);
+            this.btnOK.Location = new System.Drawing.Point(8, 8);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(129, 21);
+            this.btnOK.Size = new System.Drawing.Size(193, 32);
             this.btnOK.TabIndex = 3;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tên Sản Phẩm:";
+            // 
             // SearchProductDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(304, 126);
+            this.ClientSize = new System.Drawing.Size(456, 168);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.KeyPreview = true;
-            this.MaximumSize = new System.Drawing.Size(500, 165);
-            this.MinimumSize = new System.Drawing.Size(320, 165);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(739, 224);
+            this.MinimumSize = new System.Drawing.Size(469, 224);
             this.Name = "SearchProductDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchProductDialog";
@@ -263,11 +266,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.CheckBox ckbProductName;
         private System.Windows.Forms.NumericUpDown nudMinPrice;
         private System.Windows.Forms.NumericUpDown nudMaxPrice;
         private System.Windows.Forms.CheckBox ckbUnitPriceFrom;
         private System.Windows.Forms.CheckBox ckbUnitPriceTo;
         private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.Label label1;
     }
 }

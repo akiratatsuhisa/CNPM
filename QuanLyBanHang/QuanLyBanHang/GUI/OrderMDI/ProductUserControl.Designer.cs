@@ -105,9 +105,9 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 33);
+            this.label2.Location = new System.Drawing.Point(3, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên:";
             // 
@@ -115,9 +115,9 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã SP:";
             // 
@@ -125,42 +125,42 @@
             // 
             this.txtProductID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductID.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtProductID.Location = new System.Drawing.Point(63, 5);
+            this.txtProductID.Location = new System.Drawing.Point(94, 5);
             this.txtProductID.Margin = new System.Windows.Forms.Padding(5);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(87, 21);
+            this.txtProductID.Size = new System.Drawing.Size(56, 28);
             this.txtProductID.TabIndex = 2;
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtName.Location = new System.Drawing.Point(63, 32);
+            this.txtName.Location = new System.Drawing.Point(94, 32);
             this.txtName.Margin = new System.Windows.Forms.Padding(5);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(87, 21);
+            this.txtName.Size = new System.Drawing.Size(56, 28);
             this.txtName.TabIndex = 2;
             // 
             // txtQuantityPerUnit
             // 
             this.txtQuantityPerUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQuantityPerUnit.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtQuantityPerUnit.Location = new System.Drawing.Point(63, 59);
+            this.txtQuantityPerUnit.Location = new System.Drawing.Point(94, 59);
             this.txtQuantityPerUnit.Margin = new System.Windows.Forms.Padding(5);
             this.txtQuantityPerUnit.Name = "txtQuantityPerUnit";
             this.txtQuantityPerUnit.ReadOnly = true;
-            this.txtQuantityPerUnit.Size = new System.Drawing.Size(87, 21);
+            this.txtQuantityPerUnit.Size = new System.Drawing.Size(56, 28);
             this.txtQuantityPerUnit.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 88);
+            this.label4.Location = new System.Drawing.Point(3, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 15);
+            this.label4.Size = new System.Drawing.Size(83, 21);
             this.label4.TabIndex = 1;
             this.label4.Text = "Giá bán:";
             // 
@@ -168,9 +168,9 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 60);
+            this.label3.Location = new System.Drawing.Point(3, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.Size = new System.Drawing.Size(83, 21);
             this.label3.TabIndex = 1;
             this.label3.Text = "Đơn vị:";
             // 
@@ -178,16 +178,16 @@
             // 
             this.txtUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUnitPrice.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(63, 86);
+            this.txtUnitPrice.Location = new System.Drawing.Point(94, 86);
             this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(5);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.ReadOnly = true;
-            this.txtUnitPrice.Size = new System.Drawing.Size(87, 21);
+            this.txtUnitPrice.Size = new System.Drawing.Size(56, 28);
             this.txtUnitPrice.TabIndex = 2;
             // 
             // ProductUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.Controls.Add(this.panel2);

@@ -16,18 +16,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
         {
             InitializeComponent();
         }
-        private void ckbProductName_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbProductName.CheckState == CheckState.Checked)
-            {
-                txtProductName.ReadOnly = false;
-            }
-            else
-            {
-                txtProductName.ReadOnly = true;
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -39,7 +27,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
         private void btnOK_Click(object sender, EventArgs e)
         {
             bool flag = false;
-            if (ckbProductName.Checked && !string.IsNullOrWhiteSpace(txtProductName.Text))
+            if (!string.IsNullOrWhiteSpace(txtProductName.Text))
             {
                 SearchName = txtProductName.Text.Trim();
                 flag = true;
