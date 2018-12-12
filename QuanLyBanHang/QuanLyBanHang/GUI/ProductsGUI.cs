@@ -158,7 +158,7 @@ namespace QuanLyBanHang.GUI
                 MessageBox.Show(serverMessage, "Thiếu dữ kiện.");
                 return;
             }
-            ProductDTO ProductFormat = new ProductDTO
+            ProductDTO productFormat = new ProductDTO
             {
                 ProductName = txtName.Text.Trim(),
                 AddedDate = dtpAddedDate.Value,
@@ -171,7 +171,8 @@ namespace QuanLyBanHang.GUI
             bool completed = false;
             if (_isAddButtonClicked)
             {
-                if (_productsContext.AddProduct(ProductFormat, out serverMessage))
+                productFormat.AddedDate = DateTime.Now;
+                if (_productsContext.AddProduct(productFormat, out serverMessage))
                 {
                     MessageBox.Show("Thêm thành công sản phẩm tên: " + txtName.Text + ", ID: " + txtProductID.Text + ".");
                     completed = true;
@@ -185,8 +186,8 @@ namespace QuanLyBanHang.GUI
             }
             else
             {
-                ProductFormat.ProductID = int.Parse(txtProductID.Text);
-                if (_productsContext.EditProduct(ProductFormat, out serverMessage))
+                productFormat.ProductID = int.Parse(txtProductID.Text);
+                if (_productsContext.EditProduct(productFormat, out serverMessage))
                 {
                     MessageBox.Show("Sửa thành công sản phẩm tên: " + txtName.Text + ", ID: " + txtProductID.Text + ".");
                     completed = true;

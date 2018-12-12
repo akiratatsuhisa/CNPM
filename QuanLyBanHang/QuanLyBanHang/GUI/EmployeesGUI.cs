@@ -137,7 +137,7 @@ namespace QuanLyBanHang.GUI
                 MessageBox.Show(serverMessage, "Thiếu dữ kiện.");
                 return;
             }
-            EmployeeDTO EmployeeFormat = new EmployeeDTO
+            EmployeeDTO employeeFormat = new EmployeeDTO
             {
                 Name = string.IsNullOrWhiteSpace(txtName.Text) ? null : txtName.Text.Trim(),
                 BirthDate = dtpBirthDate.Value,
@@ -150,7 +150,7 @@ namespace QuanLyBanHang.GUI
             bool completed = false;
             if (_isAddButtonClicked)
             {
-                if (_employeesContext.AddEmployee(EmployeeFormat, out serverMessage))
+                if (_employeesContext.AddEmployee(employeeFormat, out serverMessage))
                 {
                     MessageBox.Show("Thêm thành công nhân viên tên: " + txtName.Text + ", ID: " + txtEmloyeeID.Text + ".");
                     completed = true;
@@ -164,8 +164,8 @@ namespace QuanLyBanHang.GUI
             }
             else
             {
-                EmployeeFormat.EmployeeID = int.Parse(txtEmloyeeID.Text);
-                if (_employeesContext.EditEmployee(EmployeeFormat, out serverMessage))
+                employeeFormat.EmployeeID = int.Parse(txtEmloyeeID.Text);
+                if (_employeesContext.EditEmployee(employeeFormat, out serverMessage))
                 {
                     MessageBox.Show("Sửa thành công nhân viên tên: " + txtName.Text + ", ID: " + txtEmloyeeID.Text + ".");
                     completed = true;
