@@ -190,7 +190,7 @@ namespace QuanLyBanHang.GUI
             SetOkButtonEnable(false);
             try
             {
-                EmployeeDTO selectedItem = _employeesContext.GetList().Single(o => o.EmployeeID == _selectedID);
+                var selectedItem = dgvEmployees.Rows.Cast<EmployeeDTO>().Single(o => o.EmployeeID == _selectedID);
                 txtEmloyeeID.Text = selectedItem.EmployeeID.ToString();
                 txtID.Text = selectedItem.ID;
                 cbxJobTitle.SelectedValue = _employeesContext.ListJob.SingleOrDefault(o => o.DisplayName == selectedItem.JobTitle).Title ?? "VC";

@@ -174,7 +174,7 @@ namespace QuanLyBanHang.GUI
             SetOkButtonEnable(false);
             try
             {
-                CustomerDTO selectedItem = _customersContext.GetList().Single(o => o.CustomerID == _selectedID);
+                var selectedItem = dgvCustomers.Rows.Cast<CustomerDTO>().Single(o => o.CustomerID == _selectedID);
                 txtCustomerID.Text = selectedItem.CustomerID.ToString();
                 txtName.Text = selectedItem.Name;
                 if (selectedItem.Gender == "Nam")

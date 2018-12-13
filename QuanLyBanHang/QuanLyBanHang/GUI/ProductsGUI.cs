@@ -212,7 +212,7 @@ namespace QuanLyBanHang.GUI
             SetOkButtonEnable(false);
             try
             {
-                ProductDTO selectedItem = _productsContext.GetList().Single(o => o.ProductID == _selectedID);
+                var selectedItem = dgvProducts.Rows.Cast< ProductDTO>().Single(o => o.ProductID == _selectedID);
                 txtProductID.Text = selectedItem.ProductID.ToString();
                 txtName.Text = selectedItem.ProductName;
                 dtpAddedDate.Value = selectedItem.AddedDate;

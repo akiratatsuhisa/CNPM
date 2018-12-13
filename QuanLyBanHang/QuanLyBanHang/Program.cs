@@ -17,12 +17,10 @@ namespace QuanLyBanHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginGUI loginForm = new LoginGUI(); 
-            Application.Run(loginForm);
-            if (loginForm.CanLogin)
-            
-                Application.Run(new ProductsGUI());
-            
+            //LoginGUI loginForm = new LoginGUI(); 
+            //Application.Run(loginForm);
+            //if (loginForm.Result)      
+            Application.Run(new OrderGUI());           
         }
     }
 }

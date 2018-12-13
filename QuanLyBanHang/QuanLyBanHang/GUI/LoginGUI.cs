@@ -12,7 +12,7 @@ namespace QuanLyBanHang.GUI
 {
     public partial class LoginGUI : Form
     {
-        public bool CanLogin { get; private set;}
+        public bool Result { get; private set;}
         public LoginGUI()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace QuanLyBanHang.GUI
         {
             if(txbUsername.Text == "admin" && txbPassword.Text == "admin")
             {
-                CanLogin = true;
+                Result = true;
                 Close();
             }
             else
