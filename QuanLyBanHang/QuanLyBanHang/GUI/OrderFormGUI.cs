@@ -1,41 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
+using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using QuanLyBanHang.BUS;
 using QuanLyBanHang.GUI.OrderMDI;
 using QuanLyBanHang.DTO;
 
 namespace QuanLyBanHang.GUI
 {
-    public partial class OrderUserControlGUI : UserControl
+    public partial class OrderFormGUI : DevExpress.XtraEditors.XtraForm
     {
-        private static OrderUserControlGUI _instance;
-        public  static OrderUserControlGUI Instance => _instance = _instance ?? new OrderUserControlGUI();
-
         private ProductsBUS _productsContext = new ProductsBUS();
 
         private OrdersBUS _ordersContext = new OrdersBUS();
-        public OrderUserControlGUI()
+        public OrderFormGUI()
         {
             InitializeComponent();
-            LoadProduct();
+            LoadProducts();
         }
 
-        public void LoadProduct()
+        private void LoadProducts()
         {
             flpProduct.Controls.Clear();
             _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
-              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+              Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+        }
+        private void CheckProducts()
+        {
             var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
             foreach (var item in flpProduct.Controls)
             {
-                if (item is ProductUserControl objUS)
+                if (item is ProductUserControlGUI objUS)
                 {
                     var obj = list.SingleOrDefault(o => o.Cells[0].Value.ToString() == objUS.ProductID);
                     if (obj != null)
@@ -49,7 +50,8 @@ namespace QuanLyBanHang.GUI
         private void btnClear_Click(object sender, EventArgs e)
         {
             dgvDetail.Rows.Clear();
-            LoadProduct();
+            LoadProducts();
+            txtTotal.Text = "";
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -57,7 +59,10 @@ namespace QuanLyBanHang.GUI
             if (dgvDetail.SelectedCells.Count > 0)
             {
                 dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
-                LoadProduct();
+                LoadProducts();
+                CheckProducts();
+                txtTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
+                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
             }
         }
 
@@ -65,7 +70,7 @@ namespace QuanLyBanHang.GUI
         {
             if (dgvDetail.Rows.Count > 0)
             {
-                AddOrderDialog dialog = new AddOrderDialog();
+                AddOrderDialogGUI dialog = new AddOrderDialogGUI();
                 dialog.txtTotal.Text = txtTotal.Text;
                 dialog.txtIntoMoney.Text = txtTotal.Text;
                 dialog.ShowDialog();
@@ -74,7 +79,7 @@ namespace QuanLyBanHang.GUI
                     string message;
                     if (_ordersContext.AddOrder(new OrderDTO
                     {
-                        EmployeeID = int.Parse(dialog.txtEmployeeID.Text),
+                        EmployeeID = int.Parse(dialog.cbxEmployeeID.SelectedItem.ToString()),
                         CustomerID = int.Parse(dialog.txtCustomerID.Text),
                         Freight = dialog.Freight,
                         OrderDate = DateTime.Now
@@ -84,10 +89,11 @@ namespace QuanLyBanHang.GUI
                         ProductID = int.Parse(o.Cells[0].Value.ToString()),
                         UnitPrice = decimal.Parse(o.Cells[2].Value.ToString()),
                         Quantity = int.Parse(o.Cells[3].Value.ToString()),
-                    }).ToList()
-                    , out message))
+                    }).ToList(), out message))
                     {
                         MessageBox.Show("Đã mua.");
+                        btnClear_Click(sender, e);
+                        LoadProducts();
                     }
                     else
                     {
@@ -102,17 +108,17 @@ namespace QuanLyBanHang.GUI
             {
                 MessageBox.Show("Vui lòng đặt hàng.");
             }
-            LoadProduct();
         }
 
-        private void btnReloadList_Click(object sender, EventArgs e)
+        private void btnRefreshList_Click(object sender, EventArgs e)
         {
-            LoadProduct();
+            LoadProducts();
+            CheckProducts();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchProductDialog dialog = new SearchProductDialog();
+            SearchProductsDialogGUI dialog = new SearchProductsDialogGUI();
             dialog.ShowDialog();
             if (dialog.Result)
             {
@@ -120,7 +126,8 @@ namespace QuanLyBanHang.GUI
                 bool? result;
                 _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result)
                     .ForEach(o => flpProduct.Controls.
-                  Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock,this)));
+                  Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+                CheckProducts();
                 if (result == null)
                 {
                     MessageBox.Show("Không tìm thấy.");
@@ -130,6 +137,6 @@ namespace QuanLyBanHang.GUI
                     MessageBox.Show("Lỗi kết nối tới máy chủ.");
                 }
             }
-        }  
+        }
     }
 }

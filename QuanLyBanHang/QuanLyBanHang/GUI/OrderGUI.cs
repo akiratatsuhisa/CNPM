@@ -26,16 +26,14 @@ namespace QuanLyBanHang.GUI
 
         private void LoadProducts()
         {
-            flpProduct.Controls.Clear();
-            _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
-              Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+          
         }
         private void CheckProducts()
         {
             var list = dgvDetail.Rows.Cast<DataGridViewRow>().ToList();
             foreach (var item in flpProduct.Controls)
             {
-                if (item is ProductUserControl objUS)
+                if (item is ProductUserControlGUI objUS)
                 {
                     var obj = list.SingleOrDefault(o => o.Cells[0].Value.ToString() == objUS.ProductID);
                     if (obj != null)
@@ -69,7 +67,7 @@ namespace QuanLyBanHang.GUI
         {
             if (dgvDetail.Rows.Count>0)
             {
-                AddOrderDialog dialog = new AddOrderDialog();
+                AddOrderDialogGUI dialog = new AddOrderDialogGUI();
                 dialog.txtTotal.Text = txtTotal.Text;
                 dialog.txtIntoMoney.Text = txtTotal.Text;
                 dialog.ShowDialog();
@@ -118,15 +116,13 @@ namespace QuanLyBanHang.GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchProductsDialog dialog = new SearchProductsDialog();
+            SearchProductsDialogGUI dialog = new SearchProductsDialogGUI();
             dialog.ShowDialog();
             if (dialog.Result)
             {
                 flpProduct.Controls.Clear();
-                bool? result;
-                _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result)
-                    .ForEach(o => flpProduct.Controls.
-                  Add(new ProductUserControl(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+                bool? result =null;
+             
                 CheckProducts();
                 if (result == null)
                 {
