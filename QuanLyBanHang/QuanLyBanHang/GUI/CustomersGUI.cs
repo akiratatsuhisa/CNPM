@@ -19,14 +19,8 @@ namespace QuanLyBanHang.GUI
         public CustomersGUI()
         {
             InitializeComponent();
-            // Lấy danh sách đặt tên cho Columns theo thứ tự bên DTO
-            dgvCustomers.DataSource = _customersContext.GetList();
-            dgvCustomers.Columns[0].HeaderText = "Mã KH";
-            dgvCustomers.Columns[1].HeaderText = "Tên";
-            dgvCustomers.Columns[2].HeaderText = "Giới tính";
-            dgvCustomers.Columns[3].HeaderText = "Điện thoại";
-            dgvCustomers.Columns[4].HeaderText = "Địa chỉ";
-            dgvCustomers.Columns[5].HeaderText = "Email";
+            // Lấy danh sách
+            dgvCustomers.DataSource = _customersContext.GetList();           
         }
 
         private void btnExit_Click(object sender, EventArgs e)

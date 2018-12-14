@@ -19,16 +19,8 @@ namespace QuanLyBanHang.GUI
         public EmployeesGUI()
         {
             InitializeComponent();
-            // Lấy danh sách đặt tên cho Columns theo thứ tự bên DTO
+            // Lấy danh sách
             dgvEmployees.DataSource = _employeesContext.GetList();
-            dgvEmployees.Columns[0].HeaderText = "Mã NV";
-            dgvEmployees.Columns[1].HeaderText = "Tên";
-            dgvEmployees.Columns[2].HeaderText = "Ngày sinh";
-            dgvEmployees.Columns[3].HeaderText = "Giới tính";
-            dgvEmployees.Columns[4].HeaderText = "CMND";
-            dgvEmployees.Columns[5].HeaderText = "Điện thoại";
-            dgvEmployees.Columns[6].HeaderText = "Địa chỉ";
-            dgvEmployees.Columns[7].HeaderText = "Chức vụ";
             cbxJobTitle.DataSource = _employeesContext.ListJob;
             cbxJobTitle.DisplayMember = "DisplayName";
             cbxJobTitle.ValueMember = "Title"; 

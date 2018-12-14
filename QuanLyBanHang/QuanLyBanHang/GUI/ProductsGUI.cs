@@ -20,16 +20,8 @@ namespace QuanLyBanHang.GUI
         public ProductsGUI()
         {
             InitializeComponent();
-            // Lấy danh sách đặt tên cho Columns theo thứ tự bên DTO
+            // Lấy danh sách
             dgvProducts.DataSource = _productsContext.GetList();
-            dgvProducts.Columns[0].HeaderText = "Mã SP";
-            dgvProducts.Columns[1].HeaderText = "Tên";
-            dgvProducts.Columns[2].HeaderText = "Ngày nhập";
-            dgvProducts.Columns[3].HeaderText = "Đơn vị đo";
-            dgvProducts.Columns[4].HeaderText = "Giá bán";
-            dgvProducts.Columns[5].HeaderText = "Trong kho";
-            dgvProducts.Columns[6].HeaderText = "Trong đơn";
-            dgvProducts.Columns[7].HeaderText = "Tình trạng";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
