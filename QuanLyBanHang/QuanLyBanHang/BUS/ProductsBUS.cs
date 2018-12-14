@@ -14,12 +14,11 @@ namespace QuanLyBanHang.BUS
         public List<ProductDTO> GetList() => _productsContext.GetList().
             Select(obj => ConvertToProductDTO(obj)).ToList();
         public List<ProductDTO> GetProductCanBuy() => _productsContext.GetList().
-            Where(obj => !obj.Discontinued && obj.UnitsInStock > 0).
-            Select(obj => ConvertToProductDTO(obj)).ToList();
+            Where(obj => CheckProductCanBuy(obj)).Select(obj => ConvertToProductDTO(obj)).ToList();
         public List<ProductDTO> GetSearchListProduct(string searchName, decimal? minUnitPrice, decimal? maxUnitPrice, out bool? result) 
             => _productsContext.GetSearchListProduct(ConvertToSearchQuery(searchName,minUnitPrice,maxUnitPrice), out result).
-            Where(obj => !obj.Discontinued && obj.UnitsInStock > 0).
-            Select(obj => ConvertToProductDTO(obj)).ToList();
+            Where(obj => CheckProductCanBuy(obj)).Select(obj => ConvertToProductDTO(obj)).ToList();
+        private bool CheckProductCanBuy(Product obj) => !obj.Discontinued && obj.UnitsInStock > 0 && obj.AddedDate > DateTime.Now.AddMonths(-3);
         private string ConvertToSearchQuery(string searchName, decimal? minUnitPrice, decimal? maxUnitPrice)
         {
             string query = "";

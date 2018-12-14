@@ -90,6 +90,7 @@
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(123, 20);
             this.txtCustomerID.TabIndex = 1;
+            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
             // 
             // txtCustomerName
             // 

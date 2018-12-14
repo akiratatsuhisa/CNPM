@@ -10,18 +10,23 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyBanHang.BUS;
 using System.Text.RegularExpressions;
+using QuanLyBanHang.DTO;
 
 namespace QuanLyBanHang.GUI.OrderMDI
 {
     public partial class AddOrderDialogGUI : DevExpress.XtraEditors.XtraForm
     {
-        public bool ReturnValue = false;
-        EmployeesBUS _employeesContext = new EmployeesBUS();
+        public bool ReturnValue { get; set; } = false;
+        private bool _customerIsValid;
+        private EmployeesBUS _employeesContext = new EmployeesBUS();
+        private CustomersBUS _customersContext = new CustomersBUS();
+        private List<CustomerDTO> listCustomer;
         public decimal? Freight { get; private set; }
         public AddOrderDialogGUI()
         {
             InitializeComponent();
             cbxEmployeeID.DataSource = _employeesContext.GetSalesEmployees();
+            listCustomer = _customersContext.GetList();
         }
         private void txtFreight_TextChanged(object sender, EventArgs e)
         {
@@ -49,6 +54,10 @@ namespace QuanLyBanHang.GUI.OrderMDI
             else if (!Regex.IsMatch(txtCustomerID.Text.Trim(), @"^\d+$"))
             {
                 message += "Mã  khách hàng: " + txtCustomerID.Text + " không hợp lệ.\n";
+            }
+            else if (!_customerIsValid)
+            {
+                message += "Khách hàng không tồn tại, Xin hãy nhập thông tin khách hàng trước khi đặt hàng.\n";
             }
             if (cbxEmployeeID.SelectedItem == null)
             {
@@ -84,7 +93,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 MessageBox.Show(message);
             }
         }
-
         private void AddOrderDialog_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -96,6 +104,32 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 btnOK_Click(sender, e);
             }
         }
-    
-}
+
+        private void txtCustomerID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCustomerID.Text))
+            {
+                txtCustomerName.Text = "";
+                _customerIsValid = false;
+            }
+            else
+            {
+                int id;
+                if (int.TryParse(txtCustomerID.Text, out id))
+                {
+                    var customer = listCustomer.SingleOrDefault(obj => obj.CustomerID == id);
+                    if (customer != null)
+                    {
+                        txtCustomerName.Text = customer.Name;
+                        _customerIsValid = true;
+                    }
+                    else
+                    {
+                        txtCustomerName.Text = "";
+                        _customerIsValid = false;
+                    }
+                }
+            }
+        }
+    }
 }
