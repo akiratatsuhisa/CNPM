@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnOrder = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProducts = new DevExpress.XtraBars.BarButtonItem();
@@ -42,8 +43,8 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -74,8 +75,7 @@
             this.barBtnOrder.Id = 1;
             this.barBtnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_32x32;
             this.barBtnOrder.Name = "barBtnOrder";
-            this.barBtnOrder.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnOrder.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barBtnOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnOrder_ItemClick);
             // 
             // barBtnProducts
@@ -84,8 +84,7 @@
             this.barBtnProducts.Id = 2;
             this.barBtnProducts.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boproductgroup_32x32;
             this.barBtnProducts.Name = "barBtnProducts";
-            this.barBtnProducts.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnProducts.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // barBtnEmployees
             // 
@@ -93,8 +92,7 @@
             this.barBtnEmployees.Id = 3;
             this.barBtnEmployees.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boemployee_32x32;
             this.barBtnEmployees.Name = "barBtnEmployees";
-            this.barBtnEmployees.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnEmployees.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // barBtnCustomers
             // 
@@ -111,8 +109,7 @@
             this.barBtnListCustomer.Id = 5;
             this.barBtnListCustomer.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.customer_32x32;
             this.barBtnListCustomer.Name = "barBtnListCustomer";
-            this.barBtnListCustomer.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnListCustomer.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barBtnListCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnListCustomer_ItemClick);
             // 
             // ribbonPage1

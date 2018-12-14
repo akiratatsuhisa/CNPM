@@ -33,25 +33,25 @@
             this.flpProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnOrder = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshList = new DevExpress.XtraEditors.SimpleButton();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -60,14 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -120,11 +120,11 @@
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.Controls.Add(this.btnSearch);
+            this.dataLayoutControl1.Controls.Add(this.btnRefreshList);
+            this.dataLayoutControl1.Controls.Add(this.btnOrder);
             this.dataLayoutControl1.Controls.Add(this.btnRemove);
             this.dataLayoutControl1.Controls.Add(this.btnClear);
-            this.dataLayoutControl1.Controls.Add(this.btnOrder);
-            this.dataLayoutControl1.Controls.Add(this.btnRefreshList);
-            this.dataLayoutControl1.Controls.Add(this.btnSearch);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 22);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
@@ -132,6 +132,61 @@
             this.dataLayoutControl1.Size = new System.Drawing.Size(680, 47);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.removesheetrows_16x16;
+            this.btnRemove.Location = new System.Drawing.Point(408, 12);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(128, 22);
+            this.btnRemove.StyleController = this.dataLayoutControl1;
+            this.btnRemove.TabIndex = 1;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.trash_16x16;
+            this.btnClear.Location = new System.Drawing.Point(540, 12);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(128, 22);
+            this.btnClear.StyleController = this.dataLayoutControl1;
+            this.btnClear.TabIndex = 1;
+            this.btnClear.Text = "Hủy";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
+            this.btnOrder.Location = new System.Drawing.Point(276, 12);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(128, 22);
+            this.btnOrder.StyleController = this.dataLayoutControl1;
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "Đặt hàng";
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // btnRefreshList
+            // 
+            this.btnRefreshList.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.refresh2_16x16;
+            this.btnRefreshList.Location = new System.Drawing.Point(144, 12);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(128, 22);
+            this.btnRefreshList.StyleController = this.dataLayoutControl1;
+            this.btnRefreshList.TabIndex = 1;
+            this.btnRefreshList.Text = "Refresh danh sách";
+            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.lookup_reference_16x16;
+            this.btnSearch.Location = new System.Drawing.Point(12, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(128, 22);
+            this.btnSearch.StyleController = this.dataLayoutControl1;
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Root
             // 
@@ -146,118 +201,6 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(680, 47);
             this.Root.TextVisible = false;
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Controls.Add(this.label1);
-            this.groupControl3.Controls.Add(this.txtTotal);
-            this.groupControl3.Controls.Add(this.dgvDetail);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(417, 3);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(270, 341);
-            this.groupControl3.TabIndex = 0;
-            this.groupControl3.Text = "Thông tin hóa đơn";
-            // 
-            // dgvDetail
-            // 
-            this.dgvDetail.AllowUserToAddRows = false;
-            this.dgvDetail.AllowUserToDeleteRows = false;
-            this.dgvDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetail.BackgroundColor = System.Drawing.Color.Honeydew;
-            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgvDetail.Location = new System.Drawing.Point(2, 22);
-            this.dgvDetail.Name = "dgvDetail";
-            this.dgvDetail.ReadOnly = true;
-            this.dgvDetail.Size = new System.Drawing.Size(266, 288);
-            this.dgvDetail.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã SP";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên SP";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Số lượng";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.removesheetrows_16x16;
-            this.btnRemove.Location = new System.Drawing.Point(408, 12);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(128, 22);
-            this.btnRemove.StyleController = this.dataLayoutControl1;
-            this.btnRemove.TabIndex = 6;
-            this.btnRemove.Text = "Xóa";
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.trash_16x16;
-            this.btnClear.Location = new System.Drawing.Point(540, 12);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(128, 22);
-            this.btnClear.StyleController = this.dataLayoutControl1;
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Hủy";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
-            this.btnOrder.Location = new System.Drawing.Point(276, 12);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(128, 22);
-            this.btnOrder.StyleController = this.dataLayoutControl1;
-            this.btnOrder.TabIndex = 5;
-            this.btnOrder.Text = "Đặt hàng";
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.refresh2_16x16;
-            this.btnRefreshList.Location = new System.Drawing.Point(144, 12);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(128, 22);
-            this.btnRefreshList.StyleController = this.dataLayoutControl1;
-            this.btnRefreshList.TabIndex = 5;
-            this.btnRefreshList.Text = "Refresh danh sách";
-            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.lookup_reference_16x16;
-            this.btnSearch.Location = new System.Drawing.Point(12, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(128, 22);
-            this.btnSearch.StyleController = this.dataLayoutControl1;
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // layoutControlItem1
             // 
@@ -304,15 +247,17 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // txtTotal
+            // groupControl3
             // 
-            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(67, 316);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(198, 21);
-            this.txtTotal.TabIndex = 1;
+            this.groupControl3.Controls.Add(this.label1);
+            this.groupControl3.Controls.Add(this.txtTotal);
+            this.groupControl3.Controls.Add(this.dgvDetail);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl3.Location = new System.Drawing.Point(417, 3);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(270, 341);
+            this.groupControl3.TabIndex = 0;
+            this.groupControl3.Text = "Thông tin hóa đơn";
             // 
             // label1
             // 
@@ -323,6 +268,61 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tổng tiền:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.Location = new System.Drawing.Point(67, 316);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(198, 21);
+            this.txtTotal.TabIndex = 1;
+            // 
+            // dgvDetail
+            // 
+            this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AllowUserToDeleteRows = false;
+            this.dgvDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetail.BackgroundColor = System.Drawing.Color.Honeydew;
+            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgvDetail.Location = new System.Drawing.Point(2, 22);
+            this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
+            this.dgvDetail.Size = new System.Drawing.Size(266, 288);
+            this.dgvDetail.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã SP";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên SP";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Số lượng";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // OrderFormGUI
             // 
@@ -340,15 +340,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
 
         }

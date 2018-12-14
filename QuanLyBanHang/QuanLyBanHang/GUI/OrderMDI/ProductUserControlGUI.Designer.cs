@@ -71,12 +71,12 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.btnBuy);
-            this.dataLayoutControl1.Controls.Add(this.nudQuantity);
-            this.dataLayoutControl1.Controls.Add(this.txtUnitPrice);
-            this.dataLayoutControl1.Controls.Add(this.txtQuantityPerUnit);
-            this.dataLayoutControl1.Controls.Add(this.txtName);
             this.dataLayoutControl1.Controls.Add(this.txtProductID);
+            this.dataLayoutControl1.Controls.Add(this.txtName);
+            this.dataLayoutControl1.Controls.Add(this.txtQuantityPerUnit);
+            this.dataLayoutControl1.Controls.Add(this.txtUnitPrice);
+            this.dataLayoutControl1.Controls.Add(this.nudQuantity);
+            this.dataLayoutControl1.Controls.Add(this.btnBuy);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 22);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
@@ -93,7 +93,7 @@
             this.btnBuy.Name = "btnBuy";
             this.btnBuy.Size = new System.Drawing.Size(182, 22);
             this.btnBuy.StyleController = this.dataLayoutControl1;
-            this.btnBuy.TabIndex = 9;
+            this.btnBuy.TabIndex = 1;
             this.btnBuy.Text = "Mua";
             this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
             // 
@@ -102,7 +102,7 @@
             this.nudQuantity.Location = new System.Drawing.Point(65, 108);
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(129, 21);
-            this.nudQuantity.TabIndex = 8;
+            this.nudQuantity.TabIndex = 1;
             this.nudQuantity.Value = new decimal(new int[] {
             1,
             0,
@@ -114,28 +114,28 @@
             this.txtUnitPrice.Location = new System.Drawing.Point(65, 84);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(129, 20);
-            this.txtUnitPrice.TabIndex = 7;
+            this.txtUnitPrice.TabIndex = 1;
             // 
             // txtQuantityPerUnit
             // 
             this.txtQuantityPerUnit.Location = new System.Drawing.Point(65, 60);
             this.txtQuantityPerUnit.Name = "txtQuantityPerUnit";
             this.txtQuantityPerUnit.Size = new System.Drawing.Size(129, 20);
-            this.txtQuantityPerUnit.TabIndex = 6;
+            this.txtQuantityPerUnit.TabIndex = 1;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(65, 36);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(129, 20);
-            this.txtName.TabIndex = 5;
+            this.txtName.TabIndex = 1;
             // 
             // txtProductID
             // 
             this.txtProductID.Location = new System.Drawing.Point(65, 12);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(129, 20);
-            this.txtProductID.TabIndex = 4;
+            this.txtProductID.TabIndex = 1;
             // 
             // Root
             // 
