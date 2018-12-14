@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace QuanLyBanHang.GUI.OrderMDI
 {
-    public partial class SearchProductsDialog : Form
+    public partial class SearchProductsDialogGUI : DevExpress.XtraEditors.XtraForm
     {
-        public SearchProductsDialog()
+        public SearchProductsDialogGUI()
         {
             InitializeComponent();
         }

@@ -33,15 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Images.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -125,11 +116,17 @@
     <Compile Include="GUI\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\MainForm.cs">
+    <Compile Include="GUI\OrderGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="GUI\MainFormGUI.Designer.cs">
+      <DependentUpon>MainFormGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.Designer.cs">
+      <DependentUpon>OrderFormGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\OrderGUI.cs">
       <SubType>Form</SubType>
@@ -137,29 +134,23 @@
     <Compile Include="GUI\OrderGUI.Designer.cs">
       <DependentUpon>OrderGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\AddOrderDialog.cs">
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\AddOrderDialog.Designer.cs">
-      <DependentUpon>AddOrderDialog.cs</DependentUpon>
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.Designer.cs">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUSDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUSDialog.Designer.cs">
-      <DependentUpon>ProductUSDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUserControl.cs">
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUserControl.Designer.cs">
-      <DependentUpon>ProductUserControl.cs</DependentUpon>
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.Designer.cs">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\SearchProductsDialog.cs">
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\SearchProductsDialog.Designer.cs">
-      <DependentUpon>SearchProductsDialog.cs</DependentUpon>
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.Designer.cs">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductsGUI.cs">
       <SubType>Form</SubType>
@@ -178,23 +169,17 @@
     <EmbeddedResource Include="GUI\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\OrderGUI.resx">
       <DependentUpon>OrderGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\AddOrderDialog.resx">
-      <DependentUpon>AddOrderDialog.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\OrderMDI\AddOrderDialogGUI.resx">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\ProductUSDialog.resx">
-      <DependentUpon>ProductUSDialog.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\OrderMDI\ProductUserControlGUI.resx">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\ProductUserControl.resx">
-      <DependentUpon>ProductUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialog.resx">
-      <DependentUpon>SearchProductsDialog.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialogGUI.resx">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductsGUI.resx">
       <DependentUpon>ProductsGUI.cs</DependentUpon>
@@ -245,6 +230,19 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\lookup&amp;reference_16x16.png" />
+    <None Include="Resources\refresh2_16x16.png" />
+    <None Include="Resources\removesheetrows_16x16.png" />
+    <None Include="Resources\trash_16x16.png" />
+    <None Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\apply_32x32.png" />
+    <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\apply_16x16.png" />
+    <None Include="Resources\boorder_16x16.png" />
+    <None Include="Resources\customer_32x32.png" />
+    <None Include="Resources\boemployee_32x32.png" />
+    <None Include="Resources\boproductgroup_32x32.png" />
+    <None Include="Resources\boorder_32x32.png" />
     <None Include="Resources\baseline_vpn_key_white_18dp.png" />
     <None Include="Resources\baseline_person_white_18dp.png" />
   </ItemGroup>

@@ -1,23 +1,24 @@
-﻿using QuanLyBanHang.BUS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using QuanLyBanHang.BUS;
+using System.Text.RegularExpressions;
 
 namespace QuanLyBanHang.GUI.OrderMDI
 {
-    public partial class AddOrderDialog : Form
+    public partial class AddOrderDialogGUI : DevExpress.XtraEditors.XtraForm
     {
         public bool ReturnValue = false;
         EmployeesBUS _employeesContext = new EmployeesBUS();
         public decimal? Freight { get; private set; }
-        public AddOrderDialog()
+        public AddOrderDialogGUI()
         {
             InitializeComponent();
             cbxEmployeeID.DataSource = _employeesContext.GetSalesEmployees();
@@ -49,7 +50,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
             {
                 message += "Mã  khách hàng: " + txtCustomerID.Text + " không hợp lệ.\n";
             }
-            if (cbxEmployeeID.SelectedItem ==null)
+            if (cbxEmployeeID.SelectedItem == null)
             {
                 message += "Nhập mã nhân viên.\n";
             }
@@ -95,5 +96,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 btnOK_Click(sender, e);
             }
         }
-    }
+    
+}
 }

@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace QuanLyBanHang.GUI.OrderMDI
 {
-    public partial class ProductUserControl : UserControl
+    public partial class ProductUserControlGUI : DevExpress.XtraEditors.XtraUserControl
     {
-        public ProductUserControl()
+        public ProductUserControlGUI()
         {
             InitializeComponent();
         }
-        private OrderGUI _owner;
-        public ProductUserControl(int id, string name, string quantityPerUnit, decimal unitPrice,int unitInStock, OrderGUI owner) 
+        private OrderFormGUI _owner;
+        private int _unitInStock;
+
+        public ProductUserControlGUI(int id, string name, string quantityPerUnit, decimal unitPrice, int unitInStock, OrderFormGUI owner)
         {
             InitializeComponent();
             txtProductID.Text = id.ToString();
@@ -28,15 +31,20 @@ namespace QuanLyBanHang.GUI.OrderMDI
             _owner = owner;
         }
         internal string ProductID => txtProductID.Text;
-        internal int UnitInStock { get; set; }
+        internal int UnitInStock
+        {
+            get => _unitInStock; set
+            {
+                _unitInStock = value;
+                nudQuantity.Maximum = value;
+            }
+        }
 
         private void btnBuy_Click(object sender, EventArgs e)
         {
-            ProductUSDialog dialog = new ProductUSDialog(UnitInStock);
-            dialog.ShowDialog();
-            if (dialog.Bought)
+            if (nudQuantity.Value > 0)
             {
-                var quantity = (int)dialog.nudQuantity.Value;
+                var quantity = (int)nudQuantity.Value;
                 var item = _owner.dgvDetail.Rows.Cast<DataGridViewRow>().
                     SingleOrDefault(o => o.Cells[0].Value.ToString() == txtProductID.Text);
                 if (item == null)
@@ -57,7 +65,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
                     item.Cells[3].Value = quantity.ToString();
                 }
                 _owner.txtTotal.Text = _owner.dgvDetail.Rows.Cast<DataGridViewRow>().
-                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString())*decimal.Parse(o.Cells[3].Value.ToString())).ToString();
+                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
             }
         }
     }
