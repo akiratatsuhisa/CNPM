@@ -125,11 +125,35 @@
     <Compile Include="GUI\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderGUI.cs">
+    <Compile Include="GUI\MainFormGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderGUI.Designer.cs">
-      <DependentUpon>OrderGUI.cs</DependentUpon>
+    <Compile Include="GUI\MainFormGUI.Designer.cs">
+      <DependentUpon>MainFormGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.Designer.cs">
+      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.Designer.cs">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.Designer.cs">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.Designer.cs">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductsGUI.cs">
       <SubType>Form</SubType>
@@ -148,8 +172,20 @@
     <EmbeddedResource Include="GUI\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderGUI.resx">
-      <DependentUpon>OrderGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\MainFormGUI.resx">
+      <DependentUpon>MainFormGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderFormGUI.resx">
+      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\AddOrderDialogGUI.resx">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\ProductUserControlGUI.resx">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialogGUI.resx">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductsGUI.resx">
       <DependentUpon>ProductsGUI.cs</DependentUpon>
@@ -200,6 +236,19 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\apply_16x16.png" />
+    <Content Include="Resources\apply_32x32.png" />
+    <Content Include="Resources\boemployee_32x32.png" />
+    <Content Include="Resources\boorder_16x16.png" />
+    <Content Include="Resources\boorder_32x32.png" />
+    <Content Include="Resources\boproductgroup_32x32.png" />
+    <Content Include="Resources\cancel_16x16.png" />
+    <Content Include="Resources\cancel_32x32.png" />
+    <Content Include="Resources\customer_32x32.png" />
+    <Content Include="Resources\lookup&amp;reference_16x16.png" />
+    <Content Include="Resources\refresh2_16x16.png" />
+    <Content Include="Resources\removesheetrows_16x16.png" />
+    <Content Include="Resources\trash_16x16.png" />
     <None Include="Resources\baseline_vpn_key_white_18dp.png" />
     <None Include="Resources\baseline_person_white_18dp.png" />
   </ItemGroup>
