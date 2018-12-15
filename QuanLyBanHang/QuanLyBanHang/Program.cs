@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyBanHang.GUI;
 
 namespace QuanLyBanHang
 {
@@ -16,7 +17,10 @@ namespace QuanLyBanHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.EmployeesGUI());
+            //LoginGUI loginForm = new LoginGUI(); 
+            //Application.Run(loginForm);
+            //if (loginForm.Result)      
+            Application.Run(new MainFormGUI());
         }
     }
 }

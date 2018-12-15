@@ -12,21 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,11 +32,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -76,11 +66,12 @@
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
     <Compile Include="BUS\EmployeesBUS.cs" />
+    <Compile Include="BUS\OrdersBUS.cs" />
+    <Compile Include="BUS\ProductsBUS.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\CustomersDAO.cs" />
-    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -106,16 +97,21 @@
     <Compile Include="DAO\OrderDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\OrdersDAO.cs" />
     <Compile Include="DAO\Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ProductsDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
-    <Compile Include="DTO\EmployeesDTO.cs" />
-    <Compile Include="GUI\CustomersGUI.cs">
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\OrderDetailDTO.cs" />
+    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="GUI\CustomersFormGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CustomersGUI.Designer.cs">
-      <DependentUpon>CustomersGUI.cs</DependentUpon>
+    <Compile Include="GUI\CustomersFormGUI.Designer.cs">
+      <DependentUpon>CustomersFormGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\EmployeesGUI.cs">
       <SubType>Form</SubType>
@@ -123,14 +119,78 @@
     <Compile Include="GUI\EmployeesGUI.Designer.cs">
       <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\LoginGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginGUI.Designer.cs">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainFormGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainFormGUI.Designer.cs">
+      <DependentUpon>MainFormGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderFormGUI.Designer.cs">
+      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.Designer.cs">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.Designer.cs">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.Designer.cs">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ProductsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ProductsGUI.Designer.cs">
+      <DependentUpon>ProductsGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\CustomersGUI.resx">
-      <DependentUpon>CustomersGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\CustomersFormGUI.resx">
+      <DependentUpon>CustomersFormGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\EmployeesGUI.resx">
       <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginGUI.resx">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainFormGUI.resx">
+      <DependentUpon>MainFormGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderFormGUI.resx">
+      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\AddOrderDialogGUI.resx">
+      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\ProductUserControlGUI.resx">
+      <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialogGUI.resx">
+      <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProductsGUI.resx">
+      <DependentUpon>ProductsGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -139,6 +199,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="DAO\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -148,7 +209,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\QuanLyBanHang.DAO.DataProvider.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,31 +223,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DAO\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAO\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Content Include="Resources\apply_16x16.png" />
+    <Content Include="Resources\apply_32x32.png" />
+    <Content Include="Resources\boemployee_32x32.png" />
+    <Content Include="Resources\boorder_16x16.png" />
+    <Content Include="Resources\boorder_32x32.png" />
+    <Content Include="Resources\boproductgroup_32x32.png" />
+    <Content Include="Resources\cancel_16x16.png" />
+    <Content Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\close_16x16.png" />
+    <Content Include="Resources\customer_32x32.png" />
+    <None Include="Resources\insert_16x16.png" />
+    <None Include="Resources\deletelist2_16x16.png" />
+    <None Include="Resources\editname_16x16.png" />
+    <Content Include="Resources\lookup&amp;reference_16x16.png" />
+    <Content Include="Resources\refresh2_16x16.png" />
+    <Content Include="Resources\removesheetrows_16x16.png" />
+    <Content Include="Resources\trash_16x16.png" />
+    <None Include="Resources\baseline_vpn_key_white_18dp.png" />
+    <None Include="Resources\baseline_person_white_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
