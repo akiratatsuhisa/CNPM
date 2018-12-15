@@ -20,7 +20,7 @@ namespace QuanLyBanHang
             //LoginGUI loginForm = new LoginGUI(); 
             //Application.Run(loginForm);
             //if (loginForm.Result)      
-            Application.Run(new MainFormGUI());
+            Application.Run(new EmployeesGUI());
         }
     }
 }

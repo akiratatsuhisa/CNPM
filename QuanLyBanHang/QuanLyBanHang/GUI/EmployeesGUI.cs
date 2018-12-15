@@ -21,9 +21,10 @@ namespace QuanLyBanHang.GUI
             InitializeComponent();
             // Lấy danh sách
             dgvEmployees.DataSource = _employeesContext.GetList();
-            cbxJobTitle.DataSource = _employeesContext.ListJob;
-            cbxJobTitle.DisplayMember = "DisplayName";
-            cbxJobTitle.ValueMember = "Title"; 
+            // cbxJobTitle.DataSource = _employeesContext.ListJob;
+            // cbxJobTitle.DisplayMember = "DisplayName";
+            // cbxJobTitle.ValueMember = "Title"; 
+            deBirthday.Text = DateTime.Today.ToShortDateString();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -39,13 +40,13 @@ namespace QuanLyBanHang.GUI
             btnCancel.Enabled = value;
             btnExit.Enabled = !value;
             // Mở khóa nhập liệu
-            txtID.ReadOnly = !value;
-            txtName.ReadOnly = !value;
-            txtPhoneNumber.ReadOnly = !value;
-            txtAddress.ReadOnly = !value;
-            txtPhoneNumber.ReadOnly = !value;
-            cbxJobTitle.Enabled = value;
-            dtpBirthDate.Enabled = value;
+            txbID.ReadOnly = !value;
+            txbName.ReadOnly = !value;
+            txbPhoneNumber.ReadOnly = !value;
+            txbAddress.ReadOnly = !value;
+            txbPhoneNumber.ReadOnly = !value;
+            cbxeJobTitle.Enabled = value;
+            deBirthday.Enabled = value;
             rdbFemale.Enabled = value;
             rdbMale.Enabled = value;
         }
@@ -54,31 +55,31 @@ namespace QuanLyBanHang.GUI
         {
             SetOkButtonEnable(true);
             //Xóa sạch textBox để nhập
-            txtEmloyeeID.Text = "";
-            txtID.Text = "";
-            cbxJobTitle.SelectedItem = null;
-            txtName.Text = "";
-            dtpBirthDate.Value = DateTime.Now.AddYears(-18);
+            txbEmployeeID.Text = "";
+            txbID.Text = "";
+            cbxeJobTitle.SelectedItem = null;
+            txbName.Text = "";
+           // deBirthday.value = DateTime.Now.AddYears(-18);
             rdbMale.Checked = true;
-            txtAddress.Text = "";
-            txtPhoneNumber.Text = "";
+            txbAddress.Text = "";
+            txbPhoneNumber.Text = "";
             _isAddButtonClicked = true;
-            grbButton.Text = "Chức Năng - Thêm";
+            lcgButton.Text = "Chức Năng - Thêm";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetOkButtonEnable(true);
             _isAddButtonClicked = false;
-            grbButton.Text = "Chức Năng - Sửa";
+            lcgButton.Text = "Chức Năng - Sửa";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            grbButton.Text = "Chức Năng - Xóa";
-            if (!string.IsNullOrWhiteSpace(txtEmloyeeID.Text))
+            lcgButton.Text = "Chức Năng - Xóa";
+            if (!string.IsNullOrWhiteSpace(txbPhoneNumber.Text))
             {
-                string message = "Bạn có thực sự muốn xóa nhân viên tên: " + txtName.Text + ", ID: " + txtEmloyeeID.Text + " không?";
+                string message = "Bạn có thực sự muốn xóa nhân viên tên: " + txbName.Text + ", ID: " + txbEmployeeID.Text + " không?";
                 if (MessageBox.Show(message, "Xóa nhân viên.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string serverMessage;
@@ -99,25 +100,25 @@ namespace QuanLyBanHang.GUI
             {
                 MessageBox.Show("Chọn nhân viên cần xóa");
             }
-            grbButton.Text = "Chức Năng";
+            lcgButton.Text = "Chức Năng";
         }
         private bool Check(out string message)
         {
             message = "";
-            if (string.IsNullOrWhiteSpace(txtID.Text))
+            if (string.IsNullOrWhiteSpace(txbID.Text))
                 message += "Nhập số CMND.\n";
-            else if (!Regex.IsMatch(txtID.Text, @"^\d{9}|d{11,12}$"))
-                message += "Số CMND: " + txtID.Text + " không hợp lệ.\n";
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            else if (!Regex.IsMatch(txbID.Text, @"^\d{9}|d{11,12}$"))
+                message += "Số CMND: " + txbID.Text + " không hợp lệ.\n";
+            if (string.IsNullOrWhiteSpace(txbName.Text))
                 message += "Nhập tên nhân viên.\n";
-            if (dtpBirthDate.Value > DateTime.Now.AddYears(-18))
-                message += "Tuổi không hợp lệ, nhân viên phải lớn hơn 18 tuổi.";
-            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+          //  if (dtpBirthDate.Value > DateTime.Now.AddYears(-18))
+          //      message += "Tuổi không hợp lệ, nhân viên phải lớn hơn 18 tuổi.";
+            if (string.IsNullOrWhiteSpace(txbAddress.Text))
                 message += "Nhập địa chỉ.\n";
-            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            if (string.IsNullOrWhiteSpace(txbPhoneNumber.Text))
                 message += "Nhập số điện thoại.\n";
-            else if (!Regex.IsMatch(txtPhoneNumber.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
-                message += "Số điện thoại: " + txtPhoneNumber.Text + " không hợp lệ.\n";
+            else if (!Regex.IsMatch(txbPhoneNumber.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
+                message += "Số điện thoại: " + txbPhoneNumber.Text + " không hợp lệ.\n";
             return message == "" ? true : false;
         }
         private bool _isAddButtonClicked = false;
@@ -131,20 +132,20 @@ namespace QuanLyBanHang.GUI
             }
             EmployeeDTO employeeFormat = new EmployeeDTO
             {
-                Name = string.IsNullOrWhiteSpace(txtName.Text) ? null : txtName.Text.Trim(),
-                BirthDate = dtpBirthDate.Value,
+                Name = string.IsNullOrWhiteSpace(txbName.Text) ? null : txbName.Text.Trim(),
+          //      BirthDate = dtpBirthDate.Value,
                 Gender = rdbMale.Checked ? "Nam" : "Nữ",
-                ID = string.IsNullOrWhiteSpace(txtID.Text) ? null : txtID.Text,
-                Address = string.IsNullOrWhiteSpace(txtAddress.Text) ? null : txtAddress.Text.Trim(),
-                PhoneNumber = string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ? null : txtPhoneNumber.Text,
-                JobTitle = _employeesContext.ListJob.SingleOrDefault(o => o.Title == cbxJobTitle.SelectedValue.ToString())?.DisplayName ?? "Vô công"
+                ID = string.IsNullOrWhiteSpace(txbID.Text) ? null : txbID.Text,
+                Address = string.IsNullOrWhiteSpace(txbAddress.Text) ? null : txbAddress.Text.Trim(),
+                PhoneNumber = string.IsNullOrWhiteSpace(txbPhoneNumber.Text) ? null : txbPhoneNumber.Text,
+          //      JobTitle = _employeesContext.ListJob.SingleOrDefault(o => o.Title == cbxJobTitle.SelectedValue.ToString())?.DisplayName ?? "Vô công"
             };
             bool completed = false;
             if (_isAddButtonClicked)
             {
                 if (_employeesContext.AddEmployee(employeeFormat, out serverMessage))
                 {
-                    MessageBox.Show("Thêm thành công nhân viên tên: " + txtName.Text + ", ID: " + txtEmloyeeID.Text + ".");
+                    MessageBox.Show("Thêm thành công nhân viên tên: " + txbName.Text + ", ID: " + txbEmployeeID.Text + ".");
                     completed = true;
                 }
                 else
@@ -156,10 +157,10 @@ namespace QuanLyBanHang.GUI
             }
             else
             {
-                employeeFormat.EmployeeID = int.Parse(txtEmloyeeID.Text);
+                employeeFormat.EmployeeID = int.Parse(txbEmployeeID.Text);
                 if (_employeesContext.EditEmployee(employeeFormat, out serverMessage))
                 {
-                    MessageBox.Show("Sửa thành công nhân viên tên: " + txtName.Text + ", ID: " + txtEmloyeeID.Text + ".");
+                    MessageBox.Show("Sửa thành công nhân viên tên: " + txbName.Text + ", ID: " + txbEmployeeID.Text + ".");
                     completed = true;
                 }
                 else
@@ -172,7 +173,7 @@ namespace QuanLyBanHang.GUI
             if (completed)
             {
                 SetOkButtonEnable(false);
-                grbButton.Text = "Chức Năng";
+                lcgButton.Text = "Chức Năng";
                 dgvEmployees.DataSource = _employeesContext.GetList();
             }
         }
@@ -183,23 +184,23 @@ namespace QuanLyBanHang.GUI
             try
             {
                 var selectedItem = dgvEmployees.Rows.Cast<EmployeeDTO>().Single(o => o.EmployeeID == _selectedID);
-                txtEmloyeeID.Text = selectedItem.EmployeeID.ToString();
-                txtID.Text = selectedItem.ID;
-                cbxJobTitle.SelectedValue = _employeesContext.ListJob.SingleOrDefault(o => o.DisplayName == selectedItem.JobTitle).Title ?? "VC";
-                txtName.Text = selectedItem.Name;
-                dtpBirthDate.Value = selectedItem.BirthDate;
+                txbEmployeeID.Text = selectedItem.EmployeeID.ToString();
+                txbID.Text = selectedItem.ID;
+            //    cbxJobTitle.SelectedValue = _employeesContext.ListJob.SingleOrDefault(o => o.DisplayName == selectedItem.JobTitle).Title ?? "VC";
+                txbName.Text = selectedItem.Name;
+            //    dtpBirthDate.Value = selectedItem.BirthDate;
                 if (selectedItem.Gender == "Nam")
                     rdbMale.Checked = true;
                 else
                     rdbFemale.Checked = true;
-                txtAddress.Text = selectedItem.Address;
-                txtPhoneNumber.Text = selectedItem.PhoneNumber;
+                txbAddress.Text = selectedItem.Address;
+                txbPhoneNumber.Text = selectedItem.PhoneNumber;
             }
             catch
             {
                 MessageBox.Show("Có vấn đề trong việc truy xuất tới máy chủ.", "Lỗi.");
             }
-            grbButton.Text = "Chức Năng";
+            lcgButton.Text = "Chức Năng";
         }
         private int _selectedID;
         private void dgvEmployees_SelectionChanged(object sender, EventArgs e)
@@ -209,19 +210,19 @@ namespace QuanLyBanHang.GUI
                 int rowIndex = dgvEmployees.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dgvEmployees.Rows[rowIndex];
                 //Thứ tự gán theo bên file DTO
-                txtEmloyeeID.Text = selectedRow.Cells[0].Value?.ToString(); 
-                txtName.Text = selectedRow.Cells[1].Value?.ToString();
-                dtpBirthDate.Value = DateTime.Parse(selectedRow.Cells[2].Value?.ToString());
+                txbEmployeeID.Text = selectedRow.Cells[0].Value?.ToString(); 
+                txbName.Text = selectedRow.Cells[1].Value?.ToString();
+         //       dtpBirthDate.Value = DateTime.Parse(selectedRow.Cells[2].Value?.ToString());
                 if (selectedRow.Cells[3].Value?.ToString() == "Nam")
                     rdbMale.Checked = true;
                 else
                     rdbFemale.Checked = true;
-                txtID.Text = selectedRow.Cells[4].Value?.ToString();
-                txtPhoneNumber.Text = selectedRow.Cells[5].Value?.ToString();
-                txtAddress.Text = selectedRow.Cells[6].Value?.ToString();
-                cbxJobTitle.SelectedValue = _employeesContext.ListJob.SingleOrDefault(o => o.DisplayName == selectedRow.Cells[7].Value?.ToString()).Title ?? "VC";
+                txbID.Text = selectedRow.Cells[4].Value?.ToString();
+                txbPhoneNumber.Text = selectedRow.Cells[5].Value?.ToString();
+                txbAddress.Text = selectedRow.Cells[6].Value?.ToString();
+         //       cbxJobTitle.SelectedValue = _employeesContext.ListJob.SingleOrDefault(o => o.DisplayName == selectedRow.Cells[7].Value?.ToString()).Title ?? "VC";
                 //gán ID ngầm để truy xuất ngược khi hủy
-                _selectedID = int.Parse(txtEmloyeeID.Text);
+                _selectedID = int.Parse(txbEmployeeID.Text);
             }
         }
     }
