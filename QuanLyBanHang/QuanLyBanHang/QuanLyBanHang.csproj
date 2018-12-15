@@ -107,6 +107,12 @@
     <Compile Include="DTO\OrderDetailDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="GUI\CustomersFormGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomersFormGUI.Designer.cs">
+      <DependentUpon>CustomersFormGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CustomersGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\CustomersFormGUI.resx">
+      <DependentUpon>CustomersFormGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomersGUI.resx">
       <DependentUpon>CustomersGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,7 +253,11 @@
     <Content Include="Resources\boproductgroup_32x32.png" />
     <Content Include="Resources\cancel_16x16.png" />
     <Content Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\close_16x16.png" />
     <Content Include="Resources\customer_32x32.png" />
+    <None Include="Resources\insert_16x16.png" />
+    <None Include="Resources\deletelist2_16x16.png" />
+    <None Include="Resources\editname_16x16.png" />
     <Content Include="Resources\lookup&amp;reference_16x16.png" />
     <Content Include="Resources\refresh2_16x16.png" />
     <Content Include="Resources\removesheetrows_16x16.png" />

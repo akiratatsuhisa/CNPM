@@ -16,28 +16,37 @@ namespace QuanLyBanHang.GUI.OrderMDI
 {
     public partial class AddOrderDialogGUI : DevExpress.XtraEditors.XtraForm
     {
-        public bool ReturnValue { get; set; } = false;
         private bool _customerIsValid;
         private EmployeesBUS _employeesContext = new EmployeesBUS();
         private CustomersBUS _customersContext = new CustomersBUS();
         private List<CustomerDTO> listCustomer;
-        public decimal? Freight { get; private set; }
         public AddOrderDialogGUI()
+        {
+            InitializeComponent();
+        }
+        public AddOrderDialogGUI(string total)
         {
             InitializeComponent();
             cbxEmployeeID.DataSource = _employeesContext.GetSalesEmployees();
             listCustomer = _customersContext.GetList();
+            txbTotal.Text = total;
+            txbIntoMoney.Text = total;
         }
+        internal bool Result { get; private set; }
+        internal int CustomerID { get; private set; }
+        internal int EmployeeID { get; private set; }
+        internal decimal? Freight { get; private set; }
+
         private void txtFreight_TextChanged(object sender, EventArgs e)
         {
             decimal freight;
-            if (decimal.TryParse(txtFreight.Text, out freight))
+            if (decimal.TryParse(txbFreight.Text, out freight))
                 if (freight > 0)
-                    txtIntoMoney.Text = (freight + int.Parse(txtTotal.Text)).ToString();
+                    txbIntoMoney.Text = (freight + int.Parse(txbTotal.Text)).ToString();
                 else
-                    txtIntoMoney.Text = txtTotal.Text;
+                    txbIntoMoney.Text = txbTotal.Text;
             else
-                txtIntoMoney.Text = txtTotal.Text;
+                txbIntoMoney.Text = txbTotal.Text;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -47,31 +56,39 @@ namespace QuanLyBanHang.GUI.OrderMDI
         private bool Check(out string message)
         {
             message = "";
-            if (string.IsNullOrWhiteSpace(txtCustomerID.Text))
+            if (string.IsNullOrWhiteSpace(txbCustomerID.Text))
             {
                 message += "Nhập mã khách hàng.\n";
             }
-            else if (!Regex.IsMatch(txtCustomerID.Text.Trim(), @"^\d+$"))
+            else if (!Regex.IsMatch(txbCustomerID.Text.Trim(), @"^\d+$"))
             {
-                message += "Mã  khách hàng: " + txtCustomerID.Text + " không hợp lệ.\n";
+                message += "Mã  khách hàng: " + txbCustomerID.Text + " không hợp lệ.\n";
             }
             else if (!_customerIsValid)
             {
                 message += "Khách hàng không tồn tại, Xin hãy nhập thông tin khách hàng trước khi đặt hàng.\n";
             }
+            else
+            {
+                CustomerID = int.Parse(txbCustomerID.Text);
+            }
             if (cbxEmployeeID.SelectedItem == null)
             {
                 message += "Nhập mã nhân viên.\n";
             }
-            if (!string.IsNullOrWhiteSpace(txtFreight.Text))
+            else
+            {
+                EmployeeID = int.Parse(cbxEmployeeID.SelectedItem.ToString());
+            }
+            if (!string.IsNullOrWhiteSpace(txbFreight.Text))
             {
                 try
                 {
-                    Freight = int.Parse(txtFreight.Text);
+                    Freight = int.Parse(txbFreight.Text);
                 }
                 catch (Exception)
                 {
-                    message += "Phí: " + txtFreight.Text + " không hợp lệ.\n";
+                    message += "Phí: " + txbFreight.Text + " không hợp lệ.\n";
                 }
             }
             else
@@ -85,7 +102,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
             string message;
             if (Check(out message))
             {
-                ReturnValue = true;
+                Result = true;
                 Close();
             }
             else
@@ -107,25 +124,25 @@ namespace QuanLyBanHang.GUI.OrderMDI
 
         private void txtCustomerID_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCustomerID.Text))
+            if (string.IsNullOrWhiteSpace(txbCustomerID.Text))
             {
-                txtCustomerName.Text = "";
+                txbCustomerName.Text = "";
                 _customerIsValid = false;
             }
             else
             {
                 int id;
-                if (int.TryParse(txtCustomerID.Text, out id))
+                if (int.TryParse(txbCustomerID.Text, out id))
                 {
                     var customer = listCustomer.SingleOrDefault(obj => obj.CustomerID == id);
                     if (customer != null)
                     {
-                        txtCustomerName.Text = customer.Name;
+                        txbCustomerName.Text = customer.Name;
                         _customerIsValid = true;
                     }
                     else
                     {
-                        txtCustomerName.Text = "";
+                        txbCustomerName.Text = "";
                         _customerIsValid = false;
                     }
                 }

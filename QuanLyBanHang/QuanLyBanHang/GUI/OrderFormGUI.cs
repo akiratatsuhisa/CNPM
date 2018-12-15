@@ -51,7 +51,7 @@ namespace QuanLyBanHang.GUI
         {
             dgvDetail.Rows.Clear();
             LoadProducts();
-            txtTotal.Text = "";
+            txbTotal.Text = "";
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace QuanLyBanHang.GUI
                 dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
                 LoadProducts();
                 CheckProducts();
-                txtTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
+                txbTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
                     Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
             }
         }
@@ -70,17 +70,15 @@ namespace QuanLyBanHang.GUI
         {
             if (dgvDetail.Rows.Count > 0)
             {
-                AddOrderDialogGUI dialog = new AddOrderDialogGUI();
-                dialog.txtTotal.Text = txtTotal.Text;
-                dialog.txtIntoMoney.Text = txtTotal.Text;
+                AddOrderDialogGUI dialog = new AddOrderDialogGUI(txbTotal.Text);
                 dialog.ShowDialog();
-                if (dialog.ReturnValue)
+                if (dialog.Result)
                 {
                     string message;
                     if (_ordersContext.AddOrder(new OrderDTO
                     {
-                        EmployeeID = int.Parse(dialog.cbxEmployeeID.SelectedItem.ToString()),
-                        CustomerID = int.Parse(dialog.txtCustomerID.Text),
+                        EmployeeID = dialog.EmployeeID,
+                        CustomerID = dialog.CustomerID,
                         Freight = dialog.Freight,
                         OrderDate = DateTime.Now
                     },

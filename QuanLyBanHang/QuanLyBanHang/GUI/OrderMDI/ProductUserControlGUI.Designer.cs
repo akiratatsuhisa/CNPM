@@ -30,12 +30,12 @@
         {
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.btnBuy = new DevExpress.XtraEditors.SimpleButton();
+            this.txbProductID = new System.Windows.Forms.TextBox();
+            this.txbName = new System.Windows.Forms.TextBox();
+            this.txbQuantityPerUnit = new System.Windows.Forms.TextBox();
+            this.txbUnitPrice = new System.Windows.Forms.TextBox();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.txtUnitPrice = new System.Windows.Forms.TextBox();
-            this.txtQuantityPerUnit = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.btnBuy = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -71,10 +71,10 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.txtProductID);
-            this.dataLayoutControl1.Controls.Add(this.txtName);
-            this.dataLayoutControl1.Controls.Add(this.txtQuantityPerUnit);
-            this.dataLayoutControl1.Controls.Add(this.txtUnitPrice);
+            this.dataLayoutControl1.Controls.Add(this.txbProductID);
+            this.dataLayoutControl1.Controls.Add(this.txbName);
+            this.dataLayoutControl1.Controls.Add(this.txbQuantityPerUnit);
+            this.dataLayoutControl1.Controls.Add(this.txbUnitPrice);
             this.dataLayoutControl1.Controls.Add(this.nudQuantity);
             this.dataLayoutControl1.Controls.Add(this.btnBuy);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,16 +86,33 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // btnBuy
+            // txbProductID
             // 
-            this.btnBuy.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
-            this.btnBuy.Location = new System.Drawing.Point(12, 132);
-            this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(182, 22);
-            this.btnBuy.StyleController = this.dataLayoutControl1;
-            this.btnBuy.TabIndex = 1;
-            this.btnBuy.Text = "Mua";
-            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
+            this.txbProductID.Location = new System.Drawing.Point(65, 12);
+            this.txbProductID.Name = "txbProductID";
+            this.txbProductID.Size = new System.Drawing.Size(129, 20);
+            this.txbProductID.TabIndex = 1;
+            // 
+            // txbName
+            // 
+            this.txbName.Location = new System.Drawing.Point(65, 36);
+            this.txbName.Name = "txbName";
+            this.txbName.Size = new System.Drawing.Size(129, 20);
+            this.txbName.TabIndex = 1;
+            // 
+            // txbQuantityPerUnit
+            // 
+            this.txbQuantityPerUnit.Location = new System.Drawing.Point(65, 60);
+            this.txbQuantityPerUnit.Name = "txbQuantityPerUnit";
+            this.txbQuantityPerUnit.Size = new System.Drawing.Size(129, 20);
+            this.txbQuantityPerUnit.TabIndex = 1;
+            // 
+            // txbUnitPrice
+            // 
+            this.txbUnitPrice.Location = new System.Drawing.Point(65, 84);
+            this.txbUnitPrice.Name = "txbUnitPrice";
+            this.txbUnitPrice.Size = new System.Drawing.Size(129, 20);
+            this.txbUnitPrice.TabIndex = 1;
             // 
             // nudQuantity
             // 
@@ -109,33 +126,16 @@
             0,
             0});
             // 
-            // txtUnitPrice
+            // btnBuy
             // 
-            this.txtUnitPrice.Location = new System.Drawing.Point(65, 84);
-            this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(129, 20);
-            this.txtUnitPrice.TabIndex = 1;
-            // 
-            // txtQuantityPerUnit
-            // 
-            this.txtQuantityPerUnit.Location = new System.Drawing.Point(65, 60);
-            this.txtQuantityPerUnit.Name = "txtQuantityPerUnit";
-            this.txtQuantityPerUnit.Size = new System.Drawing.Size(129, 20);
-            this.txtQuantityPerUnit.TabIndex = 1;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(65, 36);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(129, 20);
-            this.txtName.TabIndex = 1;
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(65, 12);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(129, 20);
-            this.txtProductID.TabIndex = 1;
+            this.btnBuy.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
+            this.btnBuy.Location = new System.Drawing.Point(12, 132);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Size = new System.Drawing.Size(182, 22);
+            this.btnBuy.StyleController = this.dataLayoutControl1;
+            this.btnBuy.TabIndex = 1;
+            this.btnBuy.Text = "Mua";
+            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
             // 
             // Root
             // 
@@ -163,7 +163,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.txtProductID;
+            this.layoutControlItem1.Control = this.txbProductID;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(186, 24);
@@ -172,7 +172,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txtName;
+            this.layoutControlItem2.Control = this.txbName;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(186, 24);
@@ -181,7 +181,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.txtQuantityPerUnit;
+            this.layoutControlItem3.Control = this.txbQuantityPerUnit;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(186, 24);
@@ -190,7 +190,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.txtUnitPrice;
+            this.layoutControlItem4.Control = this.txbUnitPrice;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(186, 24);
@@ -246,10 +246,10 @@
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraEditors.SimpleButton btnBuy;
         private System.Windows.Forms.NumericUpDown nudQuantity;
-        private System.Windows.Forms.TextBox txtUnitPrice;
-        private System.Windows.Forms.TextBox txtQuantityPerUnit;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtProductID;
+        private System.Windows.Forms.TextBox txbUnitPrice;
+        private System.Windows.Forms.TextBox txbQuantityPerUnit;
+        private System.Windows.Forms.TextBox txbName;
+        private System.Windows.Forms.TextBox txbProductID;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

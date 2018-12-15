@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txbProductName = new System.Windows.Forms.TextBox();
             this.ckbUnitPriceFrom = new System.Windows.Forms.CheckBox();
             this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
             this.ckbUnitPriceTo = new System.Windows.Forms.CheckBox();
             this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -43,6 +41,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -62,7 +62,7 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.txtProductName);
+            this.dataLayoutControl1.Controls.Add(this.txbProductName);
             this.dataLayoutControl1.Controls.Add(this.ckbUnitPriceFrom);
             this.dataLayoutControl1.Controls.Add(this.nudMinPrice);
             this.dataLayoutControl1.Controls.Add(this.ckbUnitPriceTo);
@@ -77,12 +77,12 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // txtProductName
+            // txbProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(87, 12);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(235, 20);
-            this.txtProductName.TabIndex = 1;
+            this.txbProductName.Location = new System.Drawing.Point(87, 12);
+            this.txbProductName.Name = "txbProductName";
+            this.txbProductName.Size = new System.Drawing.Size(235, 20);
+            this.txbProductName.TabIndex = 1;
             // 
             // ckbUnitPriceFrom
             // 
@@ -122,28 +122,6 @@
             this.nudMaxPrice.TabIndex = 1;
             this.nudMaxPrice.ValueChanged += new System.EventHandler(this.nudMaxPrice_ValueChanged);
             // 
-            // btnOK
-            // 
-            this.btnOK.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.apply_32x32;
-            this.btnOK.Location = new System.Drawing.Point(12, 60);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(153, 38);
-            this.btnOK.StyleController = this.dataLayoutControl1;
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(169, 60);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(153, 38);
-            this.btnCancel.StyleController = this.dataLayoutControl1;
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -163,7 +141,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.txtProductName;
+            this.layoutControlItem1.Control = this.txbProductName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(314, 24);
@@ -220,6 +198,28 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
+            // btnOK
+            // 
+            this.btnOK.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.apply_32x32;
+            this.btnOK.Location = new System.Drawing.Point(12, 60);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(153, 38);
+            this.btnOK.StyleController = this.dataLayoutControl1;
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(169, 60);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(153, 38);
+            this.btnCancel.StyleController = this.dataLayoutControl1;
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnOK;
@@ -275,7 +275,7 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.NumericUpDown nudMaxPrice;
-        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.TextBox txbProductName;
         private System.Windows.Forms.CheckBox ckbUnitPriceFrom;
         private System.Windows.Forms.NumericUpDown nudMinPrice;
         private System.Windows.Forms.CheckBox ckbUnitPriceTo;

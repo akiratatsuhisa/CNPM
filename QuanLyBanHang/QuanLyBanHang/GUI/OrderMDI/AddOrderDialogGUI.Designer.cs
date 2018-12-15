@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.txbCustomerID = new System.Windows.Forms.TextBox();
+            this.txbCustomerName = new System.Windows.Forms.TextBox();
             this.cbxEmployeeID = new System.Windows.Forms.ComboBox();
-            this.txtFreight = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtIntoMoney = new System.Windows.Forms.TextBox();
+            this.txbFreight = new System.Windows.Forms.TextBox();
+            this.txbTotal = new System.Windows.Forms.TextBox();
+            this.txbIntoMoney = new System.Windows.Forms.TextBox();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -67,12 +67,12 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.txtCustomerID);
-            this.dataLayoutControl1.Controls.Add(this.txtCustomerName);
+            this.dataLayoutControl1.Controls.Add(this.txbCustomerID);
+            this.dataLayoutControl1.Controls.Add(this.txbCustomerName);
             this.dataLayoutControl1.Controls.Add(this.cbxEmployeeID);
-            this.dataLayoutControl1.Controls.Add(this.txtFreight);
-            this.dataLayoutControl1.Controls.Add(this.txtTotal);
-            this.dataLayoutControl1.Controls.Add(this.txtIntoMoney);
+            this.dataLayoutControl1.Controls.Add(this.txbFreight);
+            this.dataLayoutControl1.Controls.Add(this.txbTotal);
+            this.dataLayoutControl1.Controls.Add(this.txbIntoMoney);
             this.dataLayoutControl1.Controls.Add(this.btnOK);
             this.dataLayoutControl1.Controls.Add(this.btnCancel);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -84,21 +84,21 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // txtCustomerID
+            // txbCustomerID
             // 
-            this.txtCustomerID.Location = new System.Drawing.Point(82, 44);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(123, 20);
-            this.txtCustomerID.TabIndex = 1;
-            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
+            this.txbCustomerID.Location = new System.Drawing.Point(82, 44);
+            this.txbCustomerID.Name = "txbCustomerID";
+            this.txbCustomerID.Size = new System.Drawing.Size(123, 20);
+            this.txbCustomerID.TabIndex = 1;
+            this.txbCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
             // 
-            // txtCustomerName
+            // txbCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(267, 44);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.ReadOnly = true;
-            this.txtCustomerName.Size = new System.Drawing.Size(123, 20);
-            this.txtCustomerName.TabIndex = 1;
+            this.txbCustomerName.Location = new System.Drawing.Point(267, 44);
+            this.txbCustomerName.Name = "txbCustomerName";
+            this.txbCustomerName.ReadOnly = true;
+            this.txbCustomerName.Size = new System.Drawing.Size(123, 20);
+            this.txbCustomerName.TabIndex = 1;
             // 
             // cbxEmployeeID
             // 
@@ -108,29 +108,29 @@
             this.cbxEmployeeID.Size = new System.Drawing.Size(123, 21);
             this.cbxEmployeeID.TabIndex = 1;
             // 
-            // txtFreight
+            // txbFreight
             // 
-            this.txtFreight.Location = new System.Drawing.Point(267, 68);
-            this.txtFreight.Name = "txtFreight";
-            this.txtFreight.Size = new System.Drawing.Size(123, 20);
-            this.txtFreight.TabIndex = 1;
-            this.txtFreight.TextChanged += new System.EventHandler(this.txtFreight_TextChanged);
+            this.txbFreight.Location = new System.Drawing.Point(267, 68);
+            this.txbFreight.Name = "txbFreight";
+            this.txbFreight.Size = new System.Drawing.Size(123, 20);
+            this.txbFreight.TabIndex = 1;
+            this.txbFreight.TextChanged += new System.EventHandler(this.txtFreight_TextChanged);
             // 
-            // txtTotal
+            // txbTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(82, 93);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(123, 20);
-            this.txtTotal.TabIndex = 1;
+            this.txbTotal.Location = new System.Drawing.Point(82, 93);
+            this.txbTotal.Name = "txbTotal";
+            this.txbTotal.ReadOnly = true;
+            this.txbTotal.Size = new System.Drawing.Size(123, 20);
+            this.txbTotal.TabIndex = 1;
             // 
-            // txtIntoMoney
+            // txbIntoMoney
             // 
-            this.txtIntoMoney.Location = new System.Drawing.Point(267, 92);
-            this.txtIntoMoney.Name = "txtIntoMoney";
-            this.txtIntoMoney.ReadOnly = true;
-            this.txtIntoMoney.Size = new System.Drawing.Size(123, 20);
-            this.txtIntoMoney.TabIndex = 1;
+            this.txbIntoMoney.Location = new System.Drawing.Point(267, 92);
+            this.txbIntoMoney.Name = "txbIntoMoney";
+            this.txbIntoMoney.ReadOnly = true;
+            this.txbIntoMoney.Size = new System.Drawing.Size(123, 20);
+            this.txbIntoMoney.TabIndex = 1;
             // 
             // btnOK
             // 
@@ -190,7 +190,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.txtCustomerID;
+            this.layoutControlItem1.Control = this.txbCustomerID;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(185, 24);
@@ -199,7 +199,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txtCustomerName;
+            this.layoutControlItem2.Control = this.txbCustomerName;
             this.layoutControlItem2.Location = new System.Drawing.Point(185, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(185, 24);
@@ -217,7 +217,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.txtFreight;
+            this.layoutControlItem4.Control = this.txbFreight;
             this.layoutControlItem4.Location = new System.Drawing.Point(185, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(185, 24);
@@ -226,7 +226,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.txtTotal;
+            this.layoutControlItem5.Control = this.txbTotal;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(185, 24);
@@ -235,7 +235,7 @@
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.txtIntoMoney;
+            this.layoutControlItem6.Control = this.txbIntoMoney;
             this.layoutControlItem6.Location = new System.Drawing.Point(185, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(185, 25);
@@ -308,8 +308,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private System.Windows.Forms.TextBox txtFreight;
-        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.TextBox txbFreight;
+        private System.Windows.Forms.TextBox txbCustomerName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
@@ -320,9 +320,9 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        internal System.Windows.Forms.TextBox txtCustomerID;
-        internal System.Windows.Forms.ComboBox cbxEmployeeID;
-        internal System.Windows.Forms.TextBox txtTotal;
-        internal System.Windows.Forms.TextBox txtIntoMoney;
+        private System.Windows.Forms.TextBox txbCustomerID;
+        private System.Windows.Forms.ComboBox cbxEmployeeID;
+        private System.Windows.Forms.TextBox txbTotal;
+        private System.Windows.Forms.TextBox txbIntoMoney;
     }
 }

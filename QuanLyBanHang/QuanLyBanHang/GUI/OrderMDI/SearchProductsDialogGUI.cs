@@ -24,13 +24,13 @@ namespace QuanLyBanHang.GUI.OrderMDI
         internal string SearchName { get; private set; }
         internal decimal? MinUnitPrice { get; private set; }
         internal decimal? MaxUnitPrice { get; private set; }
-        internal bool Result { get; private set; } = false;
+        internal bool Result { get; private set; }
         private void btnOK_Click(object sender, EventArgs e)
         {
             bool flag = false;
-            if (!string.IsNullOrWhiteSpace(txtProductName.Text))
+            if (!string.IsNullOrWhiteSpace(txbProductName.Text))
             {
-                SearchName = txtProductName.Text.Trim();
+                SearchName = txbProductName.Text.Trim();
                 flag = true;
             }
             else

@@ -39,13 +39,13 @@ namespace QuanLyBanHang.GUI
         {
             foreach (var child in MdiChildren)
             {
-                if (child is CustomersGUI)
+                if (child is CustomersFormGUI)
                 {
                     child.BringToFront();
                     return;
                 }
             }
-            var form = new CustomersGUI();
+            var form = new CustomersFormGUI();
             form.MdiParent = this;
             form.Show();
         }

@@ -12,7 +12,7 @@ namespace QuanLyBanHang.GUI
 {
     public partial class LoginGUI : Form
     {
-        public bool Result { get; private set;}
+        internal bool Result { get; private set;}
         public LoginGUI()
         {
             InitializeComponent();
