@@ -113,11 +113,11 @@
     <Compile Include="GUI\CustomersFormGUI.Designer.cs">
       <DependentUpon>CustomersFormGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\EmployeesGUI.cs">
+    <Compile Include="GUI\EmployeesFormGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\EmployeesGUI.Designer.cs">
-      <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    <Compile Include="GUI\EmployeesFormGUI.Designer.cs">
+      <DependentUpon>EmployeesFormGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\LoginGUI.cs">
       <SubType>Form</SubType>
@@ -155,19 +155,19 @@
     <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.Designer.cs">
       <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ProductsGUI.cs">
+    <Compile Include="GUI\ProductsFormGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ProductsGUI.Designer.cs">
-      <DependentUpon>ProductsGUI.cs</DependentUpon>
+    <Compile Include="GUI\ProductsFormGUI.Designer.cs">
+      <DependentUpon>ProductsFormGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CustomersFormGUI.resx">
       <DependentUpon>CustomersFormGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\EmployeesGUI.resx">
-      <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\EmployeesFormGUI.resx">
+      <DependentUpon>EmployeesFormGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
@@ -187,8 +187,8 @@
     <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialogGUI.resx">
       <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ProductsGUI.resx">
-      <DependentUpon>ProductsGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ProductsFormGUI.resx">
+      <DependentUpon>ProductsFormGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

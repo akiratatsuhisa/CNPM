@@ -49,5 +49,50 @@ namespace QuanLyBanHang.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void barBtnEmployees_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var child in MdiChildren)
+            {
+                if (child is EmployeesFormGUI)
+                {
+                    child.BringToFront();
+                    return;
+                }
+            }
+            var form = new EmployeesFormGUI();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void barBtnCustomers_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var child in MdiChildren)
+            {
+                if (child is CustomersFormGUI)
+                {
+                    child.BringToFront();
+                    return;
+                }
+            }
+            var form = new CustomersFormGUI();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void barBtnProducts_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var child in MdiChildren)
+            {
+                if (child is ProductsFormGUI)
+                {
+                    child.BringToFront();
+                    return;
+                }
+            }
+            var form = new ProductsFormGUI();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

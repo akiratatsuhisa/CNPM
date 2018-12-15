@@ -85,6 +85,7 @@
             this.barBtnProducts.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boproductgroup_32x32;
             this.barBtnProducts.Name = "barBtnProducts";
             this.barBtnProducts.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barBtnProducts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnProducts_ItemClick);
             // 
             // barBtnEmployees
             // 
@@ -93,6 +94,7 @@
             this.barBtnEmployees.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boemployee_32x32;
             this.barBtnEmployees.Name = "barBtnEmployees";
             this.barBtnEmployees.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barBtnEmployees.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnEmployees_ItemClick);
             // 
             // barBtnCustomers
             // 
@@ -102,6 +104,7 @@
             this.barBtnCustomers.Name = "barBtnCustomers";
             this.barBtnCustomers.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnCustomers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCustomers_ItemClick);
             // 
             // barBtnListCustomer
             // 
