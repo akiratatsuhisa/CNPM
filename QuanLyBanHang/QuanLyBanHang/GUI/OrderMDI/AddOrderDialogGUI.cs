@@ -35,7 +35,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
         internal bool Result { get; private set; }
         internal int CustomerID { get; private set; }
         internal int EmployeeID { get; private set; }
-        internal decimal? Freight { get; private set; }
+        internal decimal Freight { get; private set; }
 
         private void txtFreight_TextChanged(object sender, EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
             }
             else
             {
-                Freight = null;
+                Freight = 0;
             }
             return message == "" ? true : false;
         }

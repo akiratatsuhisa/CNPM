@@ -22,6 +22,6 @@ namespace QuanLyBanHang.DTO
         [DisplayName("Ngày đặt hàng")]
         public DateTime OrderDate { get; set; }
         [DisplayName("Phí")]
-        public decimal? Freight { get; set; }
+        public decimal Freight { get; set; }
     }
 }

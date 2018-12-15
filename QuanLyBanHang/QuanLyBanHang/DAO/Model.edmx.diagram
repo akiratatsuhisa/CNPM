@@ -8,12 +8,12 @@
         <EntityTypeShape EntityType="SalesManagementModel.Customer" Width="1.5" PointX="1.125" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SalesManagementModel.Employee" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SalesManagementModel.OrderDetail" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SalesManagementModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SalesManagementModel.Product" Width="1.5" PointX="5" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="SalesManagementModel.FK_Orders_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="SalesManagementModel.FK_Orders_Employees" ManuallyRouted="false" />
-        <AssociationConnector Association="SalesManagementModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="SalesManagementModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SalesManagementModel.Order" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="SalesManagementModel.FK_Orders_Customers" />
+        <AssociationConnector Association="SalesManagementModel.FK_Orders_Employees" />
+        <AssociationConnector Association="SalesManagementModel.FK_OrderDetails_Orders" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

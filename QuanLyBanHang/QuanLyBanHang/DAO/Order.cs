@@ -24,7 +24,7 @@ namespace QuanLyBanHang.DAO
         public int EmployeeID { get; set; }
         public int CustomerID { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public Nullable<decimal> Freight { get; set; }
+        public decimal Freight { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Employee Employee { get; set; }
