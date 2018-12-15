@@ -113,12 +113,6 @@
     <Compile Include="GUI\CustomersFormGUI.Designer.cs">
       <DependentUpon>CustomersFormGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CustomersGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\CustomersGUI.Designer.cs">
-      <DependentUpon>CustomersGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\EmployeesGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +165,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\CustomersFormGUI.resx">
       <DependentUpon>CustomersFormGUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CustomersGUI.resx">
-      <DependentUpon>CustomersGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\EmployeesGUI.resx">
       <DependentUpon>EmployeesGUI.cs</DependentUpon>
