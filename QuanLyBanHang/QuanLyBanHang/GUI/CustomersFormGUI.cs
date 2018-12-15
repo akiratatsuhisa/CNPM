@@ -19,7 +19,7 @@ namespace QuanLyBanHang.GUI
         private CustomersBUS _customersContext = new CustomersBUS();
         private bool _isAddButtonClicked = false;
         private bool _isOkButtonEnabled = false;
-        private int _selectedID;
+        private int? _selectedID;
         public CustomersFormGUI()
         {
             InitializeComponent();
@@ -58,20 +58,27 @@ namespace QuanLyBanHang.GUI
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            SetOkButtonEnable(true);
-            _isAddButtonClicked = false;
-            lcgButton.Text = "Chức Năng - Sửa";
+            if (_selectedID != null)
+            {
+                SetOkButtonEnable(true);
+                _isAddButtonClicked = false;
+                lcgButton.Text = "Chức Năng - Sửa";
+            }
+            else
+            {
+                MessageBox.Show("Chọn khách hàng cần sửa.");
+            }
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             lcgButton.Text = "Chức Năng - Xóa";
-            if (!string.IsNullOrWhiteSpace(txbCustomerID.Text))
+            if (_selectedID != null)
             {
                 string message = "Bạn có thực sự muốn xóa khách hàng tên: " + txbName.Text + ", ID: " + txbCustomerID.Text + " không?";
                 if (MessageBox.Show(message, "Xóa khách hàng.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string serverMessage;
-                    if (_customersContext.DeleteCustomer(_selectedID, out serverMessage))
+                    if (_customersContext.DeleteCustomer(_selectedID.Value, out serverMessage))
                     {
                         MessageBox.Show("Xóa thành công.");
                         dgvCustomer.DataSource = _customersContext.GetList();
@@ -86,7 +93,7 @@ namespace QuanLyBanHang.GUI
             }
             else
             {
-                MessageBox.Show("Chọn khách hàng cần xóa");
+                MessageBox.Show("Chọn khách hàng cần xóa.");
             }
             lcgButton.Text = "Chức Năng";
         }
@@ -159,24 +166,27 @@ namespace QuanLyBanHang.GUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             SetOkButtonEnable(false);
-            try
-            {
-                var selectedItem = _customersContext.GetList().Single(o => o.CustomerID == _selectedID);
-                txbCustomerID.Text = selectedItem.CustomerID.ToString();
-                txbName.Text = selectedItem.Name;
-                if (selectedItem.Gender == "Nam")
-                    rdbMale.Checked = true;
-                else
-                    rdbFemale.Checked = true;
-                txbPhoneNumber.Text = selectedItem.PhoneNumber;
-                txbAddress.Text = selectedItem.Address;
-                txbEmail.Text = selectedItem.Email;
-            }
-            catch
-            {
-                MessageBox.Show("Có vấn đề trong việc truy xuất tới máy chủ.", "Lỗi.");
-            }
             lcgButton.Text = "Chức Năng";
+            if (_selectedID != null)
+            {
+                try
+                {
+                    var selectedItem = dgvCustomer.Rows.Cast<DataGridViewRow>().Single(o => o.Cells[0].Value.ToString() == _selectedID.ToString());
+                    txbCustomerID.Text = _selectedID.ToString();
+                    txbName.Text = selectedItem.Cells[1].Value?.ToString();
+                    if (selectedItem.Cells[2].Value?.ToString() == "Nam")
+                        rdbMale.Checked = true;
+                    else
+                        rdbFemale.Checked = true;
+                    txbPhoneNumber.Text = selectedItem.Cells[3].Value?.ToString();
+                    txbAddress.Text = selectedItem.Cells[4].Value?.ToString();
+                    txbEmail.Text = selectedItem.Cells[5].Value?.ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("Có vấn đề trong việc truy xuất dữ liệu.", "Lỗi.");
+                }
+            }          
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -200,6 +210,10 @@ namespace QuanLyBanHang.GUI
                 txbEmail.Text = selectedRow.Cells[5].Value?.ToString();
 
                 _selectedID = int.Parse(txbCustomerID.Text);
+            }
+            else if (dgvCustomer.SelectedCells.Count == 0 && !_isOkButtonEnabled)
+            {
+                _selectedID = null;
             }
         }
     }
