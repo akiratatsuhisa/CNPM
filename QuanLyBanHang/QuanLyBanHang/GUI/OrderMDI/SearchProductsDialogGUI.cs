@@ -17,14 +17,36 @@ namespace QuanLyBanHang.GUI.OrderMDI
         {
             InitializeComponent();
         }
+        internal bool Result { get; private set; }
+        internal string SearchName { get; private set; }
+        internal decimal? MinUnitPrice { get; private set; }
+        internal decimal? MaxUnitPrice { get; private set; }
+        private void ckbUnitPriceFrom_CheckedChanged(object sender, EventArgs e)
+        {
+            nudMinPrice.Enabled = ckbUnitPriceFrom.CheckState == CheckState.Checked ? true : false;
+        }
+        private void ckbUnitPriceTo_CheckedChanged(object sender, EventArgs e)
+        {
+            nudMaxPrice.Enabled = ckbUnitPriceTo.CheckState == CheckState.Checked ? true : false;
+        }
+        private void nudMinPrice_ValueChanged(object sender, EventArgs e)
+        {
+            if (ckbUnitPriceTo.Checked && nudMaxPrice.Value < nudMinPrice.Value)
+            {
+                nudMinPrice.Value = nudMaxPrice.Value;
+            }
+        }
+        private void nudMaxPrice_ValueChanged(object sender, EventArgs e)
+        {
+            if (ckbUnitPriceFrom.Checked && nudMaxPrice.Value < nudMinPrice.Value)
+            {
+                nudMaxPrice.Value = nudMinPrice.Value;
+            }
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
-        internal string SearchName { get; private set; }
-        internal decimal? MinUnitPrice { get; private set; }
-        internal decimal? MaxUnitPrice { get; private set; }
-        internal bool Result { get; private set; }
         private void btnOK_Click(object sender, EventArgs e)
         {
             bool flag = false;
@@ -50,33 +72,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
             Result = flag;
             Close();
         }
-
-        private void ckbUnitPriceFrom_CheckedChanged(object sender, EventArgs e)
-        {
-            nudMinPrice.Enabled = ckbUnitPriceFrom.CheckState == CheckState.Checked ? true : false;
-        }
-
-        private void ckbUnitPriceTo_CheckedChanged(object sender, EventArgs e)
-        {
-            nudMaxPrice.Enabled = ckbUnitPriceTo.CheckState == CheckState.Checked ? true : false;
-        }
-
-        private void nudMinPrice_ValueChanged(object sender, EventArgs e)
-        {
-            if (ckbUnitPriceTo.Checked && nudMaxPrice.Value < nudMinPrice.Value)
-            {
-                nudMinPrice.Value = nudMaxPrice.Value;
-            }
-        }
-
-        private void nudMaxPrice_ValueChanged(object sender, EventArgs e)
-        {
-            if (ckbUnitPriceFrom.Checked && nudMaxPrice.Value < nudMinPrice.Value)
-            {
-                nudMaxPrice.Value = nudMinPrice.Value;
-            }
-        }
-
         private void SearchProductDialog_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)

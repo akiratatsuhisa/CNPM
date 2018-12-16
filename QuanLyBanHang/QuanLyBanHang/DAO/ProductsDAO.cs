@@ -106,10 +106,9 @@ namespace QuanLyBanHang.DAO
                     if (list.Count == 0)
                     {
                         // không tìm ra kết quả  null rỗng
-                        // trả về list đầy đủ mặt hàng
+                        // trả về list rỗng
                         result = null;
-                        list = GetList();
-                        return list;
+                        return null;
                     }
                     else
                     {

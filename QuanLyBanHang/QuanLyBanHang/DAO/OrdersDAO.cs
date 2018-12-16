@@ -64,6 +64,7 @@ namespace QuanLyBanHang.DAO
                                 }
                                 else
                                 {
+                                    // roll back lại nếu như sản phẩm ko còn bán nữa
                                     transaction.Rollback();
                                     serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
                                     return false;
@@ -120,6 +121,7 @@ namespace QuanLyBanHang.DAO
                                 }
                                 else
                                 {
+                                    // roll back lại nếu như sản phẩm ko còn bán nữa
                                     transaction.Rollback();
                                     serverMessage = "The product: " + prdE.ProductName + " has been discontinued";
                                     return false;

@@ -12,14 +12,12 @@ namespace QuanLyBanHang.GUI
 {
     public partial class LoginFormGUI : Form
     {
-        internal bool Result { get; private set;}
         public LoginFormGUI()
         {
             InitializeComponent();
         }
-
+        internal bool Result { get; private set; }
         private void btnClose_Click(object sender, EventArgs e) => Close();
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(txbUsername.Text == "admin" && txbPassword.Text == "admin")
@@ -32,7 +30,6 @@ namespace QuanLyBanHang.GUI
                 MessageBox.Show("Đăng nhập thất bại.\nTài khoản hoặc mật khẩu bị sai.");
             }
         }
-
         private void LoginGUI_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)

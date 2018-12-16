@@ -22,7 +22,7 @@ namespace QuanLyBanHang.BUS
         };
         public List<EmployeeDTO> GetList() => _employeesContext.GetList().Select(obj => ConvertToEmployeeDTO(obj)).ToList();
         public List<int> GetSalesEmployees() => _employeesContext.GetList().Where(obj => obj.JobTitle =="BH").
-            Select(obj => obj.EmployeeID).ToList();
+            Select(obj => obj.EmployeeID).ToList();  //Lấy danh sách mã nhân viên là người bán hàng
         private EmployeeDTO ConvertToEmployeeDTO(Employee obj) => new EmployeeDTO
         {
             EmployeeID = obj.EmployeeID,

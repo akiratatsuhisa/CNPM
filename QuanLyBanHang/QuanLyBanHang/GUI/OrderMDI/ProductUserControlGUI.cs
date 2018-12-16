@@ -38,7 +38,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 nudQuantity.Maximum = value;
             }
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (nudQuantity.Value > 0)

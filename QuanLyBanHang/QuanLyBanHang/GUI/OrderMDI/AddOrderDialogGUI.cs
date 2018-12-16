@@ -36,7 +36,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
         internal int CustomerID { get; private set; }
         internal int EmployeeID { get; private set; }
         internal decimal Freight { get; private set; }
-
         private void txtFreight_TextChanged(object sender, EventArgs e)
         {
             decimal freight;
@@ -48,7 +47,32 @@ namespace QuanLyBanHang.GUI.OrderMDI
             else
                 txbIntoMoney.Text = txbTotal.Text;
         }
-
+        private void txtCustomerID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txbCustomerID.Text))
+            {
+                txbCustomerName.Text = "";
+                _customerIsValid = false;
+            }
+            else
+            {
+                int id;
+                if (int.TryParse(txbCustomerID.Text, out id))
+                {
+                    var customer = listCustomer.SingleOrDefault(obj => obj.CustomerID == id);
+                    if (customer != null)
+                    {
+                        txbCustomerName.Text = customer.Name;
+                        _customerIsValid = true;
+                    }
+                    else
+                    {
+                        txbCustomerName.Text = "";
+                        _customerIsValid = false;
+                    }
+                }
+            }
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -119,33 +143,6 @@ namespace QuanLyBanHang.GUI.OrderMDI
             else if (e.KeyCode == Keys.Return)
             {
                 btnOK_Click(sender, e);
-            }
-        }
-
-        private void txtCustomerID_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txbCustomerID.Text))
-            {
-                txbCustomerName.Text = "";
-                _customerIsValid = false;
-            }
-            else
-            {
-                int id;
-                if (int.TryParse(txbCustomerID.Text, out id))
-                {
-                    var customer = listCustomer.SingleOrDefault(obj => obj.CustomerID == id);
-                    if (customer != null)
-                    {
-                        txbCustomerName.Text = customer.Name;
-                        _customerIsValid = true;
-                    }
-                    else
-                    {
-                        txbCustomerName.Text = "";
-                        _customerIsValid = false;
-                    }
-                }
             }
         }
     }

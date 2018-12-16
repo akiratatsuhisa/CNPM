@@ -35,7 +35,7 @@ namespace QuanLyBanHang.BUS
             {
                 query += "P.UnitPrice <= " + maxUnitPrice + " AND ";
             }
-            return query = query.Remove(query.Length-5);
+            return query = query.Remove(query.Length-5); // Xóa ' AND '
         }
         private ProductDTO ConvertToProductDTO(Product obj) => new ProductDTO
         {

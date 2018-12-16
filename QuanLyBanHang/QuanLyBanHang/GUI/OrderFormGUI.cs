@@ -17,14 +17,12 @@ namespace QuanLyBanHang.GUI
     public partial class OrderFormGUI : DevExpress.XtraEditors.XtraForm
     {
         private ProductsBUS _productsContext = new ProductsBUS();
-
         private OrdersBUS _ordersContext = new OrdersBUS();
         public OrderFormGUI()
         {
             InitializeComponent();
             LoadProducts();
         }
-
         private void LoadProducts()
         {
             flpProduct.Controls.Clear();
@@ -46,26 +44,37 @@ namespace QuanLyBanHang.GUI
                 }
             }
         }
-
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvDetail.Rows.Clear();
-            LoadProducts();
-            txbTotal.Text = "";
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (dgvDetail.SelectedCells.Count > 0)
+            SearchProductsDialogGUI dialog = new SearchProductsDialogGUI();
+            dialog.ShowDialog();
+            if (dialog.Result)
             {
-                dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
-                LoadProducts();
-                CheckProducts();
-                txbTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
-                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
+                flpProduct.Controls.Clear();
+                bool? result;
+
+                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result);
+                if (result == true)
+                {
+                    resultList.ForEach(o => flpProduct.Controls.
+                    Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+                    CheckProducts();
+                }
+                else if (result == null)
+                {
+                    MessageBox.Show("Không tìm thấy.");
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi kết nối tới máy chủ.");
+                }
             }
         }
-
+        private void btnRefreshList_Click(object sender, EventArgs e)
+        {
+            LoadProducts();
+            CheckProducts();
+        }
         private void btnOrder_Click(object sender, EventArgs e)
         {
             if (dgvDetail.Rows.Count > 0)
@@ -107,38 +116,22 @@ namespace QuanLyBanHang.GUI
                 MessageBox.Show("Vui lòng đặt hàng.");
             }
         }
-
-        private void btnRefreshList_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            LoadProducts();
-            CheckProducts();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            SearchProductsDialogGUI dialog = new SearchProductsDialogGUI();
-            dialog.ShowDialog();
-            if (dialog.Result)
+            if (dgvDetail.SelectedCells.Count > 0)
             {
-                flpProduct.Controls.Clear();
-                bool? result;
-
-                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result);
-                if (result == true)
-                {
-                    resultList.ForEach(o => flpProduct.Controls.
-                    Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
-                    CheckProducts();
-                }
-                else if (result == null)
-                {
-                    MessageBox.Show("Không tìm thấy.");
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi kết nối tới máy chủ.");
-                }
+                dgvDetail.Rows.RemoveAt(dgvDetail.SelectedCells[0].RowIndex);
+                LoadProducts();
+                CheckProducts();
+                txbTotal.Text = dgvDetail.Rows.Cast<DataGridViewRow>().
+                    Sum(o => decimal.Parse(o.Cells[2].Value.ToString()) * decimal.Parse(o.Cells[3].Value.ToString())).ToString();
             }
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dgvDetail.Rows.Clear();
+            LoadProducts();
+            txbTotal.Text = "";
         }
     }
 }
