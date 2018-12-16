@@ -108,7 +108,7 @@ namespace QuanLyBanHang.DAO
                         // không tìm ra kết quả  null rỗng
                         // trả về list rỗng
                         result = null;
-                        return null;
+                        return new List<Product>();
                     }
                     else
                     {
@@ -122,7 +122,7 @@ namespace QuanLyBanHang.DAO
             {
                 // lỗi trong quá trình tìm, query, database ...
                 result = false;
-                return null;
+                return new List<Product>();
             }
 
         }
