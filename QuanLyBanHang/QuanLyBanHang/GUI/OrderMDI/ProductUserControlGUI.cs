@@ -39,7 +39,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
             }
         }
 
-        private void btnBuy_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (nudQuantity.Value > 0)
             {

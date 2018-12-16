@@ -122,15 +122,19 @@ namespace QuanLyBanHang.GUI
             {
                 flpProduct.Controls.Clear();
                 bool? result;
-                _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result)
-                    .ForEach(o => flpProduct.Controls.
-                  Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
-                CheckProducts();
-                if (result == null)
+
+                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result);
+                if (result == true)
+                {
+                    resultList.ForEach(o => flpProduct.Controls.
+                    Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+                    CheckProducts();
+                }
+                else if (result == null)
                 {
                     MessageBox.Show("Không tìm thấy.");
                 }
-                else if (result == false)
+                else
                 {
                     MessageBox.Show("Lỗi kết nối tới máy chủ.");
                 }

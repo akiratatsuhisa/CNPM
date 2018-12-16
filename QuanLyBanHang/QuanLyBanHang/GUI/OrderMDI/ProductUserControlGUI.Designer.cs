@@ -35,7 +35,7 @@
             this.txbQuantityPerUnit = new System.Windows.Forms.TextBox();
             this.txbUnitPrice = new System.Windows.Forms.TextBox();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
-            this.btnBuy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -76,7 +76,7 @@
             this.dataLayoutControl1.Controls.Add(this.txbQuantityPerUnit);
             this.dataLayoutControl1.Controls.Add(this.txbUnitPrice);
             this.dataLayoutControl1.Controls.Add(this.nudQuantity);
-            this.dataLayoutControl1.Controls.Add(this.btnBuy);
+            this.dataLayoutControl1.Controls.Add(this.btnAdd);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 22);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
@@ -126,16 +126,16 @@
             0,
             0});
             // 
-            // btnBuy
+            // btnAdd
             // 
-            this.btnBuy.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
-            this.btnBuy.Location = new System.Drawing.Point(12, 132);
-            this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(182, 22);
-            this.btnBuy.StyleController = this.dataLayoutControl1;
-            this.btnBuy.TabIndex = 1;
-            this.btnBuy.Text = "Mua";
-            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
+            this.btnAdd.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
+            this.btnAdd.Location = new System.Drawing.Point(12, 132);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(182, 22);
+            this.btnAdd.StyleController = this.dataLayoutControl1;
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Thêm vào giỏ";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Root
             // 
@@ -208,7 +208,7 @@
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.btnBuy;
+            this.layoutControlItem6.Control = this.btnAdd;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(186, 26);
@@ -244,7 +244,7 @@
 
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraEditors.SimpleButton btnBuy;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.NumericUpDown nudQuantity;
         private System.Windows.Forms.TextBox txbUnitPrice;
         private System.Windows.Forms.TextBox txbQuantityPerUnit;

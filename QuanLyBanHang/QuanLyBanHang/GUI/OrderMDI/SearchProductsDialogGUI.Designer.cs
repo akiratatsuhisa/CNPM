@@ -34,6 +34,8 @@
             this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
             this.ckbUnitPriceTo = new System.Windows.Forms.CheckBox();
             this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -41,8 +43,6 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -97,10 +97,25 @@
             // nudMinPrice
             // 
             this.nudMinPrice.Enabled = false;
+            this.nudMinPrice.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudMinPrice.Location = new System.Drawing.Point(92, 36);
+            this.nudMinPrice.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
             this.nudMinPrice.Name = "nudMinPrice";
             this.nudMinPrice.Size = new System.Drawing.Size(73, 21);
             this.nudMinPrice.TabIndex = 1;
+            this.nudMinPrice.Value = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
             this.nudMinPrice.ValueChanged += new System.EventHandler(this.nudMinPrice_ValueChanged);
             // 
             // ckbUnitPriceTo
@@ -116,11 +131,48 @@
             // nudMaxPrice
             // 
             this.nudMaxPrice.Enabled = false;
+            this.nudMaxPrice.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudMaxPrice.Location = new System.Drawing.Point(249, 36);
+            this.nudMaxPrice.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
             this.nudMaxPrice.Name = "nudMaxPrice";
             this.nudMaxPrice.Size = new System.Drawing.Size(73, 21);
             this.nudMaxPrice.TabIndex = 1;
+            this.nudMaxPrice.Value = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
             this.nudMaxPrice.ValueChanged += new System.EventHandler(this.nudMaxPrice_ValueChanged);
+            // 
+            // btnOK
+            // 
+            this.btnOK.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.apply_32x32;
+            this.btnOK.Location = new System.Drawing.Point(12, 60);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(153, 38);
+            this.btnOK.StyleController = this.dataLayoutControl1;
+            this.btnOK.TabIndex = 1;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(169, 60);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(153, 38);
+            this.btnCancel.StyleController = this.dataLayoutControl1;
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Root
             // 
@@ -197,28 +249,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(77, 24);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // btnOK
-            // 
-            this.btnOK.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.apply_32x32;
-            this.btnOK.Location = new System.Drawing.Point(12, 60);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(153, 38);
-            this.btnOK.StyleController = this.dataLayoutControl1;
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(169, 60);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(153, 38);
-            this.btnCancel.StyleController = this.dataLayoutControl1;
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // layoutControlItem6
             // 

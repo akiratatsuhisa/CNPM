@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang.GUI
 {
-    public partial class LoginGUI : Form
+    public partial class LoginFormGUI : Form
     {
         internal bool Result { get; private set;}
-        public LoginGUI()
+        public LoginFormGUI()
         {
             InitializeComponent();
         }
