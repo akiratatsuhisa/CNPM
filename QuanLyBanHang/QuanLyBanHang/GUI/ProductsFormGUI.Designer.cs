@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsFormGUI));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txbProductID = new System.Windows.Forms.TextBox();
+            this.txbName = new System.Windows.Forms.TextBox();
             this.txbUnitPrice = new System.Windows.Forms.TextBox();
             this.cbxQuantityPerUnit = new System.Windows.Forms.ComboBox();
-            this.txbName = new System.Windows.Forms.TextBox();
+            this.txbUnitsInStock = new System.Windows.Forms.TextBox();
+            this.txbUnitsOnOrder = new System.Windows.Forms.TextBox();
             this.dtpAddedDate = new System.Windows.Forms.DateTimePicker();
             this.rdbIsContinued = new System.Windows.Forms.RadioButton();
             this.rdbIsDiscontinued = new System.Windows.Forms.RadioButton();
-            this.txbUnitsInStock = new System.Windows.Forms.TextBox();
-            this.txbUnitsOnOrder = new System.Windows.Forms.TextBox();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -122,6 +123,14 @@
             this.txbProductID.Size = new System.Drawing.Size(168, 20);
             this.txbProductID.TabIndex = 1;
             // 
+            // txbName
+            // 
+            this.txbName.Location = new System.Drawing.Point(300, 44);
+            this.txbName.Name = "txbName";
+            this.txbName.ReadOnly = true;
+            this.txbName.Size = new System.Drawing.Size(390, 20);
+            this.txbName.TabIndex = 1;
+            // 
             // txbUnitPrice
             // 
             this.txbUnitPrice.Location = new System.Drawing.Point(76, 68);
@@ -145,13 +154,21 @@
             this.cbxQuantityPerUnit.Size = new System.Drawing.Size(168, 21);
             this.cbxQuantityPerUnit.TabIndex = 1;
             // 
-            // txbName
+            // txbUnitsInStock
             // 
-            this.txbName.Location = new System.Drawing.Point(300, 44);
-            this.txbName.Name = "txbName";
-            this.txbName.ReadOnly = true;
-            this.txbName.Size = new System.Drawing.Size(390, 20);
-            this.txbName.TabIndex = 1;
+            this.txbUnitsInStock.Location = new System.Drawing.Point(300, 68);
+            this.txbUnitsInStock.Name = "txbUnitsInStock";
+            this.txbUnitsInStock.ReadOnly = true;
+            this.txbUnitsInStock.Size = new System.Drawing.Size(166, 20);
+            this.txbUnitsInStock.TabIndex = 1;
+            // 
+            // txbUnitsOnOrder
+            // 
+            this.txbUnitsOnOrder.Location = new System.Drawing.Point(522, 68);
+            this.txbUnitsOnOrder.Name = "txbUnitsOnOrder";
+            this.txbUnitsOnOrder.ReadOnly = true;
+            this.txbUnitsOnOrder.Size = new System.Drawing.Size(168, 20);
+            this.txbUnitsOnOrder.TabIndex = 1;
             // 
             // dtpAddedDate
             // 
@@ -184,22 +201,6 @@
             this.rdbIsDiscontinued.TabStop = true;
             this.rdbIsDiscontinued.Text = "Dừng Bán";
             this.rdbIsDiscontinued.UseVisualStyleBackColor = true;
-            // 
-            // txbUnitsInStock
-            // 
-            this.txbUnitsInStock.Location = new System.Drawing.Point(300, 68);
-            this.txbUnitsInStock.Name = "txbUnitsInStock";
-            this.txbUnitsInStock.ReadOnly = true;
-            this.txbUnitsInStock.Size = new System.Drawing.Size(166, 20);
-            this.txbUnitsInStock.TabIndex = 1;
-            // 
-            // txbUnitsOnOrder
-            // 
-            this.txbUnitsOnOrder.Location = new System.Drawing.Point(522, 68);
-            this.txbUnitsOnOrder.Name = "txbUnitsOnOrder";
-            this.txbUnitsOnOrder.ReadOnly = true;
-            this.txbUnitsOnOrder.Size = new System.Drawing.Size(168, 20);
-            this.txbUnitsOnOrder.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -479,6 +480,7 @@
             this.ClientSize = new System.Drawing.Size(714, 448);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.dataLayoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductsFormGUI";
             this.Text = "Quản Lý Sản Phẩm";
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

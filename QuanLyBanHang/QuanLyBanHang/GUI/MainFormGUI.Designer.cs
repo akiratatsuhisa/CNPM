@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormGUI));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnOrder = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProducts = new DevExpress.XtraBars.BarButtonItem();
@@ -185,6 +186,7 @@
             this.ClientSize = new System.Drawing.Size(954, 579);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MainFormGUI";
             this.Ribbon = this.ribbon;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersFormGUI));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txbCustomerID = new System.Windows.Forms.TextBox();
             this.txbPhoneNumber = new System.Windows.Forms.TextBox();
@@ -427,6 +428,7 @@
             this.ClientSize = new System.Drawing.Size(714, 448);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.dataLayoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomersFormGUI";
             this.Text = "Quản Lý Khách Hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
