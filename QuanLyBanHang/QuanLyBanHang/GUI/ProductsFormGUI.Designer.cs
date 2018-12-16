@@ -92,14 +92,14 @@
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.txbProductID);
+            this.dataLayoutControl1.Controls.Add(this.txbName);
             this.dataLayoutControl1.Controls.Add(this.txbUnitPrice);
             this.dataLayoutControl1.Controls.Add(this.cbxQuantityPerUnit);
-            this.dataLayoutControl1.Controls.Add(this.txbName);
+            this.dataLayoutControl1.Controls.Add(this.txbUnitsInStock);
+            this.dataLayoutControl1.Controls.Add(this.txbUnitsOnOrder);
             this.dataLayoutControl1.Controls.Add(this.dtpAddedDate);
             this.dataLayoutControl1.Controls.Add(this.rdbIsContinued);
             this.dataLayoutControl1.Controls.Add(this.rdbIsDiscontinued);
-            this.dataLayoutControl1.Controls.Add(this.txbUnitsInStock);
-            this.dataLayoutControl1.Controls.Add(this.txbUnitsOnOrder);
             this.dataLayoutControl1.Controls.Add(this.btnAdd);
             this.dataLayoutControl1.Controls.Add(this.btnEdit);
             this.dataLayoutControl1.Controls.Add(this.btnDelete);

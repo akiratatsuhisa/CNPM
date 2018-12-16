@@ -33,7 +33,17 @@
             this.flpProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefreshList = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.label1 = new System.Windows.Forms.Label();
             this.txbTotal = new System.Windows.Forms.TextBox();
@@ -42,16 +52,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.btnRefreshList = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOrder = new DevExpress.XtraEditors.SimpleButton();
-            this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -60,14 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -133,6 +133,61 @@
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.lookup_reference_16x16;
+            this.btnSearch.Location = new System.Drawing.Point(12, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(128, 22);
+            this.btnSearch.StyleController = this.dataLayoutControl1;
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnRefreshList
+            // 
+            this.btnRefreshList.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.refresh2_16x16;
+            this.btnRefreshList.Location = new System.Drawing.Point(144, 12);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(128, 22);
+            this.btnRefreshList.StyleController = this.dataLayoutControl1;
+            this.btnRefreshList.TabIndex = 1;
+            this.btnRefreshList.Text = "Refresh danh sách";
+            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
+            this.btnOrder.Location = new System.Drawing.Point(276, 12);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(128, 22);
+            this.btnOrder.StyleController = this.dataLayoutControl1;
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "Đặt hàng";
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.removesheetrows_16x16;
+            this.btnRemove.Location = new System.Drawing.Point(408, 12);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(128, 22);
+            this.btnRemove.StyleController = this.dataLayoutControl1;
+            this.btnRemove.TabIndex = 1;
+            this.btnRemove.Text = "Xóa";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.trash_16x16;
+            this.btnClear.Location = new System.Drawing.Point(540, 12);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(128, 22);
+            this.btnClear.StyleController = this.dataLayoutControl1;
+            this.btnClear.TabIndex = 1;
+            this.btnClear.Text = "Hủy";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -146,6 +201,51 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(680, 47);
             this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.btnSearch;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(132, 27);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnRefreshList;
+            this.layoutControlItem2.Location = new System.Drawing.Point(132, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(132, 27);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.btnRemove;
+            this.layoutControlItem3.Location = new System.Drawing.Point(396, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(132, 27);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnClear;
+            this.layoutControlItem4.Location = new System.Drawing.Point(528, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(132, 27);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnOrder;
+            this.layoutControlItem5.Location = new System.Drawing.Point(264, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(132, 27);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // groupControl3
             // 
@@ -224,106 +324,6 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.lookup_reference_16x16;
-            this.btnSearch.Location = new System.Drawing.Point(12, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(128, 22);
-            this.btnSearch.StyleController = this.dataLayoutControl1;
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.refresh2_16x16;
-            this.btnRefreshList.Location = new System.Drawing.Point(144, 12);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(128, 22);
-            this.btnRefreshList.StyleController = this.dataLayoutControl1;
-            this.btnRefreshList.TabIndex = 1;
-            this.btnRefreshList.Text = "Refresh danh sách";
-            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
-            this.btnOrder.Location = new System.Drawing.Point(276, 12);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(128, 22);
-            this.btnOrder.StyleController = this.dataLayoutControl1;
-            this.btnOrder.TabIndex = 1;
-            this.btnOrder.Text = "Đặt hàng";
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.removesheetrows_16x16;
-            this.btnRemove.Location = new System.Drawing.Point(408, 12);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(128, 22);
-            this.btnRemove.StyleController = this.dataLayoutControl1;
-            this.btnRemove.TabIndex = 1;
-            this.btnRemove.Text = "Xóa";
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.trash_16x16;
-            this.btnClear.Location = new System.Drawing.Point(540, 12);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(128, 22);
-            this.btnClear.StyleController = this.dataLayoutControl1;
-            this.btnClear.TabIndex = 1;
-            this.btnClear.Text = "Hủy";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.btnSearch;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(132, 27);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.btnRefreshList;
-            this.layoutControlItem2.Location = new System.Drawing.Point(132, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(132, 27);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.btnRemove;
-            this.layoutControlItem3.Location = new System.Drawing.Point(396, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(132, 27);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnClear;
-            this.layoutControlItem4.Location = new System.Drawing.Point(528, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(132, 27);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.btnOrder;
-            this.layoutControlItem5.Location = new System.Drawing.Point(264, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(132, 27);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
             // OrderFormGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,15 +340,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -160,6 +160,7 @@
             // 
             // rdbFemale
             // 
+            this.rdbFemale.Enabled = false;
             this.rdbFemale.Location = new System.Drawing.Point(358, 68);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(108, 25);
