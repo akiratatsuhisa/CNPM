@@ -16,7 +16,7 @@ namespace QuanLyBanHang.DAO
                 return dataContext.Products.ToList();
             }
         }
-                private string ExceptionMessage(Exception ex)
+        private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
             if (ex is DbEntityValidationException dbEx)
@@ -94,7 +94,6 @@ namespace QuanLyBanHang.DAO
                 return false;
             }
         }
-
         public List<Product> GetSearchListProduct(string where, out bool? result)
         {
             try

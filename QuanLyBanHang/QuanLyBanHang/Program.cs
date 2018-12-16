@@ -19,8 +19,10 @@ namespace QuanLyBanHang
             Application.SetCompatibleTextRenderingDefault(false);
             LoginFormGUI loginForm = new LoginFormGUI(); 
             Application.Run(loginForm);
-            if (loginForm.Result)      
+            if (loginForm.Result)
+            {
                 Application.Run(new MainFormGUI());
+            }
         }
     }
 }

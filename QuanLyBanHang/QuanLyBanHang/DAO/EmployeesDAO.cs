@@ -16,7 +16,7 @@ namespace QuanLyBanHang.DAO
                 return dataContext.Employees.ToList();
             }
         }
-            private string ExceptionMessage(Exception ex)
+        private string ExceptionMessage(Exception ex)
         {
             string message = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
             if (ex is DbEntityValidationException dbEx)
@@ -42,7 +42,7 @@ namespace QuanLyBanHang.DAO
                     dataContext.SaveChanges();
                     serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is added.";
                 }
-                    return true;
+                return true;
             }
             catch (Exception ex)
             {
