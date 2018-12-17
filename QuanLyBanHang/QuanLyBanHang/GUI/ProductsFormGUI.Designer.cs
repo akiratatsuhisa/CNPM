@@ -145,10 +145,17 @@
             this.cbxQuantityPerUnit.Enabled = false;
             this.cbxQuantityPerUnit.FormattingEnabled = true;
             this.cbxQuantityPerUnit.Items.AddRange(new object[] {
-            "1 lon",
-            "1 bịch",
-            "1 kg",
-            "Không xác định"});
+                "Không xác định",
+                "1 chai",
+                "1 gói",
+                "1 bịch",
+                "1 lọ",
+                "1 hộp",
+                "1 túi",
+                "1 lon",
+                "1 vỉ",
+                "1 kg",
+            });
             this.cbxQuantityPerUnit.Location = new System.Drawing.Point(76, 92);
             this.cbxQuantityPerUnit.Name = "cbxQuantityPerUnit";
             this.cbxQuantityPerUnit.Size = new System.Drawing.Size(168, 21);
