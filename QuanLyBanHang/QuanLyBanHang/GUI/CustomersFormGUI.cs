@@ -104,7 +104,7 @@ namespace QuanLyBanHang.GUI
                 message += "Nhập tên khách hàng.\n";
             if (string.IsNullOrWhiteSpace(txbPhoneNumber.Text))
                 message += "Nhập số điện thoại.\n";
-            else if (!Regex.IsMatch(txbPhoneNumber.Text, @"^0(3[3-9]|7[06789]|8[1-5]|5[689])\d{7}$"))
+            else if (!Regex.IsMatch(txbPhoneNumber.Text, @"^0(3[2-9]|5[689]|7[06789]|8[1-689]|9[0-46-9])\d{7}$"))
                 message += "Số điện thoại: " + txbPhoneNumber.Text + " không hợp lệ.\n";
             if (string.IsNullOrWhiteSpace(txbAddress.Text))
                 message += "Nhập địa chỉ.\n";
