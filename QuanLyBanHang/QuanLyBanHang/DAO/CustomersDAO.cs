@@ -40,7 +40,7 @@ namespace QuanLyBanHang.DAO
                 {
                     dataContext.Customers.Add(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is added.";
+                    serverMessage = obj.CustomerID.ToString();
                 }
                 return true;
             }
@@ -63,7 +63,7 @@ namespace QuanLyBanHang.DAO
                     objE.Address = obj.Address;
                     objE.Email = obj.Email;
                     dataContext.SaveChanges();
-                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is edited.";
+                    serverMessage = obj.CustomerID.ToString();
                 }
                 return true;
             }
@@ -82,7 +82,7 @@ namespace QuanLyBanHang.DAO
                     Customer obj = dataContext.Customers.Single(o => o.CustomerID == id);
                     dataContext.Customers.Remove(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Customer Name: " + obj.Name + ", ID: " + obj.CustomerID + " is deleted.";
+                    serverMessage = obj.CustomerID.ToString();
                 }
                 return true;
             }

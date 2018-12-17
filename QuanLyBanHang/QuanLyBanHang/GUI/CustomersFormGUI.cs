@@ -131,7 +131,7 @@ namespace QuanLyBanHang.GUI
             {
                 if (_customersContext.AddCustomer(customerFormat, out serverMessage))
                 {
-                    MessageBox.Show("Thêm thành công khách hàng tên: " + txbName.Text + ", ID: " + txbCustomerID.Text + ".");
+                    MessageBox.Show("Thêm thành công khách hàng tên: " + txbName.Text + ", ID: " + serverMessage + ".");
                     completed = true;
                 }
                 else

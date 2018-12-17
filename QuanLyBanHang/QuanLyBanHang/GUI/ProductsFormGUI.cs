@@ -167,7 +167,7 @@ namespace QuanLyBanHang.GUI
                 productFormat.AddedDate = DateTime.Now;
                 if (_productsContext.AddProduct(productFormat, out serverMessage))
                 {
-                    MessageBox.Show("Thêm thành công sản phẩm tên: " + txbName.Text + ", ID: " + txbProductID.Text + ".");
+                    MessageBox.Show("Thêm thành công sản phẩm tên: " + txbName.Text + ", ID: " + serverMessage + ".");
                     completed = true;
                 }
                 else

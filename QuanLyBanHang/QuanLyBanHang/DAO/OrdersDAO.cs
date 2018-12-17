@@ -72,7 +72,7 @@ namespace QuanLyBanHang.DAO
                                 dataContext.SaveChanges();
                             }
                             transaction.Commit();
-                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is added.";
+                            serverMessage = obj.OrderID.ToString();
                             return true;
                         }
                         catch (Exception ex)
@@ -129,7 +129,7 @@ namespace QuanLyBanHang.DAO
                                 dataContext.SaveChanges();
                             }
                             transaction.Commit();
-                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is edited.";
+                            serverMessage = obj.OrderID.ToString();
                             return true;
                         }
                         catch (Exception ex)
@@ -171,7 +171,7 @@ namespace QuanLyBanHang.DAO
                             dataContext.Orders.Remove(obj);
                             dataContext.SaveChanges();
                             transaction.Commit();
-                            serverMessage = "Order ID: " + obj.OrderID + ", Customer Name: " + obj.CustomerID + " is deleted.";
+                            serverMessage = obj.OrderID.ToString();
                             return true;
                         }
                         catch (Exception ex)

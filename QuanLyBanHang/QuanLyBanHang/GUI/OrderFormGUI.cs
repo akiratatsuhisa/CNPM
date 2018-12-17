@@ -83,7 +83,7 @@ namespace QuanLyBanHang.GUI
                 dialog.ShowDialog();
                 if (dialog.Result)
                 {
-                    string message;
+                    string serverMessage;
                     if (_ordersContext.AddOrder(new OrderDTO
                     {
                         EmployeeID = dialog.EmployeeID,
@@ -96,9 +96,9 @@ namespace QuanLyBanHang.GUI
                         ProductID = int.Parse(o.Cells[0].Value.ToString()),
                         UnitPrice = decimal.Parse(o.Cells[2].Value.ToString()),
                         Quantity = int.Parse(o.Cells[3].Value.ToString()),
-                    }).ToList(), out message))
+                    }).ToList(), out serverMessage))
                     {
-                        MessageBox.Show("Đã mua.");
+                        MessageBox.Show("Đã mua.\nMã Hóa đơn: "+ serverMessage);
                         btnClear_Click(sender, e);
                         LoadProducts();
                     }
@@ -106,7 +106,7 @@ namespace QuanLyBanHang.GUI
                     {
                         if (MessageBox.Show("Có lỗi trong quá trình đặt hàng.", "Lỗi.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            MessageBox.Show(message, "Lỗi thông báo từ server.");
+                            MessageBox.Show(serverMessage, "Lỗi thông báo từ server.");
                         }
                     }
                 }

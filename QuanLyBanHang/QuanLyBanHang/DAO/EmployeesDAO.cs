@@ -40,7 +40,7 @@ namespace QuanLyBanHang.DAO
                 {
                     dataContext.Employees.Add(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is added.";
+                    serverMessage = obj.EmployeeID.ToString();
                 }
                 return true;
             }
@@ -65,7 +65,7 @@ namespace QuanLyBanHang.DAO
                     objE.Address = obj.Address;
                     objE.JobTitle = obj.JobTitle;
                     dataContext.SaveChanges();
-                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is edited.";
+                    serverMessage = obj.EmployeeID.ToString();
                 }
                 return true;
             }
@@ -84,8 +84,7 @@ namespace QuanLyBanHang.DAO
                     Employee obj = dataContext.Employees.Single(o => o.EmployeeID == id);
                     dataContext.Employees.Remove(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Employee Name: " + obj.Name + ", ID: " + obj.EmployeeID + " is deleted.";
-
+                    serverMessage = obj.EmployeeID.ToString();
                 }
                 return true;
             }

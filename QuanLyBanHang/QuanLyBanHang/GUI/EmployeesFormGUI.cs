@@ -147,7 +147,7 @@ namespace QuanLyBanHang.GUI
             {
                 if (_employeesContext.AddEmployee(employeeFormat, out serverMessage))
                 {
-                    MessageBox.Show("Thêm thành công nhân viên tên: " + txbName.Text + ", ID: " + txbEmployeeID.Text + ".");
+                    MessageBox.Show("Thêm thành công nhân viên tên: " + txbName.Text + ", ID: " + serverMessage + ".");
                     completed = true;
                 }
                 else

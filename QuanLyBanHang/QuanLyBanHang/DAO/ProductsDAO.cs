@@ -40,7 +40,7 @@ namespace QuanLyBanHang.DAO
                 {
                     dataContext.Products.Add(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is added.";
+                    serverMessage = obj.ProductID.ToString();
                 }
                 return true;
             }
@@ -65,7 +65,7 @@ namespace QuanLyBanHang.DAO
                     objE.UnitsOnOrder = obj.UnitsOnOrder;
                     objE.Discontinued = obj.Discontinued;
                     dataContext.SaveChanges();
-                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is edited.";
+                    serverMessage = obj.ProductID.ToString();
                 }
                 return true;
             }
@@ -84,7 +84,7 @@ namespace QuanLyBanHang.DAO
                     Product obj = dataContext.Products.Single(o => o.ProductID == id);
                     dataContext.Products.Remove(obj);
                     dataContext.SaveChanges();
-                    serverMessage = "Product Name: " + obj.ProductName + ", ID: " + obj.ProductID + " is deleted.";
+                    serverMessage = obj.ProductID.ToString();
                 }
                 return true;
             }
