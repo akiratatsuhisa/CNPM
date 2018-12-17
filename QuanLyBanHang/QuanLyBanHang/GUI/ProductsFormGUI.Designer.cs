@@ -117,26 +117,26 @@
             // 
             // txbProductID
             // 
-            this.txbProductID.Location = new System.Drawing.Point(76, 44);
+            this.txbProductID.Location = new System.Drawing.Point(79, 44);
             this.txbProductID.Name = "txbProductID";
             this.txbProductID.ReadOnly = true;
-            this.txbProductID.Size = new System.Drawing.Size(168, 20);
+            this.txbProductID.Size = new System.Drawing.Size(165, 20);
             this.txbProductID.TabIndex = 1;
             // 
             // txbName
             // 
-            this.txbName.Location = new System.Drawing.Point(300, 44);
+            this.txbName.Location = new System.Drawing.Point(303, 44);
             this.txbName.Name = "txbName";
             this.txbName.ReadOnly = true;
-            this.txbName.Size = new System.Drawing.Size(390, 20);
+            this.txbName.Size = new System.Drawing.Size(387, 20);
             this.txbName.TabIndex = 1;
             // 
             // txbUnitPrice
             // 
-            this.txbUnitPrice.Location = new System.Drawing.Point(76, 68);
+            this.txbUnitPrice.Location = new System.Drawing.Point(79, 68);
             this.txbUnitPrice.Name = "txbUnitPrice";
             this.txbUnitPrice.ReadOnly = true;
-            this.txbUnitPrice.Size = new System.Drawing.Size(168, 20);
+            this.txbUnitPrice.Size = new System.Drawing.Size(165, 20);
             this.txbUnitPrice.TabIndex = 1;
             // 
             // cbxQuantityPerUnit
@@ -145,36 +145,35 @@
             this.cbxQuantityPerUnit.Enabled = false;
             this.cbxQuantityPerUnit.FormattingEnabled = true;
             this.cbxQuantityPerUnit.Items.AddRange(new object[] {
-                "Không xác định",
-                "1 chai",
-                "1 gói",
-                "1 bịch",
-                "1 lọ",
-                "1 hộp",
-                "1 túi",
-                "1 lon",
-                "1 vỉ",
-                "1 kg",
-            });
-            this.cbxQuantityPerUnit.Location = new System.Drawing.Point(76, 92);
+            "Không xác định",
+            "1 chai",
+            "1 gói",
+            "1 bịch",
+            "1 lọ",
+            "1 hộp",
+            "1 túi",
+            "1 lon",
+            "1 vỉ",
+            "1 kg"});
+            this.cbxQuantityPerUnit.Location = new System.Drawing.Point(79, 92);
             this.cbxQuantityPerUnit.Name = "cbxQuantityPerUnit";
-            this.cbxQuantityPerUnit.Size = new System.Drawing.Size(168, 21);
+            this.cbxQuantityPerUnit.Size = new System.Drawing.Size(165, 21);
             this.cbxQuantityPerUnit.TabIndex = 1;
             // 
             // txbUnitsInStock
             // 
-            this.txbUnitsInStock.Location = new System.Drawing.Point(300, 68);
+            this.txbUnitsInStock.Location = new System.Drawing.Point(303, 68);
             this.txbUnitsInStock.Name = "txbUnitsInStock";
             this.txbUnitsInStock.ReadOnly = true;
-            this.txbUnitsInStock.Size = new System.Drawing.Size(166, 20);
+            this.txbUnitsInStock.Size = new System.Drawing.Size(163, 20);
             this.txbUnitsInStock.TabIndex = 1;
             // 
             // txbUnitsOnOrder
             // 
-            this.txbUnitsOnOrder.Location = new System.Drawing.Point(522, 68);
+            this.txbUnitsOnOrder.Location = new System.Drawing.Point(525, 68);
             this.txbUnitsOnOrder.Name = "txbUnitsOnOrder";
             this.txbUnitsOnOrder.ReadOnly = true;
-            this.txbUnitsOnOrder.Size = new System.Drawing.Size(168, 20);
+            this.txbUnitsOnOrder.Size = new System.Drawing.Size(165, 20);
             this.txbUnitsOnOrder.TabIndex = 1;
             // 
             // dtpAddedDate
@@ -182,9 +181,9 @@
             this.dtpAddedDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAddedDate.Enabled = false;
             this.dtpAddedDate.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpAddedDate.Location = new System.Drawing.Point(300, 92);
+            this.dtpAddedDate.Location = new System.Drawing.Point(303, 92);
             this.dtpAddedDate.Name = "dtpAddedDate";
-            this.dtpAddedDate.Size = new System.Drawing.Size(166, 21);
+            this.dtpAddedDate.Size = new System.Drawing.Size(163, 21);
             this.dtpAddedDate.TabIndex = 1;
             // 
             // rdbIsContinued
@@ -312,7 +311,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(224, 24);
             this.layoutControlItem1.Text = "Mã SP";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem4
             // 
@@ -321,7 +320,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(446, 24);
             this.layoutControlItem4.Text = "Tên";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem15
             // 
@@ -330,7 +329,7 @@
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(224, 24);
             this.layoutControlItem15.Text = "Giá bán";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem14
             // 
@@ -339,7 +338,7 @@
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(224, 29);
             this.layoutControlItem14.Text = "Đơn vị đo";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem17
             // 
@@ -347,8 +346,8 @@
             this.layoutControlItem17.Location = new System.Drawing.Point(224, 48);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(222, 29);
-            this.layoutControlItem17.Text = "Ngày Sinh";
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem17.Text = "Ngày nhập";
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem3
             // 
@@ -357,7 +356,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(222, 24);
             this.layoutControlItem3.Text = "Trong kho";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem2
             // 
@@ -366,7 +365,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(224, 24);
             this.layoutControlItem2.Text = "Trong đơn";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(49, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(52, 13);
             // 
             // layoutControlItem7
             // 
