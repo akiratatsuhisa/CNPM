@@ -90,6 +90,7 @@
             // 
             this.txbProductID.Location = new System.Drawing.Point(65, 12);
             this.txbProductID.Name = "txbProductID";
+            this.txbProductID.ReadOnly = true;
             this.txbProductID.Size = new System.Drawing.Size(129, 20);
             this.txbProductID.TabIndex = 1;
             // 
@@ -97,6 +98,7 @@
             // 
             this.txbName.Location = new System.Drawing.Point(65, 36);
             this.txbName.Name = "txbName";
+            this.txbName.ReadOnly = true;
             this.txbName.Size = new System.Drawing.Size(129, 20);
             this.txbName.TabIndex = 1;
             // 
@@ -104,6 +106,7 @@
             // 
             this.txbQuantityPerUnit.Location = new System.Drawing.Point(65, 60);
             this.txbQuantityPerUnit.Name = "txbQuantityPerUnit";
+            this.txbQuantityPerUnit.ReadOnly = true;
             this.txbQuantityPerUnit.Size = new System.Drawing.Size(129, 20);
             this.txbQuantityPerUnit.TabIndex = 1;
             // 
@@ -111,6 +114,7 @@
             // 
             this.txbUnitPrice.Location = new System.Drawing.Point(65, 84);
             this.txbUnitPrice.Name = "txbUnitPrice";
+            this.txbUnitPrice.ReadOnly = true;
             this.txbUnitPrice.Size = new System.Drawing.Size(129, 20);
             this.txbUnitPrice.TabIndex = 1;
             // 

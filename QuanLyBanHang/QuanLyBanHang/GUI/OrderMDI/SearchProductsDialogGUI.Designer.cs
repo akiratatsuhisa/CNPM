@@ -281,7 +281,7 @@
             this.MinimumSize = new System.Drawing.Size(340, 155);
             this.Name = "SearchProductsDialogGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchProductsDialogGUI";
+            this.Text = "Tìm kiếm sản phẩm";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchProductDialog_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
