@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormGUI));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barBtnOrder = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSale = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProducts = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnEmployees = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCustomers = new DevExpress.XtraBars.BarButtonItem();
@@ -56,7 +56,7 @@
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.barBtnOrder,
+            this.barBtnSale,
             this.barBtnProducts,
             this.barBtnEmployees,
             this.barBtnCustomers,
@@ -70,14 +70,14 @@
             this.ribbon.Size = new System.Drawing.Size(954, 147);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
-            // barBtnOrder
+            // barBtnSale
             // 
-            this.barBtnOrder.Caption = "Đặt Hàng";
-            this.barBtnOrder.Id = 1;
-            this.barBtnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_32x32;
-            this.barBtnOrder.Name = "barBtnOrder";
-            this.barBtnOrder.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barBtnOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnOrder_ItemClick);
+            this.barBtnSale.Caption = "Đặt Hàng";
+            this.barBtnSale.Id = 1;
+            this.barBtnSale.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_32x32;
+            this.barBtnSale.Name = "barBtnSale";
+            this.barBtnSale.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barBtnSale.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSale_ItemClick);
             // 
             // barBtnProducts
             // 
@@ -126,7 +126,7 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnOrder);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnSale);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Order";
             // 
@@ -206,7 +206,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem barBtnOrder;
+        private DevExpress.XtraBars.BarButtonItem barBtnSale;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;

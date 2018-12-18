@@ -38,7 +38,7 @@ namespace QuanLyBanHang.GUI
             // Mở khóa nhập liệu
             txbName.ReadOnly = !value;
             txbUnitPrice.ReadOnly = !value;
-            txbUnitsOnOrder.ReadOnly = !value;
+            txbUnitsOnInvoice.ReadOnly = !value;
             txbUnitsInStock.ReadOnly = !value;
             cbxQuantityPerUnit.Enabled = value;
             dtpAddedDate.Enabled = value;
@@ -53,7 +53,7 @@ namespace QuanLyBanHang.GUI
             txbName.Text = "";
             txbUnitPrice.Text = "";
             txbUnitsInStock.Text = "";
-            txbUnitsOnOrder.Text = "";
+            txbUnitsOnInvoice.Text = "";
             cbxQuantityPerUnit.SelectedItem = null;
             dtpAddedDate.Value = DateTime.Now.AddYears(-18);
             rdbIsContinued.Checked = true;  
@@ -118,16 +118,16 @@ namespace QuanLyBanHang.GUI
             {
                 message += "Đơn vị trong kho: " + txbUnitsInStock.Text + " không hợp lệ.\n";
             }
-            if (int.TryParse(txbUnitsOnOrder.Text, out number))
+            if (int.TryParse(txbUnitsOnInvoice.Text, out number))
             {
                 if (number < 0)
                 {
                     message += "Đơn vị trong đơn không được là số âm.\n";
                 }
             }
-            else if (!string.IsNullOrWhiteSpace(txbUnitsOnOrder.Text))
+            else if (!string.IsNullOrWhiteSpace(txbUnitsOnInvoice.Text))
             {
-                message += "Đơn vị trong đơn: " + txbUnitsOnOrder.Text + " không hợp lệ.\n";
+                message += "Đơn vị trong đơn: " + txbUnitsOnInvoice.Text + " không hợp lệ.\n";
             }
             decimal price;
             if (decimal.TryParse(txbUnitPrice.Text, out price))
@@ -158,7 +158,7 @@ namespace QuanLyBanHang.GUI
                 QuantityPerUnit = cbxQuantityPerUnit.SelectedItem?.ToString() ?? "Không xác định",
                 UnitPrice = string.IsNullOrWhiteSpace(txbUnitPrice.Text) ? 0 : decimal.Parse(txbUnitPrice.Text),
                 UnitsInStock = string.IsNullOrWhiteSpace(txbUnitsInStock.Text) ? 0 : int.Parse(txbUnitsInStock.Text),
-                UnitsOnOrder = string.IsNullOrWhiteSpace(txbUnitsOnOrder.Text) ? 0 : int.Parse(txbUnitsOnOrder.Text),
+                UnitsOnInvoice = string.IsNullOrWhiteSpace(txbUnitsOnInvoice.Text) ? 0 : int.Parse(txbUnitsOnInvoice.Text),
                 Discontinued = rdbIsContinued.Checked ? "Bán" : "Dừng bán"
             };
             bool completed = false;
@@ -214,7 +214,7 @@ namespace QuanLyBanHang.GUI
                     cbxQuantityPerUnit.SelectedItem = selectedItem.Cells[3].Value?.ToString();
                     txbUnitPrice.Text = selectedItem.Cells[4].Value?.ToString();
                     txbUnitsInStock.Text = selectedItem.Cells[5].Value?.ToString();
-                    txbUnitsOnOrder.Text = selectedItem.Cells[6].Value?.ToString();
+                    txbUnitsOnInvoice.Text = selectedItem.Cells[6].Value?.ToString();
                     if (selectedItem.Cells[7].Value?.ToString() == "Bán")
                         rdbIsContinued.Checked = true;
                     else
@@ -243,7 +243,7 @@ namespace QuanLyBanHang.GUI
                 cbxQuantityPerUnit.SelectedItem = selectedRow.Cells[3].Value?.ToString();
                 txbUnitPrice.Text = selectedRow.Cells[4].Value?.ToString();
                 txbUnitsInStock.Text = selectedRow.Cells[5].Value?.ToString();
-                txbUnitsOnOrder.Text = selectedRow.Cells[6].Value?.ToString();
+                txbUnitsOnInvoice.Text = selectedRow.Cells[6].Value?.ToString();
                 if (selectedRow.Cells[7].Value?.ToString() == "Bán")
                     rdbIsContinued.Checked = true;
                 else

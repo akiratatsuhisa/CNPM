@@ -45,7 +45,7 @@ namespace QuanLyBanHang.BUS
             QuantityPerUnit = obj.QuantityPerUnit,
             UnitPrice = obj.UnitPrice,
             UnitsInStock = obj.UnitsInStock,
-            UnitsOnOrder = obj.UnitsOnOrder,
+            UnitsOnInvoice = obj.UnitsOnInvoice,
             Discontinued = obj.Discontinued ? "Dừng bán" : "Bán"
         };
         private Product ConvertToProduct(ProductDTO obj) => new Product
@@ -56,7 +56,7 @@ namespace QuanLyBanHang.BUS
             QuantityPerUnit = obj.QuantityPerUnit,
             UnitPrice = obj.UnitPrice,
             UnitsInStock = obj.UnitsInStock,
-            UnitsOnOrder = obj.UnitsOnOrder,
+            UnitsOnInvoice = obj.UnitsOnInvoice,
             Discontinued = obj.Discontinued == "Dừng bán" ? true : false,
         };
         public bool AddProduct(ProductDTO obj, out string serverMessage) => _productsContext.AddProduct(ConvertToProduct(obj), out serverMessage);

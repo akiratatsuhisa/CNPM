@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SalesManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SalesManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -29,25 +29,25 @@
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="JobTitle" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="OrderDetails">
+        <EntityType Name="InvoiceDetails">
           <Key>
-            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="InvoiceID" />
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Orders">
+        <EntityType Name="Invoices">
           <Key>
-            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="InvoiceID" />
           </Key>
-          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
-          <Property Name="OrderDate" Type="datetime" Nullable="false" />
-          <Property Name="Freight" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="Freight" Type="decimal" Precision="10" Scale="3" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -59,55 +59,55 @@
           <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="30" />
           <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="UnitsInStock" Type="int" Nullable="false" />
-          <Property Name="UnitsOnOrder" Type="int" Nullable="false" />
+          <Property Name="UnitsOnInvoice" Type="int" Nullable="false" />
           <Property Name="Discontinued" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK_OrderDetails_Orders">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+        <Association Name="FK_InvoiceDetails_Invoices">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Orders">
-              <PropertyRef Name="OrderID" />
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
             </Principal>
-            <Dependent Role="OrderDetails">
-              <PropertyRef Name="OrderID" />
+            <Dependent Role="InvoiceDetails">
+              <PropertyRef Name="InvoiceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderDetails_Products">
+        <Association Name="FK_InvoiceDetails_Products">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="OrderDetails">
+            <Dependent Role="InvoiceDetails">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Orders_Customers">
+        <Association Name="FK_Invoices_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
               <PropertyRef Name="CustomerID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Invoices">
               <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Orders_Employees">
+        <Association Name="FK_Invoices_Employees">
           <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
               <PropertyRef Name="EmployeeID" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Invoices">
               <PropertyRef Name="EmployeeID" />
             </Dependent>
           </ReferentialConstraint>
@@ -115,27 +115,28 @@
         <EntityContainer Name="SalesManagementModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
+          <AssociationSet Name="FK_InvoiceDetails_Products" Association="Self.FK_InvoiceDetails_Products">
             <End Role="Products" EntitySet="Products" />
-            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+          <AssociationSet Name="FK_Invoices_Customers" Association="Self.FK_Invoices_Customers">
             <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Employees" Association="Self.FK_Orders_Employees">
+          <AssociationSet Name="FK_Invoices_Employees" Association="Self.FK_Invoices_Employees">
             <End Role="Employees" EntitySet="Employees" />
-            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SalesManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -149,7 +150,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="SalesManagementModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Customers" FromRole="Customers" ToRole="Invoices" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -163,19 +164,32 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="JobTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="SalesManagementModel.FK_Orders_Employees" FromRole="Employee" ToRole="Order" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Employees" FromRole="Employees" ToRole="Invoices" />
         </EntityType>
-        <EntityType Name="OrderDetail">
+        <EntityType Name="InvoiceDetail">
           <Key>
-            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="InvoiceID" />
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
-          <NavigationProperty Name="Order" Relationship="SalesManagementModel.FK_OrderDetails_Orders" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Invoice" Relationship="Self.FK_InvoiceDetails_Invoices" FromRole="InvoiceDetails" ToRole="Invoices" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_InvoiceDetails_Products" FromRole="InvoiceDetails" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Freight" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Invoices_Customers" FromRole="Invoices" ToRole="Customers" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Invoices_Employees" FromRole="Invoices" ToRole="Employees" />
+          <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK_InvoiceDetails_Invoices" FromRole="Invoices" ToRole="InvoiceDetails" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -187,18 +201,56 @@
           <Property Name="QuantityPerUnit" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="UnitsInStock" Type="Int32" Nullable="false" />
-          <Property Name="UnitsOnOrder" Type="Int32" Nullable="false" />
+          <Property Name="UnitsOnInvoice" Type="Int32" Nullable="false" />
           <Property Name="Discontinued" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
+          <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK_InvoiceDetails_Products" FromRole="Products" ToRole="InvoiceDetails" />
         </EntityType>
-        <Association Name="FK_OrderDetails_Products">
+        <Association Name="FK_Invoices_Customers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Employees">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceDetails_Invoices">
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="InvoiceDetails">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceDetails_Products">
           <End Role="Products" Type="Self.Product" Multiplicity="1" />
-          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="OrderDetails">
+            <Dependent Role="InvoiceDetails">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
@@ -206,77 +258,26 @@
         <EntityContainer Name="SalesManagementEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetail" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
           <EntitySet Name="Products" EntityType="Self.Product" />
-          <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
+          <AssociationSet Name="FK_Invoices_Customers" Association="Self.FK_Invoices_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Employees" Association="Self.FK_Invoices_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceDetails_Invoices" Association="Self.FK_InvoiceDetails_Invoices">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceDetails_Products" Association="Self.FK_InvoiceDetails_Products">
             <End Role="Products" EntitySet="Products" />
-            <End Role="OrderDetails" EntitySet="OrderDetails" />
-          </AssociationSet>
-          <EntitySet Name="Orders" EntityType="SalesManagementModel.Order" />
-          <AssociationSet Name="FK_Orders_Customers" Association="SalesManagementModel.FK_Orders_Customers">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Employees" Association="SalesManagementModel.FK_Orders_Employees">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderDetails_Orders" Association="SalesManagementModel.FK_OrderDetails_Orders">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Order">
-          <Key>
-            <PropertyRef Name="OrderID" />
-          </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Freight" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
-          <NavigationProperty Name="Customer" Relationship="SalesManagementModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="Employee" Relationship="SalesManagementModel.FK_Orders_Employees" FromRole="Order" ToRole="Employee" />
-          <NavigationProperty Name="OrderDetails" Relationship="SalesManagementModel.FK_OrderDetails_Orders" FromRole="Order" ToRole="OrderDetail" />
-        </EntityType>
-        <Association Name="FK_Orders_Customers">
-          <End Type="SalesManagementModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="SalesManagementModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Employees">
-          <End Type="SalesManagementModel.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="SalesManagementModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderDetails_Orders">
-          <End Type="SalesManagementModel.Order" Role="Order" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="SalesManagementModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -309,13 +310,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="SalesManagementModel.OrderDetail">
-              <MappingFragment StoreEntitySet="OrderDetails">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <EntitySetMapping Name="InvoiceDetails">
+            <EntityTypeMapping TypeName="SalesManagementModel.InvoiceDetail">
+              <MappingFragment StoreEntitySet="InvoiceDetails">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="SalesManagementModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="Freight" ColumnName="Freight" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -328,19 +340,8 @@
                 <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
-                <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+                <ScalarProperty Name="UnitsOnInvoice" ColumnName="UnitsOnInvoice" />
                 <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="SalesManagementModel.Order">
-              <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="Freight" ColumnName="Freight" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

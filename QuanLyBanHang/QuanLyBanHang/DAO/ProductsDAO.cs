@@ -62,7 +62,7 @@ namespace QuanLyBanHang.DAO
                     objE.QuantityPerUnit = obj.QuantityPerUnit;
                     objE.UnitPrice = obj.UnitPrice;
                     objE.UnitsInStock = obj.UnitsInStock;
-                    objE.UnitsOnOrder = obj.UnitsOnOrder;
+                    objE.UnitsOnInvoice = obj.UnitsOnInvoice;
                     objE.Discontinued = obj.Discontinued;
                     dataContext.SaveChanges();
                     serverMessage = obj.ProductID.ToString();

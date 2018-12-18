@@ -98,13 +98,13 @@ namespace QuanLyBanHang.GUI
                         Quantity = int.Parse(o.Cells[3].Value.ToString()),
                     }).ToList(), out serverMessage))
                     {
-                        MessageBox.Show("Đã mua.\nMã Hóa đơn: "+ serverMessage);
+                        MessageBox.Show("Đã bán.\nMã Hóa đơn: "+ serverMessage);
                         btnClear_Click(sender, e);
                         LoadProducts();
                     }
                     else
                     {
-                        if (MessageBox.Show("Có lỗi trong quá trình đặt hàng.", "Lỗi.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Có lỗi trong quá trình chọn mặt hàng.", "Lỗi.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             MessageBox.Show(serverMessage, "Lỗi thông báo từ server.");
                         }
@@ -113,7 +113,7 @@ namespace QuanLyBanHang.GUI
             }
             else
             {
-                MessageBox.Show("Vui lòng đặt hàng.");
+                MessageBox.Show("Vui lòng chọn mặt hàng.");
             }
         }
         private void btnRemove_Click(object sender, EventArgs e)

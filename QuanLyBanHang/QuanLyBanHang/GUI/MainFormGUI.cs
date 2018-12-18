@@ -17,21 +17,21 @@ namespace QuanLyBanHang.GUI
         public MainFormGUI()
         {
             InitializeComponent();
-            var form = new OrderFormGUI();
+            var form = new SaleFormGUI();
             form.MdiParent = this;
             form.Show();
         }
-        private void barBtnOrder_ItemClick(object sender, ItemClickEventArgs e)
+        private void barBtnSale_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (var child in MdiChildren)
             {
-                if (child is OrderFormGUI)
+                if (child is SaleFormGUI)
                 {
                     child.BringToFront();
                     return;
                 }
             }
-            var form = new OrderFormGUI();
+            var form = new SaleFormGUI();
             form.MdiParent = this;
             form.Show();
         }

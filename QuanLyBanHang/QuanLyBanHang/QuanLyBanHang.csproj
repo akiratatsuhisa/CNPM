@@ -79,6 +79,13 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\EmployeesDAO.cs" />
+    <Compile Include="DAO\Invoice.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\InvoiceDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\InvoicesDAO.cs" />
     <Compile Include="DAO\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,13 +101,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAO\Order.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAO\OrderDetail.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAO\InvoicesDAO.cs" />
     <Compile Include="DAO\Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

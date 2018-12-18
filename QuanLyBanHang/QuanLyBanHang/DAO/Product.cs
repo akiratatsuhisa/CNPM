@@ -17,7 +17,7 @@ namespace QuanLyBanHang.DAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.InvoiceDetails = new HashSet<InvoiceDetail>();
         }
     
         public int ProductID { get; set; }
@@ -26,10 +26,10 @@ namespace QuanLyBanHang.DAO
         public string QuantityPerUnit { get; set; }
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
-        public int UnitsOnOrder { get; set; }
+        public int UnitsOnInvoice { get; set; }
         public bool Discontinued { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace QuanLyBanHang.DAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Orders = new HashSet<Order>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public int EmployeeID { get; set; }
@@ -30,6 +30,6 @@ namespace QuanLyBanHang.DAO
         public string JobTitle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

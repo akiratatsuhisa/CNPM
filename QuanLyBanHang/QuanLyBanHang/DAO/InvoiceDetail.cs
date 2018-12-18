@@ -10,12 +10,16 @@
 namespace QuanLyBanHang.DAO
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class TotalSpendOfCustomers_Result
+    public partial class InvoiceDetail
     {
-        public Nullable<int> CustomerID { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> TotalPurchased { get; set; }
-        public Nullable<decimal> Total { get; set; }
+        public int InvoiceID { get; set; }
+        public int ProductID { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int Quantity { get; set; }
+    
+        public virtual Invoice Invoice { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

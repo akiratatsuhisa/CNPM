@@ -35,7 +35,7 @@
             this.txbUnitPrice = new System.Windows.Forms.TextBox();
             this.cbxQuantityPerUnit = new System.Windows.Forms.ComboBox();
             this.txbUnitsInStock = new System.Windows.Forms.TextBox();
-            this.txbUnitsOnOrder = new System.Windows.Forms.TextBox();
+            this.txbUnitsOnInvoice = new System.Windows.Forms.TextBox();
             this.dtpAddedDate = new System.Windows.Forms.DateTimePicker();
             this.rdbIsContinued = new System.Windows.Forms.RadioButton();
             this.rdbIsDiscontinued = new System.Windows.Forms.RadioButton();
@@ -97,7 +97,7 @@
             this.dataLayoutControl1.Controls.Add(this.txbUnitPrice);
             this.dataLayoutControl1.Controls.Add(this.cbxQuantityPerUnit);
             this.dataLayoutControl1.Controls.Add(this.txbUnitsInStock);
-            this.dataLayoutControl1.Controls.Add(this.txbUnitsOnOrder);
+            this.dataLayoutControl1.Controls.Add(this.txbUnitsOnInvoice);
             this.dataLayoutControl1.Controls.Add(this.dtpAddedDate);
             this.dataLayoutControl1.Controls.Add(this.rdbIsContinued);
             this.dataLayoutControl1.Controls.Add(this.rdbIsDiscontinued);
@@ -168,13 +168,13 @@
             this.txbUnitsInStock.Size = new System.Drawing.Size(163, 20);
             this.txbUnitsInStock.TabIndex = 1;
             // 
-            // txbUnitsOnOrder
+            // txbUnitsOnInvoice
             // 
-            this.txbUnitsOnOrder.Location = new System.Drawing.Point(525, 68);
-            this.txbUnitsOnOrder.Name = "txbUnitsOnOrder";
-            this.txbUnitsOnOrder.ReadOnly = true;
-            this.txbUnitsOnOrder.Size = new System.Drawing.Size(165, 20);
-            this.txbUnitsOnOrder.TabIndex = 1;
+            this.txbUnitsOnInvoice.Location = new System.Drawing.Point(525, 68);
+            this.txbUnitsOnInvoice.Name = "txbUnitsOnInvoice";
+            this.txbUnitsOnInvoice.ReadOnly = true;
+            this.txbUnitsOnInvoice.Size = new System.Drawing.Size(165, 20);
+            this.txbUnitsOnInvoice.TabIndex = 1;
             // 
             // dtpAddedDate
             // 
@@ -360,7 +360,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txbUnitsOnOrder;
+            this.layoutControlItem2.Control = this.txbUnitsOnInvoice;
             this.layoutControlItem2.Location = new System.Drawing.Point(446, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(224, 24);
@@ -523,7 +523,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private System.Windows.Forms.TextBox txbUnitsInStock;
-        private System.Windows.Forms.TextBox txbUnitsOnOrder;
+        private System.Windows.Forms.TextBox txbUnitsOnInvoice;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
