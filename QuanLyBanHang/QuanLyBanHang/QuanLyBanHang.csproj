@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
+    <Compile Include="BUS\EmployeesBus.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
