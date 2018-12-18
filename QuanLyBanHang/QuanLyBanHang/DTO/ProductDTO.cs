@@ -22,7 +22,7 @@ namespace QuanLyBanHang.DTO
         [DisplayName("SL trong kho")]
         public int UnitsInStock { get; set; }
         [DisplayName("SL trong đơn")]
-        public int UnitsOnOrder { get; set; }
+        public int UnitsOnInvoice { get; set; }
         [DisplayName("Tình trạng")]
         public string Discontinued { get; set; }
     }

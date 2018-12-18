@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DTO
 {
-    public class OrderDetailDTO
+    public class InvoiceDetailDTO
     {
         [DisplayName("Mã HĐ")]
-        public int OrderID { get; set; }
+        public int InvoiceID { get; set; }
         [DisplayName("Mã SP")]
         public int ProductID { get; set; }
         [DisplayName("Tên SP")]
