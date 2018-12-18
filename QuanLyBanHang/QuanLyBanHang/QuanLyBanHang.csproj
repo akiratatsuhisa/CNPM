@@ -91,6 +91,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\EmployeesDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
