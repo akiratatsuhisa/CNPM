@@ -165,7 +165,7 @@
             this.btnOrder.Size = new System.Drawing.Size(128, 22);
             this.btnOrder.StyleController = this.dataLayoutControl1;
             this.btnOrder.TabIndex = 1;
-            this.btnOrder.Text = "Đặt hàng";
+            this.btnOrder.Text = "Mua";
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnRemove

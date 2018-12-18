@@ -251,7 +251,7 @@
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 117);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(394, 70);
-            this.layoutControlGroup2.Text = "Đặt hàng";
+            this.layoutControlGroup2.Text = "Mua hàng";
             // 
             // layoutControlItem7
             // 
