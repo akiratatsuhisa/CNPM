@@ -284,7 +284,7 @@
             this.Name = "AddInvoiceDialogGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin hóa đơn";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddOrderDialog_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddInvoiceDialog_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
