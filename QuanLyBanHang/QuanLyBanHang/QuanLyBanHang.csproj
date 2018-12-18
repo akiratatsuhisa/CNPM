@@ -134,28 +134,28 @@
     <Compile Include="GUI\MainFormGUI.Designer.cs">
       <DependentUpon>MainFormGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderFormGUI.cs">
+    <Compile Include="GUI\SaleFormGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderFormGUI.Designer.cs">
-      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    <Compile Include="GUI\SaleFormGUI.Designer.cs">
+      <DependentUpon>SaleFormGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.cs">
+    <Compile Include="GUI\SaleFormMDI\AddInvoiceDialogGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\AddOrderDialogGUI.Designer.cs">
-      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    <Compile Include="GUI\SaleFormMDI\AddInvoiceDialogGUI.Designer.cs">
+      <DependentUpon>AddInvoiceDialogGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.cs">
+    <Compile Include="GUI\SaleFormMDI\ProductUserControlGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\ProductUserControlGUI.Designer.cs">
+    <Compile Include="GUI\SaleFormMDI\ProductUserControlGUI.Designer.cs">
       <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.cs">
+    <Compile Include="GUI\SaleFormMDI\SearchProductsDialogGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\OrderMDI\SearchProductsDialogGUI.Designer.cs">
+    <Compile Include="GUI\SaleFormMDI\SearchProductsDialogGUI.Designer.cs">
       <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ProductsFormGUI.cs">
@@ -178,16 +178,16 @@
     <EmbeddedResource Include="GUI\MainFormGUI.resx">
       <DependentUpon>MainFormGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderFormGUI.resx">
-      <DependentUpon>OrderFormGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\SaleFormGUI.resx">
+      <DependentUpon>SaleFormGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\AddOrderDialogGUI.resx">
-      <DependentUpon>AddOrderDialogGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\SaleFormMDI\AddInvoiceDialogGUI.resx">
+      <DependentUpon>AddInvoiceDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\ProductUserControlGUI.resx">
+    <EmbeddedResource Include="GUI\SaleFormMDI\ProductUserControlGUI.resx">
       <DependentUpon>ProductUserControlGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\OrderMDI\SearchProductsDialogGUI.resx">
+    <EmbeddedResource Include="GUI\SaleFormMDI\SearchProductsDialogGUI.resx">
       <DependentUpon>SearchProductsDialogGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ProductsFormGUI.resx">

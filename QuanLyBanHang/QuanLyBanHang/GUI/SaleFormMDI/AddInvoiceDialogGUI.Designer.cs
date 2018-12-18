@@ -1,6 +1,6 @@
-﻿namespace QuanLyBanHang.GUI.OrderMDI
+﻿namespace QuanLyBanHang.GUI.SaleFormMDI
 {
-    partial class AddOrderDialogGUI
+    partial class AddInvoiceDialogGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrderDialogGUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddInvoiceDialogGUI));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txbCustomerID = new System.Windows.Forms.TextBox();
             this.txbCustomerName = new System.Windows.Forms.TextBox();
@@ -251,7 +251,7 @@
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 117);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(394, 70);
-            this.layoutControlGroup2.Text = "Mua hàng";
+            this.layoutControlGroup2.Text = "Bán hàng";
             // 
             // layoutControlItem7
             // 
@@ -271,7 +271,7 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // AddOrderDialogGUI
+            // AddInvoiceDialogGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -281,7 +281,7 @@
             this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(550, 250);
             this.MinimumSize = new System.Drawing.Size(420, 250);
-            this.Name = "AddOrderDialogGUI";
+            this.Name = "AddInvoiceDialogGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin hóa đơn";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddOrderDialog_KeyDown);

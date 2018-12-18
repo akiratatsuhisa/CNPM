@@ -8,46 +8,46 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.BUS
 {
-    public class OrdersBUS
+    public class InvoicesBUS
     {
-        private OrdersDAO _ordersContext = new OrdersDAO();
-        public List<OrderDTO> GetList() => _ordersContext.GetList().Select(obj => ConvertToOrderDTO(obj)).ToList();
-        public List<OrderDetailDTO> GetListOrderDetail(int id) => _ordersContext.GetListOrderDetail(id).Select(obj => ConvertToOrderDetailDTO(obj)).ToList();
-        private OrderDTO ConvertToOrderDTO(Order obj) => new OrderDTO
+        private InvoicesDAO _invoicesContext = new InvoicesDAO();
+        public List<InvoiceDTO> GetList() => _invoicesContext.GetList().Select(obj => ConvertToInvoiceDTO(obj)).ToList();
+        public List<InvoiceDetailDTO> GetListInvoiceDetail(int id) => _invoicesContext.GetListInvoiceDetail(id).Select(obj => ConvertToInvoiceDetailDTO(obj)).ToList();
+        private InvoiceDTO ConvertToInvoiceDTO(Invoice obj) => new InvoiceDTO
         {
-            OrderID = obj.OrderID,
+            InvoiceID = obj.InvoiceID,
             CustomerID = obj.CustomerID,
             CustomerName = obj.Customer.Name,
             EmployeeID = obj.EmployeeID,
             EmployeeName = obj.Employee.Name,
-            OrderDate = obj.OrderDate,
+            InvoiceDate = obj.InvoiceDate,
             Freight = obj.Freight,
         };
-        private OrderDetailDTO ConvertToOrderDetailDTO(OrderDetail obj) => new OrderDetailDTO
+        private InvoiceDetailDTO ConvertToInvoiceDetailDTO(InvoiceDetail obj) => new InvoiceDetailDTO
         {
-            OrderID = obj.OrderID,
+            InvoiceID = obj.InvoiceID,
             ProductID = obj.ProductID,
             ProductName = obj.Product.ProductName,
             Quantity = obj.Quantity,
             UnitPrice = obj.UnitPrice
         };
-        private Order ConvertToOrder(OrderDTO obj) => new Order
+        private Invoice ConvertToInvoice(InvoiceDTO obj) => new Invoice
         {
-            OrderID = obj.OrderID,
+            InvoiceID = obj.InvoiceID,
             EmployeeID = obj.EmployeeID,
             CustomerID = obj.CustomerID,
-            OrderDate = obj.OrderDate,
+            InvoiceDate = obj.InvoiceDate,
             Freight = obj.Freight
         };
-        private List<OrderDetail> ConvertToListOrderDetail(List<OrderDetailDTO> listObj) => listObj.Select(obj => new OrderDetail
+        private List<InvoiceDetail> ConvertToListInvoiceDetail(List<InvoiceDetailDTO> listObj) => listObj.Select(obj => new InvoiceDetail
         {
-            OrderID = obj.OrderID,
+            InvoiceID = obj.InvoiceID,
             ProductID = obj.ProductID,
             Quantity = obj.Quantity,
             UnitPrice = obj.UnitPrice
         }).ToList();
-        public bool AddOrder(OrderDTO obj, List<OrderDetailDTO> listObj, out string serverMessage) => _ordersContext.AddOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listObj), out serverMessage);
-        public bool EditOrder(OrderDTO obj, List<OrderDetailDTO> listObj, out string serverMessage) => _ordersContext.EditOrder(ConvertToOrder(obj), ConvertToListOrderDetail(listObj), out serverMessage);
-        public bool DeleteOrder(int id, out string serverMessage) => _ordersContext.DeleteOrder(id, out serverMessage);
+        public bool AddInvoice(InvoiceDTO obj, List<InvoiceDetailDTO> listObj, out string serverMessage) => _invoicesContext.AddInvoice(ConvertToInvoice(obj), ConvertToListInvoiceDetail(listObj), out serverMessage);
+        public bool EditInvoice(InvoiceDTO obj, List<InvoiceDetailDTO> listObj, out string serverMessage) => _invoicesContext.EditInvoice(ConvertToInvoice(obj), ConvertToListInvoiceDetail(listObj), out serverMessage);
+        public bool DeleteInvoice(int id, out string serverMessage) => _invoicesContext.DeleteInvoice(id, out serverMessage);
     }
 }

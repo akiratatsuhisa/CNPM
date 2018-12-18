@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBanHang.GUI
 {
-    partial class OrderFormGUI
+    partial class SaleFormGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderFormGUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleFormGUI));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.flpProduct = new System.Windows.Forms.FlowLayoutPanel();
@@ -36,7 +36,7 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.btnRefreshList = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSale = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -73,8 +73,8 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -124,7 +124,7 @@
             // 
             this.dataLayoutControl1.Controls.Add(this.btnSearch);
             this.dataLayoutControl1.Controls.Add(this.btnRefreshList);
-            this.dataLayoutControl1.Controls.Add(this.btnOrder);
+            this.dataLayoutControl1.Controls.Add(this.btnSale);
             this.dataLayoutControl1.Controls.Add(this.btnRemove);
             this.dataLayoutControl1.Controls.Add(this.btnClear);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -157,16 +157,16 @@
             this.btnRefreshList.Text = "Refresh danh sách";
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
             // 
-            // btnOrder
+            // btnSale
             // 
-            this.btnOrder.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
-            this.btnOrder.Location = new System.Drawing.Point(276, 12);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(128, 22);
-            this.btnOrder.StyleController = this.dataLayoutControl1;
-            this.btnOrder.TabIndex = 1;
-            this.btnOrder.Text = "Mua";
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            this.btnSale.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_16x16;
+            this.btnSale.Location = new System.Drawing.Point(276, 12);
+            this.btnSale.Name = "btnSale";
+            this.btnSale.Size = new System.Drawing.Size(128, 22);
+            this.btnSale.StyleController = this.dataLayoutControl1;
+            this.btnSale.TabIndex = 1;
+            this.btnSale.Text = "Bán";
+            this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
             // btnRemove
             // 
@@ -242,7 +242,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.btnOrder;
+            this.layoutControlItem5.Control = this.btnSale;
             this.layoutControlItem5.Location = new System.Drawing.Point(264, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(132, 27);
@@ -273,7 +273,7 @@
             // 
             // txbTotal
             // 
-            this.txbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTotal.Location = new System.Drawing.Point(67, 316);
             this.txbTotal.Name = "txbTotal";
@@ -285,8 +285,8 @@
             // 
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
-            this.dgvDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.Honeydew;
@@ -366,7 +366,7 @@
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraEditors.SimpleButton btnRemove;
         private DevExpress.XtraEditors.SimpleButton btnClear;
-        private DevExpress.XtraEditors.SimpleButton btnOrder;
+        private DevExpress.XtraEditors.SimpleButton btnSale;
         private DevExpress.XtraEditors.SimpleButton btnRefreshList;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraLayout.LayoutControlGroup Root;

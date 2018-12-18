@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyBanHang.GUI.OrderMDI
+namespace QuanLyBanHang.GUI.SaleFormMDI
 {
     public partial class SearchProductsDialogGUI : DevExpress.XtraEditors.XtraForm
     {

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyBanHang.BUS;
-using QuanLyBanHang.GUI.OrderMDI;
 using QuanLyBanHang.DTO;
+using QuanLyBanHang.GUI.SaleFormMDI;
 
 namespace QuanLyBanHang.GUI
 {
-    public partial class OrderFormGUI : DevExpress.XtraEditors.XtraForm
+    public partial class SaleFormGUI : DevExpress.XtraEditors.XtraForm
     {
         private ProductsBUS _productsContext = new ProductsBUS();
-        private OrdersBUS _ordersContext = new OrdersBUS();
-        public OrderFormGUI()
+        private InvoicesBUS _invoicesContext = new InvoicesBUS();
+        public SaleFormGUI()
         {
             InitializeComponent();
             LoadProducts();
@@ -75,23 +75,23 @@ namespace QuanLyBanHang.GUI
             LoadProducts();
             CheckProducts();
         }
-        private void btnOrder_Click(object sender, EventArgs e)
+        private void btnSale_Click(object sender, EventArgs e)
         {
             if (dgvDetail.Rows.Count > 0)
             {
-                AddOrderDialogGUI dialog = new AddOrderDialogGUI(txbTotal.Text);
+                AddInvoiceDialogGUI dialog = new AddInvoiceDialogGUI(txbTotal.Text);
                 dialog.ShowDialog();
                 if (dialog.Result)
                 {
                     string serverMessage;
-                    if (_ordersContext.AddOrder(new OrderDTO
+                    if (_invoicesContext.AddInvoice(new InvoiceDTO
                     {
                         EmployeeID = dialog.EmployeeID,
                         CustomerID = dialog.CustomerID,
                         Freight = dialog.Freight,
-                        OrderDate = DateTime.Now
+                        InvoiceDate = DateTime.Now
                     },
-                    dgvDetail.Rows.Cast<DataGridViewRow>().Select(o => new OrderDetailDTO
+                    dgvDetail.Rows.Cast<DataGridViewRow>().Select(o => new InvoiceDetailDTO
                     {
                         ProductID = int.Parse(o.Cells[0].Value.ToString()),
                         UnitPrice = decimal.Parse(o.Cells[2].Value.ToString()),

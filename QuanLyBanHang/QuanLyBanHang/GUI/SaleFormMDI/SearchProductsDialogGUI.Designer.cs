@@ -1,4 +1,4 @@
-﻿namespace QuanLyBanHang.GUI.OrderMDI
+﻿namespace QuanLyBanHang.GUI.SaleFormMDI
 {
     partial class SearchProductsDialogGUI
     {

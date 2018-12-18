@@ -12,19 +12,19 @@ using QuanLyBanHang.BUS;
 using System.Text.RegularExpressions;
 using QuanLyBanHang.DTO;
 
-namespace QuanLyBanHang.GUI.OrderMDI
+namespace QuanLyBanHang.GUI.SaleFormMDI
 {
-    public partial class AddOrderDialogGUI : DevExpress.XtraEditors.XtraForm
+    public partial class AddInvoiceDialogGUI : DevExpress.XtraEditors.XtraForm
     {
         private bool _customerIsValid;
         private EmployeesBUS _employeesContext = new EmployeesBUS();
         private CustomersBUS _customersContext = new CustomersBUS();
         private List<CustomerDTO> listCustomer;
-        public AddOrderDialogGUI()
+        public AddInvoiceDialogGUI()
         {
             InitializeComponent();
         }
-        public AddOrderDialogGUI(string total)
+        public AddInvoiceDialogGUI(string total)
         {
             InitializeComponent();
             cbxEmployeeID.DataSource = _employeesContext.GetSalesEmployees();
@@ -134,7 +134,7 @@ namespace QuanLyBanHang.GUI.OrderMDI
                 MessageBox.Show(message);
             }
         }
-        private void AddOrderDialog_KeyDown(object sender, KeyEventArgs e)
+        private void AddInvoiceDialog_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {

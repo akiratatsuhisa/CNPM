@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace QuanLyBanHang.GUI.OrderMDI
+namespace QuanLyBanHang.GUI.SaleFormMDI
 {
     public partial class ProductUserControlGUI : DevExpress.XtraEditors.XtraUserControl
     {
-        private OrderFormGUI _owner;
+        private SaleFormGUI _owner;
         private int _unitInStock;
         public ProductUserControlGUI()
         {
             InitializeComponent();
         }
-        public ProductUserControlGUI(int id, string name, string quantityPerUnit, decimal unitPrice, int unitInStock, OrderFormGUI owner)
+        public ProductUserControlGUI(int id, string name, string quantityPerUnit, decimal unitPrice, int unitInStock, SaleFormGUI owner)
         {
             InitializeComponent();
             txbProductID.Text = id.ToString();

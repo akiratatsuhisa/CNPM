@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace QuanLyBanHang.DAO
 {
-    public class OrdersDAO
+    public class InvoicesDAO
     {
-        public List<Order> GetList()
+        public List<Invoice> GetList()
         {
             using (var dataContext = new SalesManagementEntities())
             {
-                return dataContext.Orders.ToList();
+                return dataContext.Invoices.ToList();
             }
         }
-        public List<OrderDetail> GetListOrderDetail(int id)
+        public List<InvoiceDetail> GetListInvoiceDetail(int id)
         {
             using (var dataContext = new SalesManagementEntities())
             {
-                return dataContext.OrderDetails.Where(obj => obj.OrderID == id).ToList();
+                return dataContext.InvoiceDetails.Where(obj => obj.InvoiceID == id).ToList();
             }
         }
         private string ExceptionMessage(Exception ex)
@@ -40,7 +40,7 @@ namespace QuanLyBanHang.DAO
             }
             return message;
         }
-        public bool AddOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
+        public bool AddInvoice(Invoice obj, List<InvoiceDetail> listObj, out string serverMessage)
         {
             try
             {
@@ -50,17 +50,17 @@ namespace QuanLyBanHang.DAO
                     {
                         try
                         {
-                            dataContext.Orders.Add(obj);
+                            dataContext.Invoices.Add(obj);
                             dataContext.SaveChanges();
                             foreach (var objD in listObj)
                             {
                                 var prdE = dataContext.Products.Single(o => o.ProductID == objD.ProductID);
                                 if (!prdE.Discontinued)
                                 {
-                                    objD.OrderID = obj.OrderID;
-                                    dataContext.OrderDetails.Add(objD);
+                                    objD.InvoiceID = obj.InvoiceID;
+                                    dataContext.InvoiceDetails.Add(objD);
                                     prdE.UnitsInStock -= objD.Quantity;
-                                    prdE.UnitsOnOrder += objD.Quantity;
+                                    prdE.UnitsOnInvoice += objD.Quantity;
                                 }
                                 else
                                 {
@@ -72,7 +72,7 @@ namespace QuanLyBanHang.DAO
                                 dataContext.SaveChanges();
                             }
                             transaction.Commit();
-                            serverMessage = obj.OrderID.ToString();
+                            serverMessage = obj.InvoiceID.ToString();
                             return true;
                         }
                         catch (Exception ex)
@@ -90,7 +90,7 @@ namespace QuanLyBanHang.DAO
                 return false;
             }
         }
-        public bool EditOrder(Order obj, List<OrderDetail> listObj, out string serverMessage)
+        public bool EditInvoice(Invoice obj, List<InvoiceDetail> listObj, out string serverMessage)
         {
             try
             {
@@ -100,13 +100,13 @@ namespace QuanLyBanHang.DAO
                     {
                         try
                         {
-                            Order objE = dataContext.Orders.Single(o => o.OrderID == obj.OrderID);
+                            Invoice objE = dataContext.Invoices.Single(o => o.InvoiceID == obj.InvoiceID);
                             objE.EmployeeID = obj.EmployeeID;
                             objE.CustomerID = obj.CustomerID;
                             objE.Freight = obj.Freight;
-                            objE.OrderDate = obj.OrderDate;
+                            objE.InvoiceDate = obj.InvoiceDate;
                             dataContext.SaveChanges();
-                            var listObjE = dataContext.OrderDetails.Where(o => o.OrderID == obj.OrderID).ToList();
+                            var listObjE = dataContext.InvoiceDetails.Where(o => o.InvoiceID == obj.InvoiceID).ToList();
                             foreach (var objD in listObj)
                             {
                                 var objDE = listObjE.Single(i => i.ProductID == objD.ProductID);
@@ -115,7 +115,7 @@ namespace QuanLyBanHang.DAO
                                 {
                                     int quantity = objD.Quantity - objDE.Quantity;
                                     prdE.UnitsInStock -= quantity;
-                                    prdE.UnitsOnOrder += quantity;
+                                    prdE.UnitsOnInvoice += quantity;
                                     objDE.Quantity = objD.Quantity;
                                     objDE.UnitPrice = objD.UnitPrice;
                                 }
@@ -129,7 +129,7 @@ namespace QuanLyBanHang.DAO
                                 dataContext.SaveChanges();
                             }
                             transaction.Commit();
-                            serverMessage = obj.OrderID.ToString();
+                            serverMessage = obj.InvoiceID.ToString();
                             return true;
                         }
                         catch (Exception ex)
@@ -148,7 +148,7 @@ namespace QuanLyBanHang.DAO
                 return false;
             }
         }
-        public bool DeleteOrder(int id, out string serverMessage)
+        public bool DeleteInvoice(int id, out string serverMessage)
         {
             try
             {
@@ -158,20 +158,20 @@ namespace QuanLyBanHang.DAO
                     {
                         try
                         {
-                            var listObj = dataContext.OrderDetails.Where(o => o.OrderID == id).ToList();
+                            var listObj = dataContext.InvoiceDetails.Where(o => o.InvoiceID == id).ToList();
                             foreach (var objD in listObj)
                             {
                                 var prdE = dataContext.Products.Single(o => o.ProductID == objD.ProductID);
                                 prdE.UnitsInStock += objD.Quantity;
-                                prdE.UnitsOnOrder -= objD.Quantity;
-                                dataContext.OrderDetails.Remove(objD);
+                                prdE.UnitsOnInvoice -= objD.Quantity;
+                                dataContext.InvoiceDetails.Remove(objD);
                                 dataContext.SaveChanges();
                             }
-                            Order obj = dataContext.Orders.Single(o => o.OrderID == id);
-                            dataContext.Orders.Remove(obj);
+                            Invoice obj = dataContext.Invoices.Single(o => o.InvoiceID == id);
+                            dataContext.Invoices.Remove(obj);
                             dataContext.SaveChanges();
                             transaction.Commit();
-                            serverMessage = obj.OrderID.ToString();
+                            serverMessage = obj.InvoiceID.ToString();
                             return true;
                         }
                         catch (Exception ex)
