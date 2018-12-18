@@ -19,7 +19,7 @@ namespace QuanLyBanHang.DTO
         public int CustomerID { get; set; }
         [DisplayName("Tên SP")]
         public string CustomerName { get; set; }
-        [DisplayName("Ngày đặt hàng")]
+        [DisplayName("Ngày thanh toán")]
         public DateTime InvoiceDate { get; set; }
         [DisplayName("Phí")]
         public decimal Freight { get; set; }

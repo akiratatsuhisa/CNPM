@@ -107,8 +107,8 @@
     <Compile Include="DAO\ProductsDAO.cs" />
     <Compile Include="DTO\CustomerDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
-    <Compile Include="DTO\OrderDetailDTO.cs" />
-    <Compile Include="DTO\OrderDTO.cs" />
+    <Compile Include="DTO\InvoiceDetailDTO.cs" />
+    <Compile Include="DTO\InvoiceDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="GUI\CustomersFormGUI.cs">
       <SubType>Form</SubType>
