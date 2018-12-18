@@ -72,7 +72,7 @@
             // 
             // barBtnSale
             // 
-            this.barBtnSale.Caption = "Đặt Hàng";
+            this.barBtnSale.Caption = "Bán Hàng";
             this.barBtnSale.Id = 1;
             this.barBtnSale.ImageOptions.Image = global::QuanLyBanHang.Properties.Resources.boorder_32x32;
             this.barBtnSale.Name = "barBtnSale";
