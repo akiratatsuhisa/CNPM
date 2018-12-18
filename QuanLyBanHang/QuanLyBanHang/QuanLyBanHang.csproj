@@ -65,6 +65,7 @@
     <Compile Include="DAO\Employee.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\EmployeesDAO.cs" />
     <Compile Include="DAO\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
