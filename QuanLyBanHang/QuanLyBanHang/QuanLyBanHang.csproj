@@ -69,7 +69,7 @@
   <ItemGroup>
     <Compile Include="BUS\CustomersBUS.cs" />
     <Compile Include="BUS\EmployeesBUS.cs" />
-    <Compile Include="BUS\OrdersBUS.cs" />
+    <Compile Include="BUS\InvoicesBUS.cs" />
     <Compile Include="BUS\ProductsBUS.cs" />
     <Compile Include="DAO\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -100,7 +100,7 @@
     <Compile Include="DAO\OrderDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\OrdersDAO.cs" />
+    <Compile Include="DAO\InvoicesDAO.cs" />
     <Compile Include="DAO\Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
