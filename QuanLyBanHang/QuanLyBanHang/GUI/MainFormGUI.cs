@@ -49,7 +49,6 @@ namespace QuanLyBanHang.GUI
             form.MdiParent = this;
             form.Show();
         }
-
         private void barBtnEmployees_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (var child in MdiChildren)
@@ -64,7 +63,6 @@ namespace QuanLyBanHang.GUI
             form.MdiParent = this;
             form.Show();
         }
-
         private void barBtnCustomers_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (var child in MdiChildren)
@@ -79,7 +77,6 @@ namespace QuanLyBanHang.GUI
             form.MdiParent = this;
             form.Show();
         }
-
         private void barBtnProducts_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (var child in MdiChildren)

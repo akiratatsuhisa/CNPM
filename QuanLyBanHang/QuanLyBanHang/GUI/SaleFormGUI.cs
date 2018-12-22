@@ -26,8 +26,9 @@ namespace QuanLyBanHang.GUI
         private void LoadProducts()
         {
             flpProduct.Controls.Clear();
-            _productsContext.GetProductCanBuy().ForEach(o => flpProduct.Controls.
-              Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+            var list = _productsContext.GetProductCanBuy().
+                Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this));
+            flpProduct.Controls.AddRange(list.ToArray());
         }
         private void CheckProducts()
         {
