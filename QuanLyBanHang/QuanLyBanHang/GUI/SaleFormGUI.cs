@@ -54,11 +54,11 @@ namespace QuanLyBanHang.GUI
                 flpProduct.Controls.Clear();
                 bool? result;
 
-                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result);
+                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result).
+                    Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this));
                 if (result == true)
                 {
-                    resultList.ForEach(o => flpProduct.Controls.
-                    Add(new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)));
+                    flpProduct.Controls.AddRange(resultList.ToArray());
                     CheckProducts();
                 }
                 else if (result == null)
