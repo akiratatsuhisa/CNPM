@@ -90,7 +90,7 @@ namespace QuanLyBanHang.GUI.SaleFormMDI
             }
             else if (!_customerIsValid)
             {
-                message += "Khách hàng không tồn tại, Xin hãy nhập thông tin khách hàng trước khi đặt hàng.\n";
+                message += "Khách hàng không tồn tại, Xin hãy nhập thông tin khách hàng trước khi bán hàng.\n";
             }
             else
             {
