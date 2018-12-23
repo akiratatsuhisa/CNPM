@@ -253,7 +253,11 @@
     <None Include="Resources\insert_16x16.png" />
     <None Include="Resources\deletelist2_16x16.png" />
     <None Include="Resources\editname_16x16.png" />
+    <Content Include="Resources\doublenext_16x16.png" />
+    <Content Include="Resources\doubleprev_16x16.png" />
     <Content Include="Resources\lookup&amp;reference_16x16.png" />
+    <Content Include="Resources\next_16x16.png" />
+    <Content Include="Resources\prev_16x16.png" />
     <Content Include="Resources\refresh2_16x16.png" />
     <Content Include="Resources\removesheetrows_16x16.png" />
     <Content Include="Resources\trash_16x16.png" />

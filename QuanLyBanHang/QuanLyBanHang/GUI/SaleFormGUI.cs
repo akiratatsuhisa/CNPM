@@ -18,6 +18,8 @@ namespace QuanLyBanHang.GUI
     {
         private ProductsBUS _productsContext = new ProductsBUS();
         private InvoicesBUS _invoicesContext = new InvoicesBUS();
+        private List<ProductUserControlGUI> _list;
+        private int _maxPages;
         public SaleFormGUI()
         {
             InitializeComponent();
@@ -26,9 +28,11 @@ namespace QuanLyBanHang.GUI
         private void LoadProducts()
         {
             flpProduct.Controls.Clear();
-            var list = _productsContext.GetProductCanBuy().
-                Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this));
-            flpProduct.Controls.AddRange(list.ToArray());
+            _list = _productsContext.GetProductCanBuy().
+                Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)).ToList();
+            var tempMaxPages =_list.Count/(float)20;
+            _maxPages = (_list.Count - 1) / 20;
+            flpProduct.Controls.AddRange(_list.Take(20).ToArray());
         }
         private void CheckProducts()
         {
@@ -53,12 +57,14 @@ namespace QuanLyBanHang.GUI
             {
                 flpProduct.Controls.Clear();
                 bool? result;
-
-                var resultList = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result).
-                    Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this));
+                _list = _productsContext.GetSearchListProduct(dialog.SearchName, dialog.MinUnitPrice, dialog.MaxUnitPrice, out result).
+                    Select(o => new ProductUserControlGUI(o.ProductID, o.ProductName, o.QuantityPerUnit, o.UnitPrice, o.UnitsInStock, this)).
+                    ToList();
+                _maxPages = (_list.Count - 1) / 20;
+                txtPages.Text = "1";
                 if (result == true)
                 {
-                    flpProduct.Controls.AddRange(resultList.ToArray());
+                    flpProduct.Controls.AddRange(_list.Take(20).ToArray());
                     CheckProducts();
                 }
                 else if (result == null)
@@ -133,6 +139,58 @@ namespace QuanLyBanHang.GUI
             dgvDetail.Rows.Clear();
             LoadProducts();
             txbTotal.Text = "";
+        }
+
+        private void btnChangePages_Click(object sender, EventArgs e)
+        {
+            var button = sender as SimpleButton;
+            var displayPages = int.Parse(txtPages.Text) - 1;
+            var pages = displayPages;
+            switch (button.Name)
+            {
+                case "btnDoublePrev":
+                    {
+                        pages -= 10;
+                        if (pages < 0)
+                        {
+                            pages = 0;
+                        }
+                    }
+                    break;
+                case "btnPrev":
+                    {
+                        pages -= 1;
+                        if (pages < 0)
+                        {
+                            pages = 0;
+                        }
+                    }
+                    break;
+                case "btnNext":
+                    {
+                        pages += 1;
+                        if (pages > _maxPages)
+                        {
+                            pages = _maxPages;
+                        }
+                    }
+                    break;
+                case "btnDoubleNext":
+                    {
+                        pages += 10;
+                        if (pages > _maxPages)
+                        {
+                            pages = _maxPages;
+                        }
+                    }
+                    break;
+            }
+            if (pages != displayPages)
+            {
+                txtPages.Text = (pages + 1).ToString();
+                flpProduct.Controls.Clear();
+                flpProduct.Controls.AddRange(_list.Skip(pages * 20).Take(20).ToArray());
+            }
         }
     }
 }
